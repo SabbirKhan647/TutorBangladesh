@@ -1,0 +1,728 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5D81DD38-DC4A-4FB3-8BBB-C34608FA0CA3}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tutor</RootNamespace>
+    <AssemblyName>Tutor</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=4.1.7.1005, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>F:\AjaxControlToolkit.Binary.NET40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="AjaxMin, Version=4.97.4951.28478, Culture=neutral, PublicKeyToken=21ef50ce11b5d80f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>F:\AjaxControlToolkit.Binary.NET40\AjaxMin.dll</HintPath>
+    </Reference>
+    <Reference Include="DayPilot, Version=5.7.1890.1, Culture=neutral, PublicKeyToken=426941954f05e7fe, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\TutorialNavigator\TutorialCS\Bin\DayPilot.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.4.6.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>F:\AjaxControlToolkit.Binary.NET40\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Intelligencia.UrlRewriter">
+      <HintPath>G:\UrlRewrite_HttpModule2\UrlRewrite_HttpModule2\bin\Intelligencia.UrlRewriter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm">
+      <HintPath>F:\AjaxControlToolkit.Binary.NET40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData">
+      <HintPath>F:\AjaxControlToolkit.Binary.NET40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration">
+      <HintPath>F:\AjaxControlToolkit.Binary.NET40\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>F:\AjaxControlToolkit.Binary.NET40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="system.data.sqlite, Version=1.0.60.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Users\Shaiful\Downloads\system.data.sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Spatial">
+      <HintPath>F:\AjaxControlToolkit.Binary.NET40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="Account\ChangePassword.aspx" />
+    <Content Include="Account\ChangePasswordSuccess.aspx" />
+    <Content Include="Account\Login.aspx" />
+    <Content Include="Account\PasswordRecovery.aspx" />
+    <Content Include="Account\Register.aspx" />
+    <Content Include="AjaxTimer.aspx" />
+    <Content Include="bin\AjaxControlToolkit.dll" />
+    <Content Include="bin\AjaxControlToolkit.pdb" />
+    <Content Include="bin\AjaxMin.dll" />
+    <Content Include="bin\HtmlAgilityPack.dll" />
+    <Content Include="bin\Microsoft.WindowsAzure.Storage.dll" />
+    <Content Include="bin\Microsoft.WindowsAzure.Storage.xml" />
+    <Content Include="Default1.aspx" />
+    <Content Include="Images\notification.jpg" />
+    <Content Include="Scripts\currentDate.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\ShowHideNotificationImage.js" />
+    <Content Include="SelectRole.aspx" />
+    <Content Include="Account\StudentRegistration.aspx" />
+    <Content Include="Account\TeacherRegistration.aspx" />
+    <Content Include="Admin\By Role.aspx" />
+    <Content Include="Admin\by User.aspx" />
+    <Content Include="bin\DayPilot.dll" />
+    <Content Include="bin\system.data.sqlite.dll" />
+    <Content Include="DayPilotTest.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="Error.aspx" />
+    <Content Include="Images\minus.gif" />
+    <Content Include="Images\minus.png" />
+    <Content Include="Images\NoImage.jpeg" />
+    <Content Include="Images\plus.gif" />
+    <Content Include="Images\plus.png" />
+    <Content Include="Scripts\CollapsableGridview.js" />
+    <Content Include="Scripts\divexpandcollapse.js" />
+    <Content Include="Scripts\HighlightCurrentMenuItem.js" />
+    <Content Include="Scripts\jquery-latest.js" />
+    <Content Include="StudentManagement\BuildBatch.aspx" />
+    <Content Include="StudentManagement\BuildBatch1.aspx" />
+    <Content Include="StudentManagement\CollapsableNestedGridview.aspx" />
+    <Content Include="StudentManagement\collapse2.aspx" />
+    <Content Include="StudentManagement\GetFile1.aspx" />
+    <Content Include="StudentManagement\MyBatchesAsStudent.aspx" />
+    <Content Include="StudentManagement\OpenQuiz.aspx" />
+    <Content Include="StudentManagement\StartQuiz.aspx" />
+    <Content Include="StudentManagement\Quiz.aspx" />
+    <Content Include="StudentManagement\StudentProfile.aspx" />
+    <Content Include="StudentManagement\StudentTimeTable.aspx" />
+    <Content Include="StudentManagement\ViewTutorProfile.aspx" />
+    <Content Include="StudentManagement\WorksheetforStudent.aspx" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="TeacherManagement\batch.aspx" />
+    <Content Include="TeacherManagement\ChangeTestDate.aspx" />
+    <Content Include="TeacherManagement\CreateBatch.aspx" />
+    <Content Include="TeacherManagement\CreateNotice.aspx" />
+    <Content Include="TeacherManagement\CreateTest.aspx" />
+    <Content Include="TeacherManagement\EditBatch.aspx" />
+    <Content Include="TeacherManagement\InsertBatchDetails.aspx" />
+    <Content Include="TeacherManagement\EditDeleteBatch.aspx" />
+    <Content Include="TeacherManagement\InsertTestQuestion.aspx" />
+    <Content Include="TeacherManagement\MyBatchesAsTutor.aspx" />
+    <Content Include="TeacherManagement\MyBatchesforTutor1.aspx" />
+    <Content Include="TeacherManagement\PreviewTestQuestion.aspx" />
+    <Content Include="TeacherManagement\QuizByBatch.aspx" />
+    <Content Include="TeacherManagement\Task.aspx" />
+    <Content Include="TeacherManagement\test..aspx" />
+    <Content Include="TeacherManagement\TutorTimeTable.aspx" />
+    <Content Include="TeacherManagement\UpdateTutorProfile.aspx" />
+    <Content Include="TeacherManagement\UploadWorksheet.aspx" />
+    <Content Include="TeacherManagement\Fees.aspx" />
+    <Content Include="TeacherManagement\GetFile.aspx" />
+    <Content Include="Images\a.jpeg" />
+    <Content Include="Images\b.jpeg" />
+    <Content Include="Images\c.jpeg" />
+    <Content Include="Images\e.jpeg" />
+    <Content Include="Images\gpa 5.jpeg" />
+    <Content Include="Images\logo.jpg" />
+    <Content Include="Images\tutoring.jpeg" />
+    <Content Include="Images\tutoring.jpg" />
+    <Content Include="Public\Contact.aspx" />
+    <Content Include="Public\FAQStudent.aspx" />
+    <Content Include="Public\FAQTutor.aspx" />
+    <Content Include="Scripts\autoimagechange.js" />
+    <Content Include="Scripts\autoimageslider.js" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="StudentManagement\myTutor.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="TeacherManagement\MyStudent.aspx" />
+    <Content Include="TeacherManagement\RefreshBatch.aspx" />
+    <Content Include="TeacherManagement\TeacherHome.aspx" />
+    <Content Include="TeacherManagement\Worksheet.aspx" />
+    <Content Include="test1.aspx" />
+    <Content Include="test2.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.designer.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\PasswordRecovery.aspx.cs">
+      <DependentUpon>PasswordRecovery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\PasswordRecovery.aspx.designer.cs">
+      <DependentUpon>PasswordRecovery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxTimer.aspx.cs">
+      <DependentUpon>AjaxTimer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxTimer.aspx.designer.cs">
+      <DependentUpon>AjaxTimer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default1.aspx.cs">
+      <DependentUpon>Default1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default1.aspx.designer.cs">
+      <DependentUpon>Default1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SelectRole.aspx.cs">
+      <DependentUpon>SelectRole.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SelectRole.aspx.designer.cs">
+      <DependentUpon>SelectRole.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\StudentRegistration.aspx.cs">
+      <DependentUpon>StudentRegistration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\StudentRegistration.aspx.designer.cs">
+      <DependentUpon>StudentRegistration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\TeacherRegistration.aspx.cs">
+      <DependentUpon>TeacherRegistration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\TeacherRegistration.aspx.designer.cs">
+      <DependentUpon>TeacherRegistration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\By Role.aspx.cs">
+      <DependentUpon>By Role.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\By Role.aspx.designer.cs">
+      <DependentUpon>By Role.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\by User.aspx.cs">
+      <DependentUpon>by User.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\by User.aspx.designer.cs">
+      <DependentUpon>by User.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Class\Alert.cs" />
+    <Compile Include="Class\Connection.cs" />
+    <Compile Include="Class\Modify.cs" />
+    <Compile Include="Class\Student.cs" />
+    <Compile Include="Class\Teacher.cs" />
+    <Compile Include="DayPilotTest.aspx.cs">
+      <DependentUpon>DayPilotTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DayPilotTest.aspx.designer.cs">
+      <DependentUpon>DayPilotTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentManagement\BuildBatch.aspx.cs">
+      <DependentUpon>BuildBatch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentManagement\BuildBatch.aspx.designer.cs">
+      <DependentUpon>BuildBatch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentManagement\BuildBatch1.aspx.cs">
+      <DependentUpon>BuildBatch1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentManagement\BuildBatch1.aspx.designer.cs">
+      <DependentUpon>BuildBatch1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentManagement\CollapsableNestedGridview.aspx.cs">
+      <DependentUpon>CollapsableNestedGridview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentManagement\CollapsableNestedGridview.aspx.designer.cs">
+      <DependentUpon>CollapsableNestedGridview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentManagement\collapse2.aspx.cs">
+      <DependentUpon>collapse2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentManagement\collapse2.aspx.designer.cs">
+      <DependentUpon>collapse2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentManagement\GetFile1.aspx.cs">
+      <DependentUpon>GetFile1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentManagement\GetFile1.aspx.designer.cs">
+      <DependentUpon>GetFile1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentManagement\MyBatchesAsStudent.aspx.cs">
+      <DependentUpon>MyBatchesAsStudent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentManagement\MyBatchesAsStudent.aspx.designer.cs">
+      <DependentUpon>MyBatchesAsStudent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentManagement\OpenQuiz.aspx.cs">
+      <DependentUpon>OpenQuiz.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentManagement\OpenQuiz.aspx.designer.cs">
+      <DependentUpon>OpenQuiz.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentManagement\StartQuiz.aspx.cs">
+      <DependentUpon>StartQuiz.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentManagement\StartQuiz.aspx.designer.cs">
+      <DependentUpon>StartQuiz.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentManagement\Quiz.aspx.cs">
+      <DependentUpon>Quiz.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentManagement\Quiz.aspx.designer.cs">
+      <DependentUpon>Quiz.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentManagement\StudentProfile.aspx.cs">
+      <DependentUpon>StudentProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentManagement\StudentProfile.aspx.designer.cs">
+      <DependentUpon>StudentProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentManagement\StudentTimeTable.aspx.cs">
+      <DependentUpon>StudentTimeTable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentManagement\StudentTimeTable.aspx.designer.cs">
+      <DependentUpon>StudentTimeTable.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentManagement\ViewTutorProfile.aspx.cs">
+      <DependentUpon>ViewTutorProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentManagement\ViewTutorProfile.aspx.designer.cs">
+      <DependentUpon>ViewTutorProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentManagement\WorksheetforStudent.aspx.cs">
+      <DependentUpon>WorksheetforStudent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentManagement\WorksheetforStudent.aspx.designer.cs">
+      <DependentUpon>WorksheetforStudent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherManagement\batch.aspx.cs">
+      <DependentUpon>batch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherManagement\batch.aspx.designer.cs">
+      <DependentUpon>batch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherManagement\ChangeTestDate.aspx.cs">
+      <DependentUpon>ChangeTestDate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherManagement\ChangeTestDate.aspx.designer.cs">
+      <DependentUpon>ChangeTestDate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherManagement\CreateBatch.aspx.cs">
+      <DependentUpon>CreateBatch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherManagement\CreateBatch.aspx.designer.cs">
+      <DependentUpon>CreateBatch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherManagement\CreateNotice.aspx.cs">
+      <DependentUpon>CreateNotice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherManagement\CreateNotice.aspx.designer.cs">
+      <DependentUpon>CreateNotice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherManagement\CreateTest.aspx.cs">
+      <DependentUpon>CreateTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherManagement\CreateTest.aspx.designer.cs">
+      <DependentUpon>CreateTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherManagement\EditBatch.aspx.cs">
+      <DependentUpon>EditBatch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherManagement\EditBatch.aspx.designer.cs">
+      <DependentUpon>EditBatch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherManagement\InsertBatchDetails.aspx.cs">
+      <DependentUpon>InsertBatchDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherManagement\InsertBatchDetails.aspx.designer.cs">
+      <DependentUpon>InsertBatchDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherManagement\EditDeleteBatch.aspx.cs">
+      <DependentUpon>EditDeleteBatch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherManagement\EditDeleteBatch.aspx.designer.cs">
+      <DependentUpon>EditDeleteBatch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherManagement\InsertTestQuestion.aspx.cs">
+      <DependentUpon>InsertTestQuestion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherManagement\InsertTestQuestion.aspx.designer.cs">
+      <DependentUpon>InsertTestQuestion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherManagement\MyBatchesAsTutor.aspx.cs">
+      <DependentUpon>MyBatchesAsTutor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherManagement\MyBatchesAsTutor.aspx.designer.cs">
+      <DependentUpon>MyBatchesAsTutor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherManagement\MyBatchesforTutor1.aspx.cs">
+      <DependentUpon>MyBatchesforTutor1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherManagement\MyBatchesforTutor1.aspx.designer.cs">
+      <DependentUpon>MyBatchesforTutor1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherManagement\PreviewTestQuestion.aspx.cs">
+      <DependentUpon>PreviewTestQuestion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherManagement\PreviewTestQuestion.aspx.designer.cs">
+      <DependentUpon>PreviewTestQuestion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherManagement\QuizByBatch.aspx.cs">
+      <DependentUpon>QuizByBatch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherManagement\QuizByBatch.aspx.designer.cs">
+      <DependentUpon>QuizByBatch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherManagement\Task.aspx.cs">
+      <DependentUpon>Task.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherManagement\Task.aspx.designer.cs">
+      <DependentUpon>Task.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherManagement\test..aspx.cs">
+      <DependentUpon>test..aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherManagement\test..aspx.designer.cs">
+      <DependentUpon>test..aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RetrieveImage.ashx.cs">
+      <DependentUpon>RetrieveImage.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherManagement\TutorTimeTable.aspx.cs">
+      <DependentUpon>TutorTimeTable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherManagement\TutorTimeTable.aspx.designer.cs">
+      <DependentUpon>TutorTimeTable.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherManagement\UpdateTutorProfile.aspx.cs">
+      <DependentUpon>UpdateTutorProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherManagement\UpdateTutorProfile.aspx.designer.cs">
+      <DependentUpon>UpdateTutorProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherManagement\UploadWorksheet.aspx.cs">
+      <DependentUpon>UploadWorksheet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherManagement\UploadWorksheet.aspx.designer.cs">
+      <DependentUpon>UploadWorksheet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherManagement\Fees.aspx.cs">
+      <DependentUpon>Fees.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherManagement\Fees.aspx.designer.cs">
+      <DependentUpon>Fees.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherManagement\GetFile.aspx.cs">
+      <DependentUpon>GetFile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherManagement\GetFile.aspx.designer.cs">
+      <DependentUpon>GetFile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Public.Master.cs">
+      <DependentUpon>Public.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Public.Master.designer.cs">
+      <DependentUpon>Public.Master</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherManagement\MyStudent.aspx.cs">
+      <DependentUpon>MyStudent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherManagement\MyStudent.aspx.designer.cs">
+      <DependentUpon>MyStudent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherManagement\RefreshBatch.aspx.cs">
+      <DependentUpon>RefreshBatch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherManagement\RefreshBatch.aspx.designer.cs">
+      <DependentUpon>RefreshBatch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherManagement\TeacherHome.aspx.cs">
+      <DependentUpon>TeacherHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherManagement\TeacherHome.aspx.designer.cs">
+      <DependentUpon>TeacherHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Public\Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Public\Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Public\FAQStudent.aspx.cs">
+      <DependentUpon>FAQStudent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Public\FAQStudent.aspx.designer.cs">
+      <DependentUpon>FAQStudent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Public\FAQTutor.aspx.cs">
+      <DependentUpon>FAQTutor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Public\FAQTutor.aspx.designer.cs">
+      <DependentUpon>FAQTutor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentManagement\myTutor.aspx.cs">
+      <DependentUpon>myTutor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentManagement\myTutor.aspx.designer.cs">
+      <DependentUpon>myTutor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StudentSite.Master.cs">
+      <DependentUpon>StudentSite.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentSite.Master.designer.cs">
+      <DependentUpon>StudentSite.Master</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherManagement\Worksheet.aspx.cs">
+      <DependentUpon>Worksheet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherManagement\Worksheet.aspx.designer.cs">
+      <DependentUpon>Worksheet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherSite.Master.cs">
+      <DependentUpon>TeacherSite.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherSite.Master.designer.cs">
+      <DependentUpon>TeacherSite.Master</DependentUpon>
+    </Compile>
+    <Compile Include="test1.aspx.cs">
+      <DependentUpon>test1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test1.aspx.designer.cs">
+      <DependentUpon>test1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test2.aspx.cs">
+      <DependentUpon>test2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test2.aspx.designer.cs">
+      <DependentUpon>test2.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="StudentSite.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TeacherSite.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Public.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TeacherManagement\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="StudentManagement\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Sales\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Public\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.sitemap" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="RetrieveImage.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\AjaxControlToolkit.dll.refresh" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>22760</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

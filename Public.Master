@@ -1,0 +1,87 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Public.Master.cs" Inherits="Tutor.Common" Debug="true" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<script language="javascript" src="<%# ResolveUrl("~/Scripts/jquery-latest.js") %>"
+        type="text/javascript"></script>
+    <script language="javascript" src="<%# ResolveUrl("~/Scripts/jquery.min.js") %>"
+        type="text/javascript"></script>
+    <script language="javascript" src="<%# ResolveUrl("~/Scripts/HighlightCurrentMenuItem.js") %>"
+        type="text/javascript"></script>
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div class="page">
+     <div class="header">
+            <div class="logo"><img alt="Tutoring services" class="logo1" src="../Images/tutormanagement.jpg" width="300"/></div>
+            
+            <div class="loginDisplay">
+              <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <AnonymousTemplate> You are not logged in.
+                         <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> 
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                         <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/Default.aspx"/> 
+                    </LoggedInTemplate>
+                    <RoleGroups>
+                        <asp:RoleGroup Roles="Student,Teacher,Web Admin">
+                        </asp:RoleGroup>
+                    </RoleGroups>
+                </asp:LoginView>
+             </div>
+             </div>
+           <%--  <br />
+              <div class="loginDisplay">
+                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <AnonymousTemplate> You are not logged in.
+                    [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Sign In</a> ]
+                    [ <a href="~/Account/Register.aspx" ID="HeadSignUp" runat ="server"> Sign Up</a>]
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        [ <a href="~/Account/ChangePassword.aspx" ID="A1" runat="server">Change Password</a> ]
+                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/" OnLoggedOut="UponLogOut"/> ]
+                    </LoggedInTemplate>
+                </asp:LoginView>
+           <br />--%>
+            <div class="menubar">
+             <div class="menupublic">             
+            <ul id="navmenu">
+            <li ><a href="Default.aspx" runat="server">Home</a></li>
+            <li><a id="A1" href="~/Account/Register.aspx" runat="server">Sign up </a></li>
+           <%-- <li><a href="Account/TeacherRegistration.aspx" runat="server">Teacher Sign up </a></li>
+            <li><a href="Account/StudentRegistration.aspx" runat="server">Student Sign up</a></li>--%>
+           <%-- <li><a href="Public/FAQTutor.aspx" runat="server">FAQ from Teacher </a></li>
+            <li><a href="Public/FAQStudent.aspx" runat="server">FAQ from Student </a></li>--%>
+            <li><a href="Account/Login.aspx" runat="server">My Tutor</a></li>
+            <li><a href="Public/Contact.aspx" runat="server">Contact</a></li>
+             </ul>       
+           </div>
+          
+       <div class="youarehere">&nbsp;</div> 
+       
+    <div class="main">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+            
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    
+    </div>
+    <div id="footer">
+    <div>our farm name should go here</div>
+    </div>
+    </div>
+    
+    </form>
+    
+</body>
+</html>

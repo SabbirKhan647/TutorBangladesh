@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+   
+  <siteMapNode url="Default.aspx" title="Home"  description="Home">
+    <siteMapNode url="Account/TeacherRegistration.aspx" title="Teacher Registration"  description="Teacher Registration" />
+    <siteMapNode url="Account/StudentRegistration.aspx" title="Student Registration"  description="Student Registration" />
+    <siteMapNode url="Public/FAQTutor.aspx" title="Frequently Asked Question (FAQ) from Tutor"  description="FAQ Tutor" />
+    <siteMapNode url="Public/FAQStudent.aspx" title="Frequently Asked Question (FAQ) from Student"  description="FAQ Student" />
+    <siteMapNode url="Account/LOgin.aspx" title="Log In"  description="Log In" />
+    <siteMapNode url="Public/Contact.aspx" title="Contact Us"  description="ContactUs" />
+    <!--teacher site navigation-->
+    <siteMapNode url="TeacherManagement/TeacherHome.aspx" title="Teacher Home"  description="Teacher Home" >
+       <siteMapNode url="TeacherManagement/TeacherPersonalInfo.aspx" title="Teacher's Personal Information"  description="TutorPersonal Info" />
+       <siteMapNode url="TeacherManagement/MyStudent.aspx" title="My Student"  description="My Student" />
+      <!--3rd level navigation-->
+      <siteMapNode url="TeacherManagement/MyBatchesAsTutor.aspx" title="My Batches"  description="My Batches"/>
+       <siteMapNode url="TeacherManagement/CreateBatch.aspx" title="Create Batch"  description="Create Batch" >
+         <siteMapNode url="TeacherManagement/InsertBatchDetails.aspx" title="Insert Batch Details"  description="Insert Batch Details"/>
+       </siteMapNode>
+         <siteMapNode url="TeacherManagement/RefreshBatch.aspx" title="Refresh Batch"  description="Refresh Batch" />
+      
+         <siteMapNode url="TeacherManagement/Worksheet.aspx" title="View/ Download Worksheet"  description="Learning Material" />
+          <siteMapNode url="TeacherManagement/UploadWorksheet.aspx" title="Upload Worksheet"  description="Learning Material" />
+
+    </siteMapNode>
+    <!--student site navigation-->
+    <siteMapNode url="StudentManagement/MyTutor.aspx" title="My Tutor"  description="My Tutor">
+
+    <siteMapNode url="StudentManagement/MyBatchesAsStudent.aspx" title="My Batches"  description="My Batches" >
+      <siteMapNode url="StudentManagement/BuildBatch1.aspx" title="Build Batch"  description="Build Batch" >
+      <siteMapNode url="StudentManagement/ViewTutorProfile.aspx" title="Tutor's Profile"  description="Tutor's Profile" />
+      </siteMapNode>
+    </siteMapNode>
+    </siteMapNode>
+  </siteMapNode>
+
+</siteMap>
