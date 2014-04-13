@@ -1,0 +1,99 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="StudentSite.Master.cs"
+    Inherits="Tutor.SiteMaster" Debug="true" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+<script language="javascript" src="<%# ResolveUrl("~/Scripts/jquery-latest.js") %>" type="text/javascript"></script>
+    <script language="javascript" src="<%# ResolveUrl("~/Scripts/jquery.min.js") %>" type="text/javascript"></script>
+    <script language="javascript" src="<%# ResolveUrl("~/Scripts/HighlightCurrentMenuItem.js") %>" type="text/javascript"></script>
+    <script language ="javascript" src="<%# ResolveUrl("~/Scripts/ShowHideNotificationImage.js") %>" type="text/javascript"></script>
+     <script language ="javascript" src="<%# ResolveUrl("~/Scripts/currentDate.js") %>" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#notification").hover(function () {
+                $("#notificationMessage").slideToggle("slow");
+
+            });
+        });
+</script>
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+      <div class="page">
+        <div class="header">
+            <div class="logo">
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Default.aspx"><img alt="Tutoring services" class="logo1" src="../Images/tutormanagement.jpg" width="300"/></asp:HyperLink>
+                My Tutoring</div>
+                 <div class="wrapper">
+                <div id="notification"><asp:Image runat="server" ID="notificationImage" 
+                        ImageUrl="~/Images/notification.jpg" style="visibility:hidden" width="12px" height="12px"
+                        ClientIDMode="Static" />
+                        </div>
+                        <div id="notificationMessage">Please update your profile to view by tutors.</div>
+                </div>
+            <div class="loginDisplay">
+                <loggedintemplate>
+                       Welcome <span class="bold"><asp:LoginName ID="LoginName2" runat="server" /></span>!
+                       <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/Default.aspx"/>
+                </loggedintemplate>
+            </div>
+             <asp:HiddenField ID="CurrentDateInMasterPage" runat ="server" ClientIDMode ="Static" />
+            <div class="menubar">
+                <div class="menuright">
+                    <ul id="navmenu">
+        <li class="highlight"><a id="A4" href="~/StudentManagement/myTutor.aspx" runat ="server">My Home </a></li>
+        <li ><a id="A1" href="StudentManagement/MyBatchesAsStudent.aspx" runat ="server">Batch </a></li>
+        <li><a id="A5" href="~/StudentManagement/WorksheetforStudent.aspx" runat ="server">WorkSheet</a></li> 
+        <li><a id="A2" href="~/StudentManagement/Dropbox.aspx" runat ="server">Dropbox</a></li> 
+        <li><a id="A7" href="~/StudentManagement/StudentTimeTable.aspx" runat ="server"> TimeTable</a></li> 
+         <li><a id="A3" href="~/StudentManagement/Quiz.aspx" runat ="server"> Quiz</a></li> 
+        <li><a id="A8" href="~/StudentManagement/Grade.aspx" runat ="server">Grade </a> </li> 
+        <li><a href="StudentProfile.aspx">Profile</a></li>
+                    </ul>
+                </div>
+            </div>
+
+
+<%--
+
+
+
+
+
+    <div class="page">
+         <div class="header"> 
+          <div class="logo"><img alt="Tutoring services" class="logo1" src="../Images/tutormanagement.jpg" width="300"/> My Tutor</div> 
+        <div class="loginDisplay">
+        <LoggedInTemplate> Welcome <span class="bold"><asp:LoginName ID="LoginName1" runat="server"
+        /></span>! <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect"
+        LogoutText="Log Out" LogoutPageUrl="~/Default.aspx"/> </LoggedInTemplate> 
+        </div>
+        
+        <%-- <div class="menubar"> <div class="menuright"> <ul id="navmenu"> <li><a id="A1"
+        href="Default.aspx" runat ="server">Home</a></li> <li><a id="A3" href="StudentManagement/MyBatchesAsStudent.aspx"
+        runat ="server">Batch</a></li> <li><a id="A4" href="TeacherManagement/Worksheet.aspx"
+        runat ="server">Worksheet </a> </li> <li><a href="#">Fees Status</a></li> <li><a
+        id="A5" href="#" runat ="server"> Profile</a></li> </ul> </div> &nbsp;</div>--%>
+       <%-- <div class="menubar"> <%-- <div class="menuright"> --%> 
+       <%-- <ul id="navmenu"> 
+        <li class="highlight"><a id="A2" href="StudentManagement/MyBatchesAsStudent.aspx" runat ="server">Batch </a></li>
+        <li><a id="A3" href="~/StudentManagement/WorksheetforStudent.aspx" runat ="server">Worksheet</a></li> 
+        <li><a id="A6" href="~/StudentManagement/StudentTimeTable.aspx" runat ="server"> TimeTable</a></li> 
+        <li><a id="A4" href="TeacherManagement/Worksheet.aspx" runat ="server">Fee </a> </li> <li><a href="StudentProfile.aspx">Profile</a></li>
+        </ul>
+    </div>--%>
+  <%-- </div>--%>
+  
+                    
+          
+    <div class="main"> <asp:ContentPlaceHolder ID="MainContent" runat="server"/> </div>
+    <div class="clear"> </div> </div> <div class="footer"> </div>
+    </div>
+    </form>
+</body>
+</html>
