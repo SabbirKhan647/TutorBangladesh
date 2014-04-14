@@ -16,22 +16,27 @@ namespace Tutor.StudentManagement
               Page.Header.DataBind();
               if (!IsPostBack)
               {
-                
-                  SqlConnection c = new SqlConnection(ConfigurationManager.ConnectionStrings["TutorConnectionString"].ConnectionString);
-                  c.Open();
-                  SqlCommand cmd = new SqlCommand("MyBatchesAsStudent", c);
-                  cmd.CommandType = CommandType.StoredProcedure;
-                  cmd.Parameters.Add("@studentid", SqlDbType.Int).Value = Convert.ToInt32(Session["StudentID"].ToString() );
-                  
-                  SqlDataReader r = cmd.ExecuteReader();
-                  DataTable d = new DataTable();
-                  d.Load(r);
-                  gvBatch.DataSource = d; gvBatch.DataBind();
-                  if (c != null)
-                  {
-                      c.Close();
-                  }
+                  LoadGridView();
+                 
               }
+        }
+
+        private void LoadGridView()
+        {
+            SqlConnection c = new SqlConnection(ConfigurationManager.ConnectionStrings["TutorConnectionString"].ConnectionString);
+            c.Open();
+            SqlCommand cmd = new SqlCommand("MyBatchesAsStudent", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@studentid", SqlDbType.Int).Value = Convert.ToInt32(Session["StudentID"].ToString());
+
+            SqlDataReader r = cmd.ExecuteReader();
+            DataTable d = new DataTable();
+            d.Load(r);
+            gvBatch.DataSource = d; gvBatch.DataBind();
+            if (c != null)
+            {
+                c.Close();
+            }
         }
         private static DataTable GetBatchDetailsData(string query)
         {
@@ -64,6 +69,9 @@ namespace Tutor.StudentManagement
                 GridView gvBDetails = e.Row.FindControl("gvBatchDetails") as GridView;
                 string strBatchID = ((GridView)sender).DataKeys[e.Row.RowIndex].Value.ToString();
                 int intBatchID = Convert.ToInt32(strBatchID);
+                //javascript confirmation in gridview command field
+                LinkButton deselect=(LinkButton )e.Row .Cells [9].Controls [0];
+                deselect.OnClientClick ="if(!confirm('Are you sure you want to deselect this batch?'))return;";
                 //SqlConnection c = new SqlConnection(ConfigurationManager.ConnectionStrings["TutorConnectionString"].ConnectionString);
                 //c.Open();
                 string cmdText = "select * from BatchDay where BatchID = " + intBatchID;
@@ -111,15 +119,18 @@ namespace Tutor.StudentManagement
                 
                 //string today = Session["ClientCurrentDate"].ToString();
                 DateTime today1 = DateTime.Parse(today).Date;
-                TimeSpan difference = startDate.Subtract(today1);
-                double totaldays = difference.TotalDays;
+            //    TimeSpan difference = startDate.Subtract(today1);
+            //    double totaldays = difference.TotalDays;
                 //Label1.Text = totaldays.ToString();
                 //Label1.Visible = true;
+                double totaldays = (startDate-today1).TotalDays;
+                diff.Text = "total days: " + totaldays;
                 if (totaldays > 7) {
                     DeselectStudent(batchid,studentID); 
                 }
                 else {
-                    Label1.Text = "you cannot deselect now. You can only deselect a batch 7 days before the batch starts";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunc", "showHideMessageDiv();", true);
+                    Label1.Text = "You cannot deselect Batch "+batchid +" now. You can only deselect a batch 7 days before the batch start date.";
                     Label1.Visible = true;
                 }
             }
@@ -156,10 +167,15 @@ namespace Tutor.StudentManagement
                 cmd.Parameters.Add("@sid", SqlDbType.Int).Value = studentID;
 
                 //ClientScript.RegisterStartupScript(GetType(), "Message", "<SCRIPT LANGUAGE='javascript'>alert('Are you sure you want to proceed?');</script>");
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "confirm('Are you sure you want to proceed?');", true);
+              //  ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "confirm('Are you sure you want to proceed?');", true);
                 cmd.ExecuteNonQuery();
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunc", "showHideMessageDiv();", true);
+
+               
                 Label1.Text = "You have been withdrawn from the batch.";
                 Label1.Visible = true;
+                LoadGridView();
+                
             }
             catch (Exception ex)
             {
@@ -172,6 +188,11 @@ namespace Tutor.StudentManagement
                     c.Close();
                 }
             }
+        }
+
+        protected void gvBatch_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+
         }
 
         

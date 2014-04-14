@@ -120,6 +120,7 @@
     <Content Include="bin\Microsoft.WindowsAzure.Storage.dll" />
     <Content Include="bin\Microsoft.WindowsAzure.Storage.xml" />
     <Content Include="Default1.aspx" />
+    <Content Include="Images\cross.jpg" />
     <Content Include="Images\notification.jpg" />
     <Content Include="Images\tick.jpg" />
     <Content Include="Scripts\currentDate.js" />

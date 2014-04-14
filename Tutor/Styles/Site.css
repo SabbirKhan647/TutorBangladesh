@@ -693,3 +693,44 @@ div.accountInfo
    /*====Register page ======*/
     .emailverify{width:300px;float:left;}
     .emailverifyImage{width:20px;float:right;}
+    /*================= deselect message================*/
+#messageDiv {
+min-width:400px;
+min-height :100px;
+z-index :3;
+position :absolute ;
+top:250px;
+left:130px;
+background-color :#EAEAEA;
+display :none;
+border :1px solid gray;
+padding-top: 25px;
+padding-bottom:25px; 
+margin-top:5px;
+margin-bottom :10px;
+}
+.divHeader {
+   min-width: 400px;
+    height: 20px;
+    z-index: 3;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #c9edf7;
+}
+.close {
+    position :absolute ;
+    right :0px;
+    top:0px;
+   
+}
+.message {
+    padding-top: 25px;
+    padding-left :15px;
+    padding-right :15px;
+    padding-bottom:25px; 
+    font-size: medium;
+    position :inherit ;
+    margin-top:5px;
+    margin-bottom :10px;
+}

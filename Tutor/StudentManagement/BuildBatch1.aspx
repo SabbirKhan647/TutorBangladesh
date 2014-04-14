@@ -1,11 +1,19 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/StudentSite.Master" AutoEventWireup="true" CodeBehind="BuildBatch1.aspx.cs" Inherits="Tutor.StudentManagement.BuildBatch1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
  
-<script language ="javascript" src="<%# ResolveUrl("~/Scripts/jquery.min.js") %>" type="text/javascript"></script>
-<script language ="javascript" src="<%# ResolveUrl("~/Scripts/CollapsableGridview.js") %>" type="text/javascript"></script>
-<script language ="javascript" src="<%# ResolveUrl("~/Scripts/currentDate.js") %>" type="text/javascript"></script>
- 
-
+<script src="<%# ResolveUrl("~/Scripts/jquery.min.js") %>" type="text/javascript"></script>
+<script  src="<%# ResolveUrl("~/Scripts/CollapsableGridview.js") %>" type="text/javascript"></script>
+<script  src="<%# ResolveUrl("~/Scripts/currentDate.js") %>" type="text/javascript"></script>
+<script type ="text/javascript">
+    function showHideMessageDiv() {
+        document.getElementById('messageDiv').style.display = "block";
+    }
+    function closeDiv() {
+        if (document.getElementById('closeImage')) {
+            document.getElementById('messageDiv').style.display = "none";
+        }
+    }
+</script> 
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -72,7 +80,12 @@
         </Columns>
     </asp:GridView>
       <br />
-    <asp:Label ID="LabelConfirm" runat="server" ForeColor="#009933" Visible="False"></asp:Label>
+         <div id="messageDiv">
+        <div class="divHeader"><img class="close" id="closeImage" src="../Images/cross.jpg" width="20px" height="20px"alt="close image" onclick="javascript:closeDiv();"/></div>
+    <asp:Label ID="Label1" runat="server" Text="Label" Visible ="false" CssClass ="message" ></asp:Label>
+    </div>
+    
+<%--    <asp:Label ID="LabelConfirm" runat="server" ForeColor="#009933" Visible="False"></asp:Label>--%>
     <br />
     <asp:Label ID="LabelConfirm0" runat="server"></asp:Label>
 </asp:Panel>

@@ -1,9 +1,18 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/StudentSite.Master" AutoEventWireup="true" CodeBehind="MyBatchesAsStudent.aspx.cs" Inherits="Tutor.StudentManagement.MyBatchesAsStudent" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 
-<script language ="javascript" src="<%# ResolveUrl("~/Scripts/jquery.min.js") %>" type="text/javascript"></script>
-<script language ="javascript" src="<%# ResolveUrl("~/Scripts/CollapsableGridview.js") %>" type="text/javascript"></script>
-
+<script src="<%# ResolveUrl("~/Scripts/jquery.min.js") %>" type="text/javascript"></script>
+<script src="<%# ResolveUrl("~/Scripts/CollapsableGridview.js") %>" type="text/javascript"></script>
+<script type ="text/javascript">
+    function showHideMessageDiv() {
+        document.getElementById('messageDiv').style.display = "block";
+    }
+    function closeDiv() {
+        if (document.getElementById('closeImage')) {
+            document.getElementById('messageDiv').style.display = "none";
+        }
+    }
+</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 <br />
@@ -24,18 +33,21 @@
 <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl ="~/StudentManagement/MyBatchesAsStudent.aspx">My Batches</asp:HyperLink><br />
 </div>  --%>     
    <br />
+    <p style="color:#0026ff">Student can deselect a batch before seven (07) days of the batch start date.</p>
+    <br />
 <asp:GridView ID="gvBatch" runat="server" AutoGenerateColumns="False" CssClass="Grid" 
         DataKeyNames="BatchID" 
          AllowPaging="True" 
         HorizontalAlign="Center" ShowHeaderWhenEmpty="True" 
            GridLines="Vertical" onrowdatabound="gvBatch_RowDataBound" 
-        onselectedindexchanged="gvBatch_SelectedIndexChanged" >
+        onselectedindexchanged="gvBatch_SelectedIndexChanged" OnRowCommand="gvBatch_RowCommand" >
         <HeaderStyle HorizontalAlign ="Center"  />
         <RowStyle HorizontalAlign ="Center" />
         <Columns>
        
             <asp:TemplateField>
                 <ItemTemplate>
+                     
                     <img alt = "" style="cursor: pointer" src="../Images/plus.gif" />
                     <asp:Panel ID="pnlOrders" runat="server" Style="display: none">
                         <asp:GridView ID="gvBatchDetails" runat="server" AutoGenerateColumns="false" CssClass = "ChildGrid" GridLines ="None">
@@ -63,17 +75,22 @@
            <asp:BoundField  DataField ="TutorName" HeaderText ="Tutor Name" />
            <asp:BoundField  DataField="dateJoined" HeaderText="Date Joined" DataFormatString ="{0:MM/dd/yyyy}"  />
            <asp:BoundField   DataField="startdate" HeaderText="Batch Starts" DataFormatString ="{0:MM/dd/yyyy}"  />
-          <asp:CommandField HeaderText="Deselect" ShowSelectButton="true" 
+           <asp:CommandField HeaderText="Deselect" ShowSelectButton="true"  ButtonType="Link" 
                 DeleteText ="Deselect" SelectText="Deselect" />
-          <%-- <asp:TemplateField HeaderText="Deselect Batch">
+         <%-- <asp:TemplateField HeaderText="Deselect Batch">
                     <ItemTemplate >
                         <asp:LinkButton ID="DeselectBatch"  runat="server">Deselect</asp:LinkButton>
                             </ItemTemplate>
                                
-            </asp:TemplateField>--%>
-            
+            </asp:TemplateField>
+            --%>
         </Columns>
     </asp:GridView>
-    <asp:Label ID="Label1" runat="server" Text="Label" Visible ="false" ForeColor ="Green" ></asp:Label>
+    <div id="messageDiv">
+        <div class="divHeader"><img class="close" id="closeImage" src="../Images/cross.jpg" width="20px" height="20px"alt="close image" onclick="javascript:closeDiv();"/></div>
+    <asp:Label ID="Label1" runat="server" Text="Label" Visible ="false" CssClass ="message" ></asp:Label>
+    </div>
     
+    
+    <asp:Label ID="diff" runat ="server" Text ="label2" ></asp:Label>
 </asp:Content>

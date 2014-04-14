@@ -98,7 +98,7 @@
                 <td class="style2">
                     &nbsp;</td>
                 <td>
-         <span onclick ="return confirm('Are you sure want to create this batch?')">
+         <span onclick ="return confirm('Are you sure you want to create this batch?')">
          <asp:Button ID="BtnGenerate" runat="server" Text="Create Batch" 
                      onclick="BtnGenerate_Click" style="height: 29px" 
                         onclientclick="currentdate();" /> 
