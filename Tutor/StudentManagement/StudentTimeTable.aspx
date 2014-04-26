@@ -7,17 +7,19 @@
  <h3 class="pageHeading">Time Table</h3>
  <div class="weekNavigation">
    <div class="previousWeek">
-   <asp:Button ID="previousWeek1" runat ="server" Text ="<< Previous Week" OnClick="previousWeek1_Click" />
+   <asp:Button ID="previousWeek1" runat ="server" Text ="<< Previous Week" OnClick="previousWeek1_Click" class ="nextweek1" />
     </div>
   <div class="WeekDayName">
-    <asp:Label ID="Label2" runat="server" Text="DayName">Sunday to Saturday</asp:Label>
+    <asp:Label ID="Label2" runat="server" Text="DayName" CssClass ="dayName">Sunday to Saturday</asp:Label>
   </div>
    <div class="NextWeek">
-    <asp:Button ID="NextWeek1" runat ="server" Text ="Next Week >>" OnClick="NextWeek1_Click" />
+    <asp:Button ID="NextWeek1" runat ="server" Text ="Next Week >>" OnClick="NextWeek1_Click" class="nextweek1" />
   </div>
  </div>
  <asp:HiddenField ID="storeNextWeekDate" runat="server" />
+    <div class="dayPilotContainer">
 <DayPilot:DayPilotCalendar ID="DayPilotCalendar1" runat="server" 
         TimeFormat="Clock24Hours" BusinessBeginsHour="6" BusinessEndsHour="23" 
         HeightSpec="BusinessHoursNoScroll" Width="500px"  />
+        </div>
 </asp:Content>

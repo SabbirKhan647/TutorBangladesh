@@ -5,12 +5,11 @@
 <h3 class="pageHeading">Grade    </h3><br />
 <asp:Label ID="batch" runat ="server" Text ="Batch: "></asp:Label>
 
- <asp:DropDownList ID="DropDownListBatchName" runat="server">
-                </asp:DropDownList>
-                 <asp:Button ID="btnGO" runat="server" Text="GO" Height="21px" 
-                    onclick="btnGO_Click" />
-                    <br /><br />
-                    <asp:Repeater ID="Repeater1" runat="server" OnItemDataBound="Repeater1_ItemDataBound">
+ <asp:DropDownList ID="DropDownListBatchName" runat="server"> </asp:DropDownList>
+ <asp:Button ID="btnGO" runat="server" Text="GO" Height="21px" onclick="btnGO_Click" /><br /><br />
+ <asp:Label id="noData" runat ="server" Visible ="false" cssClass="NoData" ></asp:Label>
+<br />
+     <asp:Repeater ID="Repeater1" runat="server" OnItemDataBound="Repeater1_ItemDataBound">
     <HeaderTemplate>
     <table>
     <th class="Grade" width="320px" height="45px" style="text-decoration :underline">Test Name </th>

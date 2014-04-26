@@ -130,15 +130,6 @@ namespace Tutor {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor A4;
         
         /// <summary>
-        /// A9 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor A9;
-        
-        /// <summary>
         /// CurrentDateInMasterPage control.
         /// </summary>
         /// <remarks>

@@ -1,5 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/StudentSite.Master" AutoEventWireup="true" CodeBehind="Dropbox.aspx.cs" Inherits="Tutor.StudentManagement.Dropbox" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+    <script type ="text/javascript">
+        function showHideMessageDiv() {
+            document.getElementById('messageDiv').style.display = "block";
+        }
+        function closeDiv() {
+            if (document.getElementById('closeImage')) {
+                document.getElementById('messageDiv').style.display = "none";
+            }
+        }
+</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -14,7 +24,9 @@
         <br />
      
    <div>
-    <asp:Repeater ID="Repeater1" runat="server" OnItemDataBound="Repeater1_ItemDataBound" >
+    <asp:Label id="noData" runat ="server" Visible ="false" cssClass="NoData" ></asp:Label>
+
+    <asp:Repeater ID="Repeater1" runat="server" OnItemDataBound="Repeater1_ItemDataBound" Visible ="false"  >
     <HeaderTemplate>
     <table>
     <tr>
@@ -47,11 +59,16 @@
      <asp:HiddenField id="HiddenField2" runat="server" Value='<%#Eval("AssgnmtFileName") %>' />
       <asp:Button ID="btnSubmit" runat="server" Text="Submit" onCommand="btnSubmit_Click"
      CommandName="btnSubmitClick" CommandArgument='<%# Eval("AssignmentID") %>'>
-     </asp:Button>
-     <asp:FileUpload ID="uploadAssignment" runat ="server" visible="false"/>
-     <asp:Button ID="btnUpload" runat="server" Text="Upload" onCommand="btnUpload_Click" Visible ="false" 
-     CommandName="btnUploadClick" CommandArgument='<%# Eval("AssignmentID") %>'></asp:Button><br />
-     <asp:Label id="lblMessage" runat ="server" Text="DD" Visible ="false" ></asp:Label>
+     </asp:Button><br />
+     <div id="messageDiv">
+        <div class="divHeader"><img class="close" id="closeImage" src="../Images/cross.jpg" width="20px" height="20px"alt="close image" title="Close" onclick="javascript:closeDiv();"/></div>
+      <asp:FileUpload ID="uploadAssignment" runat ="server" CssClass ="upload"/>
+     <asp:Button ID="btnUpload" runat="server" Text="Upload File" onCommand="btnUpload_Click" cssClass="btnupload"
+     CommandName="btnUploadClick" CommandArgument='<%# Eval("AssignmentID") %>'></asp:Button><br /><br />
+     <asp:Label id="lblMessage" runat ="server" Text="DD" Visible ="false" CssClass ="fileuploadsuccessful"> </asp:Label>
+     </div>
+    
+
     </td>
     <td width="100px">
      <asp:Label id="lblTestAvailableDate" runat ="server" Text='<%# Bind("AssgnmtStartDate","{0:yyyy-MM-dd}") %>' ></asp:Label>
@@ -73,5 +90,5 @@
     </div>
      <br />
  <asp:Label ID="showdata" runat ="server" Text="dd"></asp:Label>   
-<iframe id="holdsDoc" runat ="server" width="800px" height ="900px" ></iframe>
+<iframe id="holdsDoc" runat ="server" width="800px" height ="900px" visible="false" ></iframe>
 </asp:Content>

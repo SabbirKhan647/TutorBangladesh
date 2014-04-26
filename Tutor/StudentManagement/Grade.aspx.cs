@@ -59,6 +59,22 @@ namespace Tutor.StudentManagement
             SqlDataReader r = cmd.ExecuteReader();
             DataTable d = new DataTable();
             d.Load(r);
+            if (d.Rows.Count > 0)
+            {
+                Repeater1.DataSource = d;
+                Repeater1.DataBind();
+                Repeater1.Visible = true;
+                noData.Visible = false;
+            }
+            else
+            {
+                noData.Text = "No assessment result is posted at this moment.";
+                noData.Visible = true;
+                Repeater1.Visible = false;
+               
+            }
+           
+           
             Repeater1.DataSource = d;
             Repeater1.DataBind();
 

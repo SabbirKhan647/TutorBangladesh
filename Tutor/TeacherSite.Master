@@ -60,10 +60,10 @@
                         <li><a id="A7" href="TeacherManagement/Worksheet.aspx" runat="server">WorkSheet </a></li>
                         <li><a id="A6" href="~/TeacherManagement/ViewDropboxSubmission.aspx" runat="server">Dropbox </a></li>
                          <li><a id="A8" href="~/TeacherManagement/QuizByBatch.aspx" runat ="server">Quiz</a></li>
-                         <li><a id="A5" href="~/TeacherManagement/Evaluation.aspx" runat ="server">Test Report</a></li>
+                         <li><a id="A5" href="~/TeacherManagement/Evaluation.aspx" runat ="server">Assessment</a></li>
                          <li><a id="A4" href="~/TeacherManagement/CreateNotice.aspx" runat ="server">Notice Board</a></li>
                         <li><a href="TeacherManagement/UpdateTutorProfile.aspx" runat="server">Profile</a></li>
-                        <li><a id="A9" href="~/TeacherManagement/displayDocumentOnPageTry.aspx" runat="server">Display Doc</a></li>
+                        
                     </ul>
                 </div>
             </div>

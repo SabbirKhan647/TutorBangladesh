@@ -32,9 +32,12 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="ButtonShow" runat="server" Text="Show Available Teacher" Width="196px" OnClick="ButtonShow_Click" />
     </asp:Panel>
+    <br />
+    <asp:Label id="noData" runat ="server" Visible ="false" cssClass="NoData" ></asp:Label>
     <asp:Panel ID="PanelTeacher" runat="server" Visible="False">
-    Available Batch with Teacher Listed:<br />
-<asp:GridView ID="gvBatch" runat="server" AutoGenerateColumns="false" CssClass="Grid" 
+    
+   <asp:Label id="availableBatch" runat="server" Text="Available Batch with Teacher Listed:"></asp:Label><br />
+<asp:GridView ID="gvBatch" runat="server" AutoGenerateColumns="false" CssClass="Grid" visible="false" EmptyDataText="No tutor is available at this moment."
         DataKeyNames="BatchID" 
          AllowPaging="True" 
         HorizontalAlign="Center" ShowHeaderWhenEmpty="True" 

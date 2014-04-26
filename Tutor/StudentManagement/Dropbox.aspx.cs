@@ -71,8 +71,25 @@ namespace Tutor.StudentManagement
             SqlDataReader r = cmd.ExecuteReader();
             DataTable d = new DataTable();
             d.Load(r);
-            Repeater1.DataSource = d;
-            Repeater1.DataBind();
+            if (d.Rows.Count > 0)
+            {
+                Repeater1.DataSource = d;
+                Repeater1.DataBind();
+                Repeater1.Visible = true;
+              //  PanelTeacher.Visible = true;
+               // gvBatch.Visible = true;
+                noData.Visible = false;
+            }
+            else
+            {
+                noData.Text = "No assignment is given at this moment.";
+                noData.Visible = true;
+                Repeater1.Visible = false;
+              //  PanelTeacher.Visible = false;
+              //  gvBatch.Visible = false;
+            }
+           
+           
 
             if (c != null)
             {
@@ -139,12 +156,13 @@ namespace Tutor.StudentManagement
                     {
                         //open pdf file in iframe
                         holdsDoc.Attributes.Add("src", "../RetrieveAssignmentDoc.ashx?id=" + val);
-                        // holdsDoc.Visible = true;
+                        holdsDoc.Visible = true;
                     }
                     else
                     {
                         //download files other than pdf
                         DownLoadWordFile(val);
+                        holdsDoc.Visible = false;
                     }
 
                     }
@@ -202,6 +220,7 @@ namespace Tutor.StudentManagement
             {
                 FileUpload fu = (FileUpload)item.FindControl("uploadAssignment");
                 Button btnUpload = (Button)item.FindControl("btnUpload");
+                Label lblMessage = (Label)item.FindControl("lblMessage");
                 HiddenField hfAssgnmtid=(HiddenField )item .FindControl ("HiddenField1");
                 if (e.CommandName == "btnSubmitClick")
                 {
@@ -211,8 +230,10 @@ namespace Tutor.StudentManagement
                     int intassid=Convert .ToInt16 (assid );
                     if (intassid == intassgnmtid)//if hiddenfield assignment id and submit button command argument is equal
                     {
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunc", "showHideMessageDiv();", true);
                         fu.Visible = true;
                         btnUpload.Visible = true;
+                        lblMessage.Visible = false;
                     }
                 }
             }
@@ -303,8 +324,8 @@ namespace Tutor.StudentManagement
                             //if (cmd1.ExecuteNonQuery() == 1)
                 
                             //{
-                                lblMessage.ForeColor = System.Drawing.Color.Green;
-                                lblMessage.Text = "Assignment Submitted Successfully";
+                                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunc", "showHideMessageDiv();", true);
+                                lblMessage.Text = "Assignment is Submitted Successfully.";
                                 lblMessage.Visible = true;
                            // }
 

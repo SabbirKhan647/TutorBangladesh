@@ -43,22 +43,46 @@ namespace Tutor.StudentManagement
         protected void ButtonShow_Click(object sender, EventArgs e)
         {
             SqlConnection c = new SqlConnection(ConfigurationManager.ConnectionStrings["TutorConnectionString"].ConnectionString);
-            PanelTeacher.Visible = true;
+          
            
-            c.Open();
             SqlCommand cmd = new SqlCommand("ViewBatch", c);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@subid", SqlDbType.Int).Value = Convert.ToInt32(DropDownSub.SelectedValue);
             cmd.Parameters.Add("@grd", SqlDbType.Int).Value = Convert.ToInt32(DropDownGrade.SelectedValue);
-           
+            c.Open();
             SqlDataReader r = cmd.ExecuteReader();
             DataTable d = new DataTable();
             d.Load(r);
-            gvBatch.DataSource = d; gvBatch.DataBind();
+            if (d.Rows.Count > 0)
+            {
+                gvBatch.DataSource = d;
+                gvBatch.DataBind();
+                PanelTeacher.Visible = true;
+                gvBatch.Visible = true;
+                noData.Visible = false;
+            }
+            else
+            {
+                noData.Text = "No tutor is available at this moment.";
+                noData.Visible = true;
+                PanelTeacher.Visible = false;
+                gvBatch.Visible = false;
+            }
+           
             if (c != null)
             {
                 c.Close();
             }
+            //if (gvBatch.Rows.Count == 0 && gvBatch.DataSource == null)
+            //{
+            //    noData.Text = "No tutor is available at this moment.";
+            //    noData.Visible = true;
+            //}
+            //else
+            //{
+               
+            //}
+           
         }
         private static DataTable GetBatchDetailsData(string query)
         {
@@ -103,37 +127,12 @@ namespace Tutor.StudentManagement
                 }
                 else
                 {
-                    Label1.Text = "You are already registered to this batch.";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunc", "showHideMessageDiv();", true);
+                    Label1.Text = "You are already registered to the Batch "+batchid +".";
+                    Label1.Visible = true;
                 }
-            //     //string clientsidedate= HiddenField1.Value;
-            //     //string dateJoined = DateTime.Parse(clientsidedate).ToShortDateString();  
-            //    SqlConnection c = new SqlConnection(ConfigurationManager.ConnectionStrings["TutorConnectionString"].ConnectionString);
-            //    c.Open();
-            //    //TeacherSite1 tmaster = (TeacherSite1)Page.Master;
-            //    //string dateJoined=tmaster.HiddenValue;
-            //    string dateJoined = DateTime.Now.ToShortDateString();
-            // //   string dateJoined = Session["ClientCurrentDate"].ToString();
-            //    int studentID = Convert.ToInt32(Session["StudentID"].ToString());
-            //   // LabelConfirm0.Text = "studentid: " + Session["StudentID"].ToString();
-            //    batchid = Convert.ToInt32(gvBatch.DataKeys[gvBatch.SelectedIndex].Value);
-            //    SqlCommand cmd = new SqlCommand("BatchStu", c);
-            //    cmd.CommandType = CommandType.StoredProcedure;
-            //    cmd.Parameters.Add("@b", SqlDbType.Int).Value = batchid;
-            //    cmd.Parameters.Add("@s", SqlDbType.Int).Value = studentID;
-            //    cmd.Parameters.Add("dat", SqlDbType.Date).Value = DateTime.Parse(dateJoined).Date; ;
-              
-            //    //ClientScript.RegisterStartupScript(GetType(), "Message", "<SCRIPT LANGUAGE='javascript'>alert('Are you sure you want to proceed?');</script>");
-            // // ScriptManager .RegisterStartupScript(this,this.GetType(),"script","confirm('Are you sure you want to proceed?');",true );
-            //    //Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunc", "return confirmBatchSelection();", true);
-            //    //   {
-            //        cmd.ExecuteNonQuery();
-            //        Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunc", "showHideMessageDiv();", true);
-
-            //        Label1.Text = "Batch Registration Confirmed";
-            //        Label1.Visible = true;
-            ////    }
-
-
+            
+            
             }
             catch (Exception ex)
             {
@@ -176,23 +175,17 @@ namespace Tutor.StudentManagement
         {
             SqlConnection c = new SqlConnection(ConfigurationManager.ConnectionStrings["TutorConnectionString"].ConnectionString);
          
-            //TeacherSite1 tmaster = (TeacherSite1)Page.Master;
-            //string dateJoined=tmaster.HiddenValue;
+            
             string dateJoined = DateTime.Now.ToShortDateString();
             //   string dateJoined = Session["ClientCurrentDate"].ToString();
             int studentID = Convert.ToInt32(Session["StudentID"].ToString());
-            // LabelConfirm0.Text = "studentid: " + Session["StudentID"].ToString();
-        //    batchid = Convert.ToInt32(gvBatch.DataKeys[gvBatch.SelectedIndex].Value);
+          
             SqlCommand cmd = new SqlCommand("BatchStu", c);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("@b", SqlDbType.Int).Value = batchid;
             cmd.Parameters.Add("@s", SqlDbType.Int).Value = studentID;
             cmd.Parameters.Add("dat", SqlDbType.Date).Value = DateTime.Parse(dateJoined).Date; ;
-
-            //ClientScript.RegisterStartupScript(GetType(), "Message", "<SCRIPT LANGUAGE='javascript'>alert('Are you sure you want to proceed?');</script>");
-            // ScriptManager .RegisterStartupScript(this,this.GetType(),"script","confirm('Are you sure you want to proceed?');",true );
-            //Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunc", "return confirmBatchSelection();", true);
-            //   {
+                      
             c.Open();
             cmd.ExecuteNonQuery();
             Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunc", "showHideMessageDiv();", true);
@@ -211,12 +204,11 @@ namespace Tutor.StudentManagement
                 GridView gvBDetails = e.Row.FindControl("gvBatchDetails") as GridView;
                 string strBatchID = ((GridView)sender).DataKeys[e.Row.RowIndex].Value.ToString();
                 int intBatchID = Convert.ToInt32(strBatchID);
-                //javascript confirmation in gridview command field
+                //javascript confirmation window in gridview command field
                 LinkButton select = (LinkButton)e.Row.Cells[8].Controls[0];
-               select.OnClientClick = "if(!confirm('Are you sure you want to join this batch?'))return;";
+                select.OnClientClick = "if(!confirm('Are you sure you want to join this batch?'))return;";
 
-                //SqlConnection c = new SqlConnection(ConfigurationManager.ConnectionStrings["TutorConnectionString"].ConnectionString);
-                //c.Open();
+            
                 string cmdText = "select * from BatchDay where BatchID = " + intBatchID;
 
 

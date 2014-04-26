@@ -49,6 +49,15 @@ namespace Tutor.StudentManagement {
         protected global::System.Web.UI.WebControls.Button ButtonShow;
         
         /// <summary>
+        /// noData control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label noData;
+        
+        /// <summary>
         /// PanelTeacher control.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,15 @@ namespace Tutor.StudentManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel PanelTeacher;
+        
+        /// <summary>
+        /// availableBatch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label availableBatch;
         
         /// <summary>
         /// gvBatch control.

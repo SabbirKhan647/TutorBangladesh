@@ -659,12 +659,26 @@ div.accountInfo
 .list{padding-left:20px;padding-right:10px;padding-bottom:10px;}
 
 /*  timetable   */
-.weekNavigation{width:820px;border:1ps solid red; height:20px;}
-.previousWeek{width:30px;border:1ps solid red; height:20px;float:left;}
-.WeekDayName{position:absolute;left:400px;width:330px;border:1ps solid red; height:20px;float:left;}
-.NextWeek{width:30px;border:1ps solid red; height:20px;float:right;}
-
-
+.weekNavigation{width:800px;height:20px;}
+.previousWeek{width:30px; height:20px;float:left;}
+.WeekDayName{position:absolute;left:400px;width:300px; height:20px;float:left;}
+.NextWeek{width:30px;height:20px;float:right;}
+.dayName {
+    font-weight:bold;
+    font-size: 15px;
+}
+.nextweek1 {color:#ffffff;font-weight :bold;height :30px;background:#137d94;text-align :center ;
+            margin-bottom :5px;width:130px;
+}
+.nextweek1:hover  {color:#ffffff;font-weight :bold;height :30px;background :#61b4cf;text-align:center;
+                   margin-bottom :5px;width:130px;
+}
+.dayPilotContainer {
+    position: relative;
+    margin-top: 10px;
+    width: auto;
+    height: auto;
+}
 .wrapper{width:250px;height:65px;float:right;margin-right:0px;}
 #notification{width:13px;height:20px;margin-left:auto;margin-right:auto;}
 #notificationMessage{z-index:100;display:none;width:250px;height:43px;float:right;background:#f5deb3;right:0px;margin-right:0px;text-align:center;}
@@ -672,7 +686,7 @@ div.accountInfo
 .DisableHyperlink{text-decoration:underline;color:Gray;}
 
 /*=========== Display Notice =======*/
-  .NoticeContainer{border-bottom:2px solid #EEF3E2;width:700px;min-height:100px;background:#F6F9ED;} /*--properties for dynamic control, see c# code for control's ID*/
+  .NoticeContainer{border-left:4px solid #eef3e2;border-bottom:2px solid #EEF3E2;width:700px;min-height:100px;background:#F6F9ED;} /*--properties for dynamic control, see c# code for control's ID*/
   .NoticeBatchName{color:Navy;float:left;padding:10px;width:300px;}
   .NoticeDate{float:right;padding:10px;width:300px;}
   .NoticeSubject{padding-left:10px;width:300px;}
@@ -733,4 +747,41 @@ margin-bottom :10px;
     position :inherit ;
     margin-top:5px;
     margin-bottom :10px;
+}
+/*=== no data in gridview ============*/
+.NoData {
+    padding-top :20px;
+    color:#28a005;
+    font-size:large ;
+    text-align :center ;
+    font-weight :500;
+    width: 400px;
+    height :30px;
+    position :relative ;
+}
+/*==== file upload===============*/
+.upload {
+    top:40px;
+    left:40px;
+    font-size: medium;
+    position :inherit ;
+    margin-top:5px;
+    margin-bottom :10px;
+    z-index :3;
+
+}
+.btnupload {
+    top:80px;
+    right:50px;
+    font-size: medium;
+    position :absolute;
+    z-index :3;
+}
+.fileuploadsuccessful {
+    font-size: medium;
+    color: #37b00e;
+    z-index :3;
+    position :absolute ;
+    top:110px;
+    left:35px;
 }
