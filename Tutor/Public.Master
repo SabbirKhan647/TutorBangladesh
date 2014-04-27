@@ -17,32 +17,31 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div class="page">
-        <div class="header">
-            <div class="logo">
-                <img alt="Tutoring services" class="logo1" src="../Images/tutormanagement.jpg" width="300" />
-             </div>
-            <div class="loginDisplay">
-                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
-                    <AnonymousTemplate>
-                        You are not logged in. <a href="~/Account/Login.aspx" id="HeadLoginStatus" runat="server">
-                            Log In</a>
-                    </AnonymousTemplate>
-                    <LoggedInTemplate>
-                        Welcome <span class="bold">
-                            <asp:LoginName ID="HeadLoginName" runat="server" />
-                        </span>!
+        <div class="page">
+            <div class="header">
+                <div class="logo">
+                    <img alt="Tutoring services" class="logo1" src="../Images/tutormanagement.jpg" width="300" />
+                </div>
+                <div class="loginDisplay">
+                    <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                        <AnonymousTemplate>
+                            <a href="~/Account/Login.aspx" id="HeadLoginStatus" runat="server">Log In</a>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            Welcome <span class="bold">
+                                <asp:LoginName ID="HeadLoginName" runat="server" />
+                            </span>!
                         <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out"
                             LogoutPageUrl="~/Default.aspx" />
-                    </LoggedInTemplate>
-                    <RoleGroups>
-                        <asp:RoleGroup Roles="Student,Teacher,Web Admin">
-                        </asp:RoleGroup>
-                    </RoleGroups>
-                </asp:LoginView>
-            </div>
-        </div>
-        <%--  <br />
+                        </LoggedInTemplate>
+                        <RoleGroups>
+                            <asp:RoleGroup Roles="Student,Teacher,Web Admin">
+                            </asp:RoleGroup>
+                        </RoleGroups>
+                    </asp:LoginView>
+                </div>
+
+                <%--  <br />
               <div class="loginDisplay">
                 <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
                     <AnonymousTemplate> You are not logged in.
@@ -56,27 +55,28 @@
                     </LoggedInTemplate>
                 </asp:LoginView>
            <br />--%>
-        <div class="menubar">
-            <div class="menupublic">
-                <ul id="navmenu">
-                    <li><a href="Default.aspx" runat="server">Home</a></li>
-                    <li><a id="A1" href="~/Account/Register.aspx" runat="server">Sign up </a></li>
-                    <li><a href="Account/Login.aspx" runat="server">My Tutor</a></li>
-                    <li><a href="Public/Contact.aspx" runat="server">Contact</a></li>
-                </ul>
+                <div class="menubar">
+                    <div class="menupublic">
+                        <ul id="navmenu">
+                            <li><a href="Default.aspx" runat="server">Home</a></li>
+                            <li><a id="A1" href="~/Account/Register.aspx" runat="server">Sign up </a></li>
+                            <li><a href="Account/Login.aspx" runat="server">My Tutor</a></li>
+                            <li><a href="Public/Contact.aspx" runat="server">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="youarehere">
-                &nbsp;</div>
             <div class="main">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
             </div>
-     
-        <div id="footer">
-         
-                our farm name should go here</div>
+
+            <div class="footer">
+                our farm name should go here
+            </div>
+            
         </div>
-      </div>
+       
     </form>
 </body>
 </html>

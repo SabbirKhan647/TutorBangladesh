@@ -162,6 +162,7 @@
     <Content Include="StudentManagement\ViewTutorProfile.aspx" />
     <Content Include="StudentManagement\WorksheetforStudent.aspx" />
     <Content Include="Styles\Site.css" />
+    <Content Include="Styles\Site1.css" />
     <Content Include="TeacherManagement\batch.aspx" />
     <Content Include="TeacherManagement\ChangeTestDate.aspx" />
     <Content Include="TeacherManagement\CreateBatch.aspx" />

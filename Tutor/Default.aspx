@@ -12,9 +12,9 @@
 <div class="welcome">
        <h3 class="welcome1">Welcome!</h3>
        <p class="welcomeMessage">
-       Welcome to Tutoring Management Webportal. This is your gateway to tutoring information and learning activities. </p>
+       Welcome to Bangladesh's full featured Tutoring Management Webportal. This is your gateway to tutoring information and learning activities. </p>
 </div>
-<div class="ForStudent">
+<%--<div class="ForStudent">
        <h4 style="padding-bottom:10px">Student</h4>
        <ul class="list">
        <li>View available tutor for any subject, any grade, any location</li>
@@ -39,7 +39,7 @@
        </div>
    
 
-</div>
+</div>--%>
 <%--<div id="columnB">--%>
 <%--auto image change--%>
 <%--<div id="fadeshow1"></div>
@@ -114,8 +114,9 @@
     </table>--%>
     </FooterTemplate>
     </asp:Repeater>
+     <br />
+    <br />
     </div>
  </div>      
-
-
+   
 </asp:Content>

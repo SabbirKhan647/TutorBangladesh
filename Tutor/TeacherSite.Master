@@ -10,39 +10,42 @@
         type="text/javascript"></script>
     <script language="javascript" src="<%# ResolveUrl("~/Scripts/HighlightCurrentMenuItem.js") %>"
         type="text/javascript"></script>
-    <script language ="javascript" src="<%# ResolveUrl("~/Scripts/ShowHideNotificationImage.js") %>" type="text/javascript"></script>
-    <script language ="javascript" src="<%# ResolveUrl("~/Scripts/currentDate.js") %>" type="text/javascript"></script>
+    <script language="javascript" src="<%# ResolveUrl("~/Scripts/ShowHideNotificationImage.js") %>" type="text/javascript"></script>
+    <script language="javascript" src="<%# ResolveUrl("~/Scripts/currentDate.js") %>" type="text/javascript"></script>
     <%--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>--%>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#notification").hover(function () {
-            $("#notificationMessage").slideToggle("slow");
-           
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#notificationImage").hover(function () {
+                $("#notificationMessage").slideToggle("slow");
+
+            });
         });
-    });
-</script>
-    
-    
+    </script>
+
+
     <title></title>
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
-   
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
+   <form id="form1" runat="server">
     <div class="page">
         <div class="header">
             <div class="logo">
-                <asp:HyperLink runat="server" NavigateUrl="~/Default.aspx"><img alt="Tutoring services" class="logo1" src="../Images/tutormanagement.jpg" width="300"/></asp:HyperLink>
-                My Tutoring</div>
-                <div class="wrapper">
-                <div id="notification"><asp:Image runat="server" ID="notificationImage" 
-                        ImageUrl="~/Images/notification.jpg" style="visibility:hidden" width="12px" hieght="20px"
-                        ClientIDMode="Static" />
-                        </div>
-                        <div id="notificationMessage">Please update your profile to view by students.</div>
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Default.aspx"><img alt="Tutoring services" class="logo1" src="../Images/tutormanagement.jpg" width="300"/></asp:HyperLink>
+                
+             </div>
+            <div class="wrapper">
+                
+                    <asp:Image runat="server" ID="notificationImage" ImageUrl="~/Images/notification.jpg" class="notificationImage" 
+                        Style="visibility: hidden"  ClientIDMode="Static" />
+                   <div class="uparrowdiv" id="notificationMessage">
+                    <div class="headbar">Notification</div>
+                    <p class="notify">Update profile to be viewed by students.</p>
                 </div>
+            </div>
             <div class="loginDisplay">
                 <loggedintemplate>
                        Welcome <span class="bold"><asp:LoginName ID="LoginName1" runat="server" /></span>!
@@ -61,13 +64,13 @@
                         <li><a id="A6" href="~/TeacherManagement/ViewDropboxSubmission.aspx" runat="server">Dropbox </a></li>
                          <li><a id="A8" href="~/TeacherManagement/QuizByBatch.aspx" runat ="server">Quiz</a></li>
                          <li><a id="A5" href="~/TeacherManagement/Evaluation.aspx" runat ="server">Assessment</a></li>
-                         <li><a id="A4" href="~/TeacherManagement/CreateNotice.aspx" runat ="server">Notice Board</a></li>
-                        <li><a href="TeacherManagement/UpdateTutorProfile.aspx" runat="server">Profile</a></li>
-                        
+                         <li><a id="A4" href="~/TeacherManagement/CreateNotice.aspx" runat ="server">Announcement</a></li>
+                        <li><a id="A9" href="TeacherManagement/UpdateTutorProfile.aspx" runat="server">Profile</a></li>
+                     
                     </ul>
                 </div>
             </div>
-           
+           </div>
             <asp:HiddenField ID="CurrentDateInMasterPage" runat ="server" ClientIDMode ="Static" />
           
              <br />
@@ -76,10 +79,13 @@
             </div>
             <div class="clear"></div>
        
-        <div id="footer">
-          our farm name should go here</div>
+        <div class="footer">
+          our farm name should go here
           </div>
-         </div>
+          </div>
+       
     </form>
 </body>
 </html>
+
+

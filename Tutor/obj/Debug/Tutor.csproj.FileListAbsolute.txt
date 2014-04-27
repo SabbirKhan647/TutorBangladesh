@@ -45,3 +45,11 @@ C:\Users\UmmeSalma\Documents\Visual Studio 2012\Projects\Tutor April 5\Tutor (15
 C:\Users\UmmeSalma\Documents\Visual Studio 2012\Projects\Tutor April 5\Tutor (15)\Tutor\Tutor\bin\Tutor.pdb
 C:\Users\UmmeSalma\Documents\Visual Studio 2012\Projects\Tutor April 5\Tutor (15)\Tutor\Tutor\bin\AjaxControlToolkit.pdb
 C:\Users\UmmeSalma\Documents\Visual Studio 2012\Projects\Tutor April 5\Tutor (15)\Tutor\Tutor\bin\Microsoft.WindowsAzure.Storage.xml
+C:\Users\UmmeSalma\Documents\GitHub\TutorBangladesh\Tutor\bin\Tutor.dll
+C:\Users\UmmeSalma\Documents\GitHub\TutorBangladesh\Tutor\bin\Tutor.pdb
+C:\Users\UmmeSalma\Documents\GitHub\TutorBangladesh\Tutor\bin\AjaxControlToolkit.pdb
+C:\Users\UmmeSalma\Documents\GitHub\TutorBangladesh\Tutor\bin\Microsoft.WindowsAzure.Storage.xml
+C:\Users\UmmeSalma\Documents\GitHub\TutorBangladesh\Tutor\obj\Debug\Tutor.csprojResolveAssemblyReference.cache
+C:\Users\UmmeSalma\Documents\GitHub\TutorBangladesh\Tutor\obj\Debug\Tutor.dll.licenses
+C:\Users\UmmeSalma\Documents\GitHub\TutorBangladesh\Tutor\obj\Debug\Tutor.dll
+C:\Users\UmmeSalma\Documents\GitHub\TutorBangladesh\Tutor\obj\Debug\Tutor.pdb

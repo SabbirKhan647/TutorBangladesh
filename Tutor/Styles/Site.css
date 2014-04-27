@@ -1,470 +1,37 @@
-﻿/* DEFAULTS
-----------------------------------------------------------*/
-/* reset rules
-=============================*/
-*{margin:0px 0px 0px 0px;
-  padding:0px;
-}
-/*=====================================*/
-.page
+﻿body   
 {
-    width: 900px;
-   /* background-color: #fff;*/
-    margin-left: auto;
-    margin-right:auto ;
-    height:auto;
-    min-height :100%;
-    padding-bottom:3em;
-}
-#footer
-{
-    clear:both ;
-    width:900px;
-    margin-left :auto ;
-    margin-right :auto;
-    position:absolute;
-    height:60px;
-    bottom :0;
-  /*  margin-top :-70px;*/
-   border :1px solid gray;
-    }
-html
-{
-     height :100%;
-}
-body   
-{
-    
+    background: #b6b7bc;
     font-size: .80em;
     font-family: "Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif;
     margin: 0px;
-    color: #000000;
-    padding-left:5%;
-    padding-right :5%;
+    padding: 0px;
+    color: #696969;
     height :100%;
-  /*  background:#dcd5d5;*/
+}
+html {
+    height: 100%;
+}
+.page
+{
+    width: 960px;
+    background-color: #fff;
+    margin: 20px auto 0px auto;
+    border: 1px solid #496077;
+}
+.main {
+    padding: 0px 12px;
+    margin: 5px 8px 8px 8px;
+    height:auto;
+    background-color: #FFFFCC;
 }
 .header
 {
     position: relative;
     margin: 0px;
     padding: 0px;
+    background: #4b6c9e;
     width: 100%;
-    height :60px;
-    text-align: left;
 }
-.logo
-{
-    width:300px;
-    margin-top :0px;
-    float :left ;
-}
-.loginDisplay
-{
-    margin-top:10px;
-    width:250px;
-   float:right;
-   text-align :right ;
-   clear :right ;
-  
-}
-.pageHeading
-{
-    color:#708090 ;
-    font-size:small;
-    padding-bottom :15px;
- }
-.menubar
-{
-    /*margin-top:300px;*/
-    width:900px;
-    display:block;
-    margin-left :auto ;
-    margin-right :auto ;
-    clear :both;
-   /* background-color:#c20615;*/
-    height :25px;
-}
-
-/*#HeadLoginView
-{
-    right:0;
-}*/
-/* rules for navigation menu
-=================================*/
-ul#navmenu,ul.sub1,ul.sub2
-{
-    list-style-type:none;
-    font-size :10pt;
-}
-ul#navmenu1
-{
-    list-style-type:none;
-    font-size :10pt;
-    clear:both;
-}
- ul#navmenu li
- {
-     width:80px;/* fix width */
-     text-align :center;
-     position :relative ;
-     float :left ;
-     font-size :smaller;
-     font-weight :bold ;
- }
- ul#navmenu a
- {
-     text-decoration:none;
-     display :block ;
-     width :80px;/* fix width */
-     height:25px;
-     line-height:25px;
-  /*   background-color:#3D6381;/*==========*/
-     border :1px solid #ccc;
-    /* border-radius:5px;*/
-     color :#000;
-     
- }
- ul#navmenu1 li
- {
-     min-width:110px;/* fix width */
-     text-align :center;
-    /* position :relative ;*/
-     float :left ;
-     font-size :smaller;
-     font-weight :bold ;
- }
- 
- ul#navmenu1 a
- {
-     text-decoration:underline;
-     display :block ;
-     min-width :110px;/* fix width */
-     height:25px;
-     line-height:25px;
-   /*  background-color:#DCDCDC;/*==========*/
-   /*  border :1px solid #ccc;
-    /* border-radius:5px;*/
-     color:Navy;
-     
- }
-/* ul#navmenu .sub1 li
- {
-    
- }
- ul#navmenu .sub1 a
- {
-    color :#ffffff;
- }
-  ul#navmenu .sub2 a
- {
-    color :#ffffff;
- }*/
- ul#navmenu li:hover>a
- {
-     background-color:#afeeee;/*===keeps track =======*/
-     color:#ffffff;
- }
-  ul#navmenu1 li:hover>a
- {
-    /* background-color:#C0C0C0;/*===keeps track =======*/
-     color:Blue;
- }
- ul#navmenu > li:active
- {
-     background-color:Red;
- } 
-ul#navmenu li.highlight{ background:#afeeee;}
-ul#navmenu li.highlight a{ color:#000; cursor:default;}
-ul#navmenu1 li.highlight{ background:#afeeee;}
-ul#navmenu1 li.highlight a{ color:#000; cursor:default;}
-
-/* ul#navmenu li:hover a:hover
- {
-     background-color:#df0320;/*==========*/
-/* }*/
- ul#navmenu ul.sub1
- {
-     display :none ;
-     position :absolute ;
-     top:26px;
-     left:0px;
-    
- }
- ul#navmenu ul.sub2
- {
-     display :none ;
-     position :absolute ;
-     top:0px;
-     left:126px;
-    
- }
- ul#navmenu li:hover .sub1
- {
-     display :block ;
- }
- ul#navmenu .sub1 li:hover .sub2
- {
-     display:block ;
- }
- .darrow
- {
-     font-size: 11px;
-     position :absolute ;
-     top:7px;
-     right :4px;
-     color :#fa1a38 ;
-     
- }
-/* .rarrow
- {
-     font-size: 11px;
-     position :absolute ;
-     top:10px;
-     right :4px;
-     color :#fa1a38;
- }*/
- /*============== content page =============================*/
- .main
-{
-    min-height: 420px;
-    padding-top:3%;
-}
-.welcome1{font-size:x-large;padding-bottom:10px;}
-.welcomeMessage{font-size:medium;}
- /*=================== myTutor page ==================================*/
-
-#column1{width:280px;float:left;}
-#column3{width:300px;float:right;}
-#dynamicContent{width:370px;float:left;}
-#PlaceHolder1,#PlaceHolder2{margin-bottom:10px;margin-left:20px;margin-right:20px; min-height: 80px;font-size:large;padding:5px;}
-.callnow {
-  width: 100% ;
-  margin-left: auto ;
-  margin-right: auto ;
-  text-align :center;
-}
-/*a:link, a:visited
-{
-    color: #034af3;
-}
-
-a:hover
-{
-    color: #1d60ff;
-    text-decoration: none;
-}
-
-a:active
-{
-    color: #034af3;
-}
-
-p
-{
-    margin-bottom: 10px;
-    line-height: 1.6em;
-   
-}
-
-
-/* HEADINGS   
-----------------------------------------------------------*/
-
-/*h1, h2, h3, h4, h5, h6
-{
-    font-size: 1.5em;
-    color: #666666;
-    font-variant: small-caps;
-    text-transform: none;
-    font-weight: 200;
-    margin-bottom: 0px;
-}
-
-h1
-{
-    font-size: 1.6em;
-    padding-bottom: 0px;
-    margin-bottom: 0px;
-}
-
-h2
-{
-    font-size: 1.5em;
-    font-weight: 600;
-}
-
-h3
-{
-    font-size: 1.2em;
-}
-
-h4
-{
-    font-size: 1.1em;
-}
-
-h5, h6
-{
-    font-size: 1em;
-}
-
-/* this rule styles <h1> and <h2> tags that are the 
-first child of the left and right table columns */
-/*.rightColumn > h1, .rightColumn > h2, .leftColumn > h1, .leftColumn > h2
-{
-    margin-top: 0px;
-}
-*/
-
-/* PRIMARY LAYOUT ELEMENTS   
-----------------------------------------------------------*/
-
-
-
-
-
-/*.header h1
-{
-    font-weight: 700;
-    margin: 0px;
-    padding: 0px 0px 0px 20px;
-    color: #f9f9f9;
-    border: none;
-    line-height: 2em;
-    font-size: 2em;
-}*/
-
-
-
-/*.leftCol
-{
-    padding: 6px 0px;
-    margin: 12px 8px 8px 8px;
-    width: 200px;
-    min-height: 200px;
-}
-
-.footer
-{
-    color: #4e5766;
-    padding: 8px 0px 0px 0px;
-    margin: 0px auto;
-    text-align: center;
-    line-height: normal;
-}*/
-
-
-/* TAB MENU   
-----------------------------------------------------------*/
-
-
-/*div.menu
-{
-    padding: 4px 0px 4px 8px;
-}
-
-div.menu ul
-{
-    list-style: none;
-    margin: 0px;
-    padding: 0px;
-    width: auto;
-}
-
-div.menu ul li a, div.menu ul li a:visited
-{
-    background-color: #465c71;
-    border: 1px #4e667d solid;
-    color: #dde4ec;
-    display: block;
-    line-height: 1.35em;
-    padding: 4px 20px;
-    text-decoration: none;
-    white-space: nowrap;
-}
-
-div.menu ul li a:hover
-{
-    background-color: #bfcbd6;
-    color: #465c71;
-    text-decoration: none;
-}
-
-div.menu ul li a:active
-{
-    background-color: #465c71;
-    color: #cfdbe6;
-    text-decoration: none;
-}
-
-/* FORM ELEMENTS   
-----------------------------------------------------------*/
-
-fieldset
-{
-    margin: 1em 0px;
-    padding: 1em;
-    border: 1px solid #ccc;
-}
-
-fieldset p 
-{
-    margin: 2px 12px 10px 10px;
-}
-
-fieldset.login label, fieldset.register label, fieldset.changePassword label
-{
-    display: block;
-}
-
-fieldset label.inline 
-{
-    display: inline;
-}
-
-legend 
-{
-    font-size: 1.1em;
-    font-weight: 600;
-    padding: 2px 4px 8px 4px;
-}
-
-input.textEntry 
-{
-    width: 320px;
-    border: 1px solid #ccc;
-}
-
-input.passwordEntry 
-{
-    width: 320px;
-    border: 1px solid #ccc;
-}
-
-div.accountInfo
-{
-    width: 42%;
-}
-
-/* MISC  
-----------------------------------------------------------*/
-
-/*.clear
-{
-    clear: both;
-}
-
-.title
-{
-    display: block;
-    text-align: left;
-    width: auto;
-    color:White ;
-    padding-left :20px;
-    font :2.4em;
-}
-
 .loginDisplay
 {
     font-size: 1.1em;
@@ -478,7 +45,6 @@ div.accountInfo
 {
     color: white;
 }
-
 .loginDisplay a:visited
 {
     color: white;
@@ -488,164 +54,220 @@ div.accountInfo
 {
     color: white;
 }
-/*
-.failureNotification
+.menubar
 {
-    font-size: 1.2em;
-    color: Red;
+    width:100%;
+    display:block;
+    clear :both;
+    height :25px;
+    left :0px;
+    background-color:#3a4f63;
+}
+.menupublic
+{
+    width:380px;
+    left :0px ;
+    
+}
+.footer
+{
+    clear :both ;
+    width:960px;
+    position:relative ;
+    height:40px;
+    bottom:0;
+    border :1px solid gray;
+    background :#4b6c9e;
+    margin :10px 0px 0px 0px;
+    padding :0px;
+    left :0px;
+    }
+
+
+/* rules for navigation menu
+=================================*/
+ul#navmenu
+{
+    list-style-type:none;
+    font-size :10pt;
+    left:0px;
+    position :relative ;
+    margin-right :2px;
+    padding:0px;
+    
+}
+ul#navmenu1
+{
+    list-style-type:none;
+    font-size :10pt;
+    left:0px;
+    position :relative ;
+    margin-right :2px;
+    padding:0px;
+    
 }
 
-.bold
-{
-    font-weight: bold;
+ ul#navmenu li
+ {
+     width:80px;/* fix width */
+     text-align :center;
+     position :relative ;
+     float :left ;
+     font-size :smaller;
+     font-weight :bold ;
+     background:#ccc;
+     margin-left:5px;
+ }
+  ul#navmenu1 li
+ {
+     width:auto;/* fix width */
+     text-align :center;
+     position :relative ;
+     float :left ;
+     font-size :smaller;
+     font-weight :bold ;
+     margin-left:10px;
+ }
+ ul#navmenu a
+ {
+     text-decoration:none;
+     display :block ;
+     width :80px;/* fix width */
+     height:22px;
+     line-height:22px;
+    /* background-color:#3D6381;/*==========*/
+     border :1px solid black;
+     border-radius:5px;
+     color :#000;     
+  
+ }
+ ul#navmenu1 a
+ {
+     text-decoration:underline;
+     display :block ;
+     width :auto;/* fix width */
+     height:22px;
+     line-height:22px;
+    /* background-color:#3D6381;/*==========*/
+    /* border :1px solid black;
+     border-radius:5px;*/
+     color :#000;     
+  
+ }
+  ul#navmenu a:hover
+ {
+     text-decoration:none;
+     display :block ;
+     width :80px;/* fix width */
+     height:22px;
+     line-height:22px;
+     background-color:#bfcbd6;/*==========*/
+     border :1px solid #4e667d;
+     border-radius:5px;
+     color :#fff;
+    
+     
+ }
+ ul#navmenu1 a:hover
+ {
+     text-decoration:underline ;
+     display :block ;
+     width :auto;/* fix width */
+     height:22px;
+     line-height:22px;
+     background-color:#bfcbd6;/*==========*/
+     border-radius:5px;
+     color :#fff;
+    
+     
+ }
+ ul#navmenu li:hover>a
+ {
+     background-color:#bfcbd6;/*===keeps track =======*/
+     color:#000;
+     border :1px solid #4e667d;
+     border-radius:5px;
+ }
+ul#navmenu1 li:hover>a
+ {
+     background-color:#bfcbd6;/*===keeps track =======*/
+     color:#000;
+     border-radius:5px;
+ }
+
+ul#navmenu li.highlight{ background:#bfcbd6;}
+ul#navmenu li.highlight a{ color:#000; cursor:default;}
+
+/*    Notification 
+-------------------------------------  */
+.wrapper{position:absolute ;top:5px;right:30px;width:30px;}
+.notificationImage{position:absolute ;top:5px;right:30px;width:25px;height:25px;}
+
+
+.uparrowdiv{
+width:200px;
+min-height:40px; /*min height of DIV should be set to at least 2x the width of the arrow*/
+background: #ccc;
+color:#000;
+padding:5px;
+position:absolute;
+top:50px;
+word-wrap:break-word;
+-moz-border-radius:5px; /*add some nice CSS3 round corners*/
+-webkit-border-radius:5px;
+border-radius:5px;
+margin-bottom:2em;
+z-index:3;
+right :-20px;
+display :none ;
 }
 
-.submitButton
-{
-    text-align: right;
-    padding-right: 10px;
-}*/
-/*================ common master page ========*/
-.menuright{padding-left:0%;}
-.menupublic{padding-left:0%;}
-/*==============CommonMain page ========*/
-#middle{clear:both;padding-top:3%;}
-#columnA{width:55%; float :left;min-height:250px;}
-#columnB{width:40%;float:right;min-height:250px;border:1px solid gray}
-#features{line-height:200%;list-style-image:url("Images/checkmark.jpeg");font-size:medium;}
+.uparrowdiv:after{ /*arrow added to uparrowdiv DIV*/
+content:'';
+display:block;
+position:absolute;
+top:-20px; /*should be set to -border-width x 2 */
+left:190px;
+width:0;
+height:0;
+border-color: transparent transparent #ccc transparent; /*border color should be same as div div background color*/
+border-style: solid;
+border-width: 10px;
 
-/*==== Worksheet ====*/
-.sideNavigation{width:200px;float:right;text-decoration:none;line-height:200%;color:Gray;}
-.sideNavigation a:hover{color:Maroon;}
-.pageHeading{color:Blue;width:100%;margin-left:auto;margin-right:auto ;clear:both;}
-.youarehere{clear:both;}
-/* ====Gridview CSS =====*/
-   
-        .Grid td
-        {
-            background-color: #ffffff;
-            color: black;
-          
-            line-height:200%
-        }
-        .Grid th
-        {
-            background-color: #C0C0C0;
-            color: Black;
-            
-            line-height:200%;
-            
-        }
-        .ChildGrid td
-        {
-            background-color: #ffffff !important;
-            color: black;
-            line-height:200%;
-            width :inherit;
-        }
-        .ChildGrid th
-        {
-            background-color: #6C6C6C !important;
-            color: White;
-            line-height:200%;
-            width :inherit;
-        }
-        /* ===== Day pilot ====*/
-        .navigator_silver_main 
-{
-	border-left: 1px solid #A0A0A0;
-	border-right: 1px solid #A0A0A0;
-	border-bottom: 1px solid #A0A0A0;
-    background-color: white;
-    color: #000000;
+}
+.headbar{
+position:absolute;
+top:0px;
+left:0px;
+width:100%;
+height:20px;
+background:#b6b7bc;
+margin-top:2px;
+padding:0px;
+text-align:center;
+word-wrap:break-word;
+-moz-border-radius:5px; /*add some nice CSS3 round corners*/
+-webkit-border-radius:5px;
+border-radius:5px;
+font-weight :bold ;
 }
 
-.navigator_silver_month {
-    font-family: Tahoma;
-    font-size: 8pt;
-}
-.navigator_silver_day {
-    color: black;
-}
-.navigator_silver_dayheader {
-    color: black;
-}
 
-.navigator_silver_line 
-{
-	border-bottom: 1px solid #A0A0A0;
+.notify {
+    padding: 8px;
 }
+#notification{width:13px;height:20px;margin-left:auto;margin-right:auto;}
+#notificationMessage{z-index:100;display:none;width:250px;height:43px;float:right;
+                     background:#ccc;right:0px;margin-right:0px;text-align:center;}
 
-.navigator_silver_dayother {
-    color: gray;
-}
-.navigator_silver_todaybox
-{
-	border: 1px solid red;
-}
 
-.navigator_silver_select 
-{
-    background-color: #FFE794;
-}
-.navigator_silver_title, .navigator_silver_titleleft, .navigator_silver_titleright {
-    background-color: #ECE9D8;
-    border-top: 1px solid #A0A0A0;
-	background-image: url(Media/navigator_silver_top21.gif);
-	background-repeat: repeat-x;
-}
-.navigator_silver_busy {
-	font-weight: bold;
-}
+/*    Available Tutor (default page)
+-----------------------------------------*/
 
-/* Calendar */
-
-/* calendar silver theme */
-.calendar_silver_colheader
-{
-	background-image: url(Media/calendar_silver_top21.gif);
-	background-repeat: repeat-x;
-	background-color: #EAEAEA;
-}
-.calendar_silver_corner 
-{
-	background-image: url(Media/calendar_silver_corner20.gif);
-	background-repeat: repeat-x;
-	background-color: #EAEAEA;
-}
-.calendar_silver_rowheader 
-{
-	background-image: url(Media/calendar_silver_left45.gif);
-	background-repeat: repeat-y;
-	background-color: #CFCFCF;
-}
-.calendar_silver_cornerright 
-{
-	background-image: url(Media/calendar_silver_right17.gif);
-	background-repeat: repeat-y;
-	background-color: #CFCFCF;
-}
-.calendar_silver_alldayheader 
-{
-	background-color: #EAEAEA;
-}
-
-.calendar_silver_alldayevent 
-{
-	background-image: url(Media/calendar_silver_top21.gif);
-	background-repeat: repeat-x;
-	background-color: #CFCFCF;
-}
-/*== tutor profile ==*/
-.ImageColumn{width:25%;float:left;border:1px solid red;}
-.ProfileColumn{width:55%;float:left;border:1px solid green;}
-/* default page*/
-.gap{margin-bottom:30px;}
-.Horizontal{float:left;overflow:hidden;}
-.Horizontal:hover{background:#eee8aa;}
-/*.Horizontal img{display:block;}*/
-.availabletutor{width:278px;float:right;}
-.repeaterContainer{width:278px;float:right;border:2px solid #eee8aa;}
+.Horizontal{float:left;overflow:hidden;margin:0px;padding:0px;}
+.Horizontal:hover{background:#eee8aa;margin:0px;padding:0px;}
+.availabletutor{width:288px;float:right;}
+.repeaterContainer{width:288px;float:right;border:2px solid #eee8aa;}
 
 .tabledata{overflow:hidden ;width:50px;border-left:1px solid #ccc;border-top:1px solid #ccc;border-bottom:1px solid #ccc;background:#fffaf0;}
 .tabledata:hover{background:#eee8aa;}
@@ -654,134 +276,44 @@ div.accountInfo
 .tabledata1 a{text-decoration:none;color:#000;}
 .tabledata1 a:hover{background:#eee8aa;text-decoration:underline;color:#000;}
 
-.ForTutor{width:37%;background:#f5f5f5;border:1px solid #ccc;float:right;}
-.ForStudent {width:60%;background:#f5fffa;float:left;border:1px solid #ccc;margin-right:3px;}
-.list{padding-left:20px;padding-right:10px;padding-bottom:10px;}
+/*    Time Table
+    ------------------------------------*/
 
-/*  timetable   */
-.weekNavigation{width:800px;height:20px;}
-.previousWeek{width:30px; height:20px;float:left;}
-.WeekDayName{position:absolute;left:400px;width:300px; height:20px;float:left;}
-.NextWeek{width:30px;height:20px;float:right;}
+.weekNavigation{width:820px;height:20px;}
+.previousWeek{width:30px; height:15px;float:left;}
+.WeekDayName{position:absolute;left:550px;
+             width:300px; 
+             height:15px;
+             float:left;
+             margin-left :auto ;
+             margin-right :auto ;
+   }
+.NextWeek{width:30px;height:15px;float:right;}
 .dayName {
     font-weight:bold;
-    font-size: 15px;
+    font-size: 12px;
+    
 }
-.nextweek1 {color:#ffffff;font-weight :bold;height :30px;background:#137d94;text-align :center ;
-            margin-bottom :5px;width:130px;
+.nextweek1 {color:#ffffff;height :20px;;background:#4e667d;
+            text-align :center ;
+            width:130px;
 }
-.nextweek1:hover  {color:#ffffff;font-weight :bold;height :30px;background :#61b4cf;text-align:center;
-                   margin-bottom :5px;width:130px;
+.nextweek1:hover  {color:#ffffff;height :20px;background:#808080;
+                       text-align:center;
+                   width:130px;
 }
 .dayPilotContainer {
     position: relative;
-    margin-top: 10px;
     width: auto;
     height: auto;
 }
-.wrapper{width:250px;height:65px;float:right;margin-right:0px;}
-#notification{width:13px;height:20px;margin-left:auto;margin-right:auto;}
-#notificationMessage{z-index:100;display:none;width:250px;height:43px;float:right;background:#f5deb3;right:0px;margin-right:0px;text-align:center;}
-/*===Quiz page===*/
-.DisableHyperlink{text-decoration:underline;color:Gray;}
+/*   Page Heading
+    ------------------------------*/
 
-/*=========== Display Notice =======*/
-  .NoticeContainer{border-left:4px solid #eef3e2;border-bottom:2px solid #EEF3E2;width:700px;min-height:100px;background:#F6F9ED;} /*--properties for dynamic control, see c# code for control's ID*/
-  .NoticeBatchName{color:Navy;float:left;padding:10px;width:300px;}
-  .NoticeDate{float:right;padding:10px;width:300px;}
-  .NoticeSubject{padding-left:10px;width:300px;}
-  .NoticeMessage{padding-left:10px;width:500px;margin-top:5px;}
-   
-   /*======= Test Report ===============*/
-   .StudentTestReportContainer{border:2px solid gray;width:400px;margin-left:20px;}
-   .TestReportData{font-weight:bold;font-size:medium;}
-   
-   /*====== Grade ============*/
-   /*.Grade{width:150px; text-decoration :underline;}*/
-   .highlightCell{background-color:#F9F837;}
-   .highlightCell1{background-color:#F9C7F3;}
-   .quesWorth{width:20px;float:right;border:1px solid red; }
-   .questioncontainer{width:500px; border :1px solid gray; background: #FFFFF0;min-height:200px;padding-left:5px;}
-   .questionsummary{width:500px; height:50px; text-align:center;margin-top:10px;}
-   .TestReport{text-align:center;width:150px}
-   /*====Register page ======*/
-    .emailverify{width:300px;float:left;}
-    .emailverifyImage{width:20px;float:right;}
-    /*================= deselect message================*/
-#messageDiv {
-min-width:400px;
-min-height :100px;
-z-index :3;
-position :absolute ;
-top:250px;
-left:130px;
-background-color :#EAEAEA;
-display :none;
-border :1px solid gray;
-padding-top: 25px;
-padding-bottom:25px; 
-margin-top:5px;
-margin-bottom :10px;
-}
-.divHeader {
-   min-width: 400px;
-    height: 20px;
-    z-index: 3;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    background-color: #c9edf7;
-}
-.close {
-    position :absolute ;
-    right :0px;
-    top:0px;
-   
-}
-.message {
-    padding-top: 25px;
-    padding-left :15px;
-    padding-right :15px;
-    padding-bottom:25px; 
-    font-size: medium;
-    position :inherit ;
-    margin-top:5px;
-    margin-bottom :10px;
-}
-/*=== no data in gridview ============*/
-.NoData {
-    padding-top :20px;
-    color:#28a005;
-    font-size:large ;
-    text-align :center ;
-    font-weight :500;
-    width: 400px;
-    height :30px;
-    position :relative ;
-}
-/*==== file upload===============*/
-.upload {
-    top:40px;
-    left:40px;
-    font-size: medium;
-    position :inherit ;
-    margin-top:5px;
-    margin-bottom :10px;
-    z-index :3;
-
-}
-.btnupload {
-    top:80px;
-    right:50px;
-    font-size: medium;
-    position :absolute;
-    z-index :3;
-}
-.fileuploadsuccessful {
-    font-size: medium;
-    color: #37b00e;
-    z-index :3;
-    position :absolute ;
-    top:110px;
-    left:35px;
-}
+.pageHeading
+{
+    color:#4b6c9e;
+    font-size:medium;
+    padding-bottom :15px;
+   font-variant :small-caps ;
+ }
