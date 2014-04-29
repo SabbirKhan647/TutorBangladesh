@@ -82,7 +82,7 @@
                 &nbsp;</td>
             <td>
    
-    <asp:Button ID="Button1" runat="server" Text="Insert" 
+    <asp:Button ID="Button1" runat="server" Text="Insert" class="buttonstyle"
         onclick="Button1_Click" />
             </td>
         </tr>

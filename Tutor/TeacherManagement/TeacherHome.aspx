@@ -153,7 +153,7 @@
     <asp:Repeater ID="Repeater1" runat="server">
         <HeaderTemplate>
             <table cellpadding="1" cellspacing ="1" width ="100%" style="border:1px solid #c0c0c0">
-            <tr bgcolor="#FF781E" style="border:1px solid #c0c0c0" >
+            <tr bgcolor="#999999" style="border:1px solid #c0c0c0" >
                 <th  >ID
                 </th>
                 <th >Name

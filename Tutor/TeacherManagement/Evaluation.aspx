@@ -10,6 +10,7 @@
             </ul>       
            </div>
            </div>
+    <br />
             <h3 class="pageHeading">Test Report by Batch</h3>
            <br />
            <br />

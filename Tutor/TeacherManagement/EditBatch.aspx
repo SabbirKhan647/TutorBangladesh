@@ -49,7 +49,7 @@
 <asp:BoundField DataField="startDate" HeaderText="Start Date" DataFormatString ="{0:MM/dd/yyyy}"/> 
 <asp:BoundField DataField="maxStudent" HeaderText="Max Student" />
 <asp:CommandField HeaderText="Edit Batch" ShowHeader="True" ShowEditButton="True" /> 
-<asp:CommandField HeaderText="Edit Batch Day/Time" ShowHeader="True" ShowSelectButton="True" />
+<asp:CommandField HeaderText="Edit Batch Day/Time" ShowHeader="True" ShowSelectButton="True" SelectText="Open Timing" />
  </Columns> 
 </asp:GridView> 
 <br /><br />

@@ -10,12 +10,19 @@
         {
             width: 110px;
         }
+        .auto-style1 {
+            width: 110px;
+            height: 22px;
+        }
+        .auto-style2 {
+            height: 22px;
+        }
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
  <div>
     <br />
- <h3 class="pageHeading">New Notice</h3>
+ <h3 class="pageHeading">Announcement</h3>
   <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </asp:ToolkitScriptManager>
      <table class="style1">
@@ -29,11 +36,11 @@
              </td>
          </tr>
          <tr>
-             <td class="style2">
+             <td class="auto-style1">
                  <asp:Label ID="Label2" runat="server" Text="Subject"></asp:Label>
              </td>
-             <td>
-                 <asp:TextBox ID="txtSubject" runat="server"></asp:TextBox>
+             <td class="auto-style2">
+                 <asp:TextBox ID="txtSubject" runat="server" Width="243px"></asp:TextBox>
              </td>
          </tr>
          <tr>
@@ -41,14 +48,14 @@
                  <asp:Label ID="Label3" runat="server" Text="Message"></asp:Label>
              </td>
              <td>
-                 <asp:TextBox ID="txtMessage" runat="server"></asp:TextBox>
+                 <asp:TextBox ID="txtMessage" runat="server" TextMode="MultiLine" Width="248px"></asp:TextBox>
              </td>
          </tr>
          <tr>
              <td class="style2">
                  &nbsp;</td>
              <td>
-                 <asp:Button ID="btnGenerateNotice" runat="server" Text="Generate " 
+                 <asp:Button ID="btnGenerateNotice" runat="server" Text="Generate " class ="buttonstyle"
                      onclick="btnGenerateNotice_Click" />
              </td>
          </tr>

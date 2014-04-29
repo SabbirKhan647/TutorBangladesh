@@ -20,12 +20,12 @@ namespace Tutor.TeacherManagement
                
                 //TimeSpan ts = new TimeSpan(0, 30, 0);
 
-                for (int i = 60; i < 1500; i++)
+                for (int i = 420; i < 1460; i++)
                 {
                     DropDownStTime.Items.Add(DateTime.MinValue.AddMinutes(i).ToString("hh:mm tt"));
                     i = i + 29;
                 }
-                for (int i = 120; i < 1560; i++)
+                for (int i = 480; i < 1460; i++)
                 {
                     DropDownEndTime.Items.Add(DateTime.MinValue.AddMinutes(i).ToString("hh:mm tt"));
                     i = i + 29;
@@ -79,6 +79,39 @@ namespace Tutor.TeacherManagement
                 DropDownStTime.Focus();
             }
         }
+        //protected string TimeConflict()
+        //{
+
+        //    SqlConnection c;
+        //    c = new SqlConnection(ConfigurationManager.ConnectionStrings["TutorConnectionString"].ConnectionString);
+        //    c.Open();
+        //    SqlCommand cmd = new SqlCommand("select Batch.BatchID, DayName, startTime, endTime  from Batch, BatchDay where Batch.teacherId= @tid", c);
+        //    //2. Define parameter
+        //    SqlParameter param = new SqlParameter();
+        //    param.ParameterName = "@tid";
+        //    param.Value = Convert .ToInt32 (Session ["TeacherID"].ToString());
+        //    cmd.Parameters.Add(param);
+        //    SqlDataReader rdr = null;
+        //    rdr = cmd.ExecuteReader();
+        //    string a = null;
+        //    while (rdr.Read())
+        //    {
+        //        string existingday = rdr[1].ToString();
+        //        string selectedday=DropDownListDay .SelectedItem .Text ;
+        //        int sameday = String.Compare(selectedday,existingday);
+        //       TimeSpan selectedTime = DateTime.Parse(DropDownStTime.SelectedItem.Text).TimeOfDay;
+        //       TimeSpan existingTime = DateTime.Parse(rdr[2].ToString()).TimeOfDay;
+        //       int samestarttime = existingTime.CompareTo(selectedTime);
+        //       //if both day and start time same
+        //        if ((samestarttime==0) && (sameday==0) )
+        //        {
+        //            a= "Time conflict. Please select a new day/time";
+        //            break;
+                    
+        //        }
+        //    }
+        //    return a;
+        //}
         protected string TimeConflict()
         {
 
@@ -89,25 +122,39 @@ namespace Tutor.TeacherManagement
             //2. Define parameter
             SqlParameter param = new SqlParameter();
             param.ParameterName = "@tid";
-            param.Value = Convert .ToInt32 (Session ["TeacherID"].ToString());
+            param.Value = Convert.ToInt32(Session["TeacherID"].ToString());
             cmd.Parameters.Add(param);
             SqlDataReader rdr = null;
             rdr = cmd.ExecuteReader();
             string a = null;
             while (rdr.Read())
             {
-                string day1 = rdr[1].ToString();
-                string day=DropDownListDay .SelectedItem .Text ;
-                int result1 = String.Compare(day,day1);
-               TimeSpan selectedTime = DateTime.Parse(DropDownStTime.SelectedItem.Text).TimeOfDay;
-               TimeSpan stTime = DateTime.Parse(rdr[2].ToString()).TimeOfDay;
-               int result = stTime.CompareTo(selectedTime);
-               //if both day and start time same
-                if ((result==0) && (result1==0) )
+                //compare day
+                string existingday = rdr[1].ToString();
+                string selectedday = DropDownListDay.SelectedItem.Text;
+                int sameday = String.Compare(selectedday, existingday);
+
+                // start time
+                TimeSpan selectedstartTime = DateTime.Parse(DropDownStTime.SelectedItem.Text).TimeOfDay;
+                TimeSpan existingstartTime = DateTime.Parse(rdr[2].ToString()).TimeOfDay;
+              //  int samestarttime = existingTime.CompareTo(selectedTime);
+
+                // end time
+
+                TimeSpan selectedendTime = DateTime.Parse(DropDownEndTime.SelectedItem.Text).TimeOfDay;
+                TimeSpan existingendTime = DateTime.Parse(rdr[3].ToString()).TimeOfDay;
+
+                //compare overlap
+                if (sameday == 0)
                 {
-                    a= "Time conflict. Please select a new start time";
+                  //  if(selectedstartTime <=existingendTime && selectedendTime <existingstartTime ){
+                     //if(existingendTime <=selectedstartTime || existingstartTime >selectedendTime ){
+                    if(selectedstartTime <=existingendTime || selectedendTime <existingstartTime ){
+                   
+                    a = "Time conflict. Please select a new day/time";
                     break;
-                    
+                    }
+
                 }
             }
             return a;

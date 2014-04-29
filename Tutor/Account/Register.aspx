@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Public.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="Tutor.Account.Register" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-<script type ="text/javascript">
+    <script type ="text/javascript">
     function validateCheckemail() {
         var regularev = document.getElementById('RegularExpressionValidator1');
 
@@ -20,7 +20,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:CreateUserWizard ID="RegisterUser" runat="server" 
     EnableViewState="false" OnCreatedUser="RegisterUser_CreatedUser" 
-    ContinueDestinationPageUrl="~/SelectRole.aspx">
+    ContinueDestinationPageUrl="~/SelectRole.aspx" BorderStyle="None" EnableTheming="True">
+      
         <LayoutTemplate>
             <asp:PlaceHolder ID="wizardStepPlaceholder" runat="server"></asp:PlaceHolder>
             <asp:PlaceHolder ID="navigationPlaceholder" runat="server"></asp:PlaceHolder>
@@ -29,31 +30,31 @@
             <asp:CreateUserWizardStep ID="RegisterUserWizardStep" runat="server">
                 <ContentTemplate>
                     <h2>
-                        Create a New Account
+                        Sign up
                     </h2>
-                    <p>
+                    <%--<p>
                         Use the form below to create a new account.
-                    </p>
-                    <p>
+                    </p>--%>
+                    <%--<p>
                         Passwords are required to be a minimum of <%= Membership.MinRequiredPasswordLength %> characters in length.
-                    </p>
-                    <span class="failureNotification">
+                    </p>--%>
+                   <%-- <span class="failureNotification">
                         <asp:Literal ID="ErrorMessage" runat="server"></asp:Literal>
-                    </span>
+                    </span>--%>
                     <asp:ValidationSummary ID="RegisterUserValidationSummary" runat="server" CssClass="failureNotification" 
                          ValidationGroup="RegisterUserValidationGroup"/>
                     <div class="accountInfo">
                         <fieldset class="register">
-                            <legend>Account Information</legend>
+                            <%--<legend>Account Information</legend>--%>
                             <p>
-                                <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">User Name:</asp:Label>
+                                <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">User Name</asp:Label><br />
                                 <asp:TextBox ID="UserName" runat="server" CssClass="textEntry"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" 
                                      CssClass="failureNotification" ErrorMessage="User Name is required." ToolTip="User Name is required." 
                                      ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
                             </p>
                             <p>
-                                <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email">E-mail:</asp:Label>
+                                <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email">E-mail</asp:Label>
                                <div class="emailverify"> <asp:TextBox ID="Email" runat="server" CssClass="textEntry" onblur="validateCheckemail()"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="Email" 
                                      CssClass="failureNotification" ErrorMessage="E-mail is required." ToolTip="E-mail is required." 
@@ -77,7 +78,7 @@
                        
                             </p>
                             <p>
-                                <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">Password:</asp:Label>
+                                <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">Password</asp:Label><br />
                                 <asp:TextBox ID="Password" runat="server" CssClass="passwordEntry" TextMode="Password"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" 
                                      CssClass="failureNotification" ErrorMessage="Password is required." ToolTip="Password is required." 
@@ -85,7 +86,7 @@
                               
                             </p>
                             <p>
-                                <asp:Label ID="ConfirmPasswordLabel" runat="server" AssociatedControlID="ConfirmPassword">Confirm Password:</asp:Label>
+                                <asp:Label ID="ConfirmPasswordLabel" runat="server" AssociatedControlID="ConfirmPassword">Confirm Password:</asp:Label><br />
                                 <asp:TextBox ID="ConfirmPassword" runat="server" CssClass="passwordEntry" TextMode="Password"></asp:TextBox>
                                 <asp:RequiredFieldValidator ControlToValidate="ConfirmPassword" CssClass="failureNotification" Display="Dynamic" 
                                      ErrorMessage="Confirm Password is required." ID="ConfirmPasswordRequired" runat="server" 
@@ -97,7 +98,7 @@
                             
                         </fieldset>
                         <p class="submitButton">
-                            <asp:Button ID="CreateUserButton" runat="server" CommandName="MoveNext" Text="Create User" 
+                            <asp:Button ID="CreateUserButton" runat="server" CommandName="MoveNext" Text="Sign Up" class="buttonstyle" 
                                  ValidationGroup="RegisterUserValidationGroup"/>
                         </p>
                     </div>
@@ -105,6 +106,7 @@
                 <CustomNavigationTemplate>
                 </CustomNavigationTemplate>
             </asp:CreateUserWizardStep>
+<asp:CompleteWizardStep runat="server"></asp:CompleteWizardStep>
         </WizardSteps>
  </asp:CreateUserWizard>
 

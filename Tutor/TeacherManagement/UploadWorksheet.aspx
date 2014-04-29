@@ -3,13 +3,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 <div class="menubar1">
-             <div class="menupublic1">             
+        <div class="menupublic1">
             <ul id="navmenu1">
-            <li><a id="A1" href="UploadWorksheet.aspx" runat="server">Upload Worksheet</a></li>
-            <li><a id="A2" href="#" runat="server">Delete Worksheet </a></li>
-            </ul>       
-           </div>
-           </div>
+                <li><a id="A3" href="Worksheet.aspx" runat="server">View Worksheet </a></li>
+                <li><a id="A1" href="UploadWorksheet.aspx" runat="server">Upload Worksheet</a></li>
+                <li><a id="A2" href="#" runat="server">Delete Worksheet </a></li>
+            </ul>
+        </div>
+    </div>
            <br />
   <br />
  <h3 class="pageHeading">Upload Worksheet</h3>
@@ -36,7 +37,7 @@
                                     </asp:DropDownList><br /><br />
 <asp:FileUpload ID="FileUpload1" runat="server" Visible="True" />
 <asp:Label ID="lblMessage" runat="server"></asp:Label>
- <asp:Button ID="ButtonUpload" runat="server" OnClick="ButtonUpload_Click" Text="Upload" Visible="True" Width="97px" />
+ <asp:Button ID="ButtonUpload" runat="server" OnClick="ButtonUpload_Click" Text="Upload" Visible="True" class="buttonstyle"/>
   <asp:GridView ID="GridViewWorksheet" runat="server" DataKeyNames="WorksheetID" OnSelectedIndexChanged="GridViewWorksheet_SelectedIndexChanged" style="margin-left: 0px">
                             <Columns>
                                 <asp:TemplateField>

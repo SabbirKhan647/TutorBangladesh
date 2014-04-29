@@ -63,7 +63,7 @@
      <div id="messageDiv">
         <div class="divHeader"><img class="close" id="closeImage" src="../Images/cross.jpg" width="20px" height="20px"alt="close image" title="Close" onclick="javascript:closeDiv();"/></div>
       <asp:FileUpload ID="uploadAssignment" runat ="server" CssClass ="upload"/>
-     <asp:Button ID="btnUpload" runat="server" Text="Upload File" onCommand="btnUpload_Click" cssClass="btnupload"
+     <asp:Button ID="btnUpload" runat="server" Text="Upload File" onCommand="btnUpload_Click" class="buttonstyle"
      CommandName="btnUploadClick" CommandArgument='<%# Eval("AssignmentID") %>'></asp:Button><br /><br />
      <asp:Label id="lblMessage" runat ="server" Text="DD" Visible ="false" CssClass ="fileuploadsuccessful"> </asp:Label>
      </div>

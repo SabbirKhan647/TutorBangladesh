@@ -27,8 +27,9 @@
     <div class="page">
         <div class="header">
             <div class="logo">
-                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Default.aspx"><img alt="Tutoring services" class="logo1" src="../Images/tutormanagement.jpg" width="300"/></asp:HyperLink>
-             
+              <%--  <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Default.aspx"><img alt="Tutoring services" class="logo1" src="../Images/tutormanagement.jpg" width="300"/></asp:HyperLink>
+             --%>
+                 <h3 style="color:#fff; padding-left :2em;font-size :16px;"> Bangladesh Tutoring </h3> 
             </div>
             <div class="wrapper">
                 <asp:Image runat="server" ID="notificationImage" ImageUrl="~/Images/notification.jpg"
@@ -37,7 +38,7 @@
                     <div class="headbar">
                         Notification</div>
                     <p>
-                        This is a test</p>
+                       Update profile to be viewed by tutors. </p>
                 </div>
             </div>
             <div class="loginDisplay">
@@ -50,10 +51,8 @@
             <div class="menubar">
                 <div class="menuright">
                     <ul id="navmenu">
-                        <li class="highlight"><a id="A4" href="~/StudentManagement/myTutor.aspx" runat="server">
-                            My Home </a></li>
-                        <li><a id="A1" href="StudentManagement/MyBatchesAsStudent.aspx" runat="server">Batch
-                        </a></li>
+                        <li class="highlight"><a id="A4" href="~/StudentManagement/myTutor.aspx" runat="server"> My Home </a></li>
+                        <li><a id="A1" href="StudentManagement/MyBatchesAsStudent.aspx" runat="server">Batch </a></li>
                         <li><a id="A5" href="~/StudentManagement/WorksheetforStudent.aspx" runat="server">WorkSheet</a></li>
                         <li><a id="A2" href="~/StudentManagement/Dropbox.aspx" runat="server">Dropbox</a></li>
                         <li><a id="A7" href="~/StudentManagement/StudentTimeTable.aspx" runat="server">TimeTable</a></li>
@@ -69,8 +68,13 @@
         </div>
         <div class="clear">
         </div>
-        <div class="footer">
-        </div>
+           <div class="footer">
+               <br />
+               <br />
+               <br />
+                <hr />
+                our farm name should go here
+            </div>
     </div>
     </form>
 </body>

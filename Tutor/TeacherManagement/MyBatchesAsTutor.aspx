@@ -15,17 +15,8 @@
              </ul>       
            </div>
            </div>
-<%--<div class="sideNavigation">
-<asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/TeacherManagement/CreateBatch.aspx">Create Batch</asp:HyperLink><br />
-<asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl ="#">Delete Batch</asp:HyperLink><br />
-<asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl ="#">Switch Student</asp:HyperLink><br />
-<asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl ="#">Delete Student</asp:HyperLink><br />
-<asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl ="~/TeacherManagement/RefreshBatch.aspx">Refresh Batch</asp:HyperLink><br />
-<asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl ="#">Enroll Student</asp:HyperLink><br />
-<asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl ="#">Change Batch Time</asp:HyperLink><br />
-<asp:HyperLink ID="HyperLink9" runat="server" NavigateUrl="~/TeacherManagement/MyBatchesforTutor.aspx">My Batches</asp:HyperLink>
- </div>--%>
- <br /><br />
+
+ <br />
  <h3 class="pageHeading">My Batches</h3>
 <asp:GridView ID="gvBatch" runat="server" AutoGenerateColumns="false" CssClass="Grid" 
         DataKeyNames="BatchID" OnRowDataBound="OnRowDataBound" 
@@ -154,8 +145,10 @@
                 </asp:TemplateField>
            <%-- <asp:BoundField ItemStyle-Width="150px" DataField="gradename" HeaderText="Grade" />--%>
            <%--  <asp:CommandField HeaderText="Edit/" ShowEditButton="True" />--%>
+           
 			    <asp:TemplateField HeaderText="Delete">
                     <ItemTemplate>
+                        
                         <asp:LinkButton ID="linkDeleteBatch" CommandName="Delete" runat="server">Delete</asp:LinkButton>
                     </ItemTemplate>
                   <%--  <FooterTemplate>

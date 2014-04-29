@@ -13,13 +13,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="menubar1">
-             <div class="menupublic1">             
+        <div class="menupublic1">
             <ul id="navmenu1">
-            <li><a id="A1" href="UploadWorksheet.aspx" runat="server">Upload Worksheet</a></li>
-            <li><a id="A2" href="#" runat="server">Delete Worksheet </a></li>
-            </ul>       
-           </div>
-           </div>
+                <li><a id="A3" href="Worksheet.aspx" runat="server">View Worksheet </a></li>
+                <li><a id="A1" href="UploadWorksheet.aspx" runat="server">Upload Worksheet</a></li>
+                <li><a id="A2" href="#" runat="server">Delete Worksheet </a></li>
+            </ul>
+        </div>
+    </div>
    <%-- <div class="sideNavigation"><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/TeacherManagement/UploadWorksheet.aspx">Upload Worksheet</asp:HyperLink><br />
  <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl ="#">Delete Worksheet</asp:HyperLink><br />
  <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl ="#">Replace Worksheet</asp:HyperLink><br />
@@ -64,8 +65,8 @@
             <td class="style2">
                 &nbsp;</td>
             <td>
-<asp:Button ID="ButtonShow" runat="server" OnClick="ButtonShow_Click" Text="Show List " 
-                    Visible="True" Width="171px" />
+<asp:Button ID="ButtonShow" runat="server" OnClick="ButtonShow_Click" Text="Show List " class="buttonstyle"
+                    Visible="True"  />
             </td>
         </tr>
         <tr>

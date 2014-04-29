@@ -23,16 +23,18 @@ namespace Tutor.TeacherManagement
                     Label1.Text = interval.ToString();
                 }
 
-                for (int i = 5; i <= 100; i = i + 5)
-                {
-                    DropDownTestTotalQuestion.Items.Add(i.ToString()); 
+                // To make it the first element at the list, use 0 index : 
+                DropDownTestDuration.Items.Insert(0, new ListItem("Select", string.Empty)); 
+           //     for (int i = 5; i <= 100; i = i + 5)
+             //   {
+               //     DropDownTestTotalQuestion.Items.Add(i.ToString()); 
                 
-                }
-                for (int i = 20; i <= 100; i = i + 5)
-                {
-                    DropDownTestTotalMark.Items.Add(i.ToString());
+                //}
+                //for (int i = 20; i <= 100; i = i + 5)
+               // {
+                 //   DropDownTestTotalMark.Items.Add(i.ToString());
 
-                }
+                //}
                 int teacherid = Convert.ToInt32(Session["TeacherID"]);
 
                 SqlConnection c;
@@ -46,7 +48,9 @@ namespace Tutor.TeacherManagement
 
                 DropDownListBatch.DataTextField = "BatchName"; DropDownListBatch.DataValueField = "BatchID";
                 DropDownListBatch.DataSource = d; DropDownListBatch.DataBind();
-
+               
+                // To make it the first element at the list, use 0 index : 
+                DropDownListBatch .Items.Insert(0, new ListItem("Select", string.Empty)); 
                 if (c != null)
                 {
                     c.Close();
@@ -105,11 +109,16 @@ namespace Tutor.TeacherManagement
            // cmd1.Parameters.Add("@du", SqlDbType.Time).Value = ts; 
             cmd1.Parameters.Add("@tad", SqlDbType.Date).Value =DateTime .Parse (txtTestAvailableDate.Text).Date;
             cmd1.Parameters.Add("@ted", SqlDbType.Date).Value =DateTime .Parse(txtTestExpireDate.Text).Date;
-            cmd1.Parameters.Add("@tq", SqlDbType.Int).Value =Convert .ToInt32 (DropDownTestTotalQuestion.SelectedValue);
-            cmd1.Parameters.Add("@tw", SqlDbType.Int).Value = Convert.ToInt32(DropDownTestTotalMark.SelectedValue);
-
+       //     cmd1.Parameters.Add("@tq", SqlDbType.Int).Value =Convert .ToInt32 (DropDownTestTotalQuestion.SelectedValue);
+         //   cmd1.Parameters.Add("@tw", SqlDbType.Int).Value = Convert.ToInt32(DropDownTestTotalMark.SelectedValue);
+            cmd1.Parameters.Add("@testname", SqlDbType.VarChar, 60);
+            cmd1.Parameters["@testname"].Direction = ParameterDirection.Output;
             //3. Call ExecuteNonQuery to send the command
             cmd1.ExecuteNonQuery();
+            Label3.Text = "Test is created successfully.";
+            Label11.Text = "The Test Name is: " + cmd1.Parameters["@testname"].Value.ToString();
+            Label3.Visible = true;
+            Label11.Visible = true;
             //5. Close the connection
             if (c != null)
             {
@@ -130,7 +139,8 @@ namespace Tutor.TeacherManagement
             
             DropDownTestName.DataTextField = "TaskName"; DropDownTestName.DataValueField = "TaskName";
             DropDownTestName.DataSource = d; DropDownTestName.DataBind();
-
+            // To make it the first element at the list, use 0 index : 
+            DropDownTestName.Items.Insert(0, new ListItem("Select", string.Empty)); 
             if (c != null)
             {
                 c.Close();

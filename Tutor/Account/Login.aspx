@@ -16,6 +16,7 @@
             PasswordRecoveryText="Forgot your password?" 
             onauthenticate="Login1_Authenticate" onloggedin="Login1_LoggedIn" DestinationPageUrl="~/Student/myTutor.aspx"   
           >
+            <LoginButtonStyle CssClass="buttonstyle" />
         </asp:Login>
     </p>
   

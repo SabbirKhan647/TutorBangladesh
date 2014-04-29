@@ -105,6 +105,7 @@ namespace Tutor.StudentManagement
                 Label teststartdate = (Label)e.Item.FindControl("lblTestAvailableDate");
                 DateTime teststartdate1 = DateTime.Parse(teststartdate.Text).Date;
                 Label testexpiredate = (Label)e.Item.FindControl("lbltestExpireDate");
+                Button btnsubmit = (Button)e.Item.FindControl("btnSubmit");
                 DateTime testexpiredate1 = DateTime.Parse(testexpiredate.Text).Date;
                 
                 DateTime currentdate = DateTime.Today;//client date
@@ -116,6 +117,7 @@ namespace Tutor.StudentManagement
                     LinkButton p = (LinkButton)e.Item.FindControl("LBAssgnmtName");
                     p.Enabled = false;
                     p.CssClass = "DisableHyperlink";
+                    btnsubmit.Enabled = false;
                 }
 
             }

@@ -19,8 +19,10 @@
     <form id="form1" runat="server">
         <div class="page">
             <div class="header">
+            
                 <div class="logo">
-                    <img alt="Tutoring services" class="logo1" src="../Images/tutormanagement.jpg" width="300" />
+                 <%--  <img alt="Tutoring services" class="logo1" src="../Images/tutormanagement.jpg" width="300" />--%>
+                         <h3 style="color:#fff; padding-left :2em;font-size :16px;"> Bangladesh Tutoring </h3> 
                 </div>
                 <div class="loginDisplay">
                     <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
@@ -56,15 +58,18 @@
                 </asp:LoginView>
            <br />--%>
                 <div class="menubar">
-                    <div class="menupublic">
+                    <div class="menuright">
                         <ul id="navmenu">
-                            <li><a href="Default.aspx" runat="server">Home</a></li>
+                            <li class="highlight"><a id="A4" href="Default.aspx" runat="server">Home</a></li>
                             <li><a id="A1" href="~/Account/Register.aspx" runat="server">Sign up </a></li>
-                            <li><a href="Account/Login.aspx" runat="server">My Tutor</a></li>
-                            <li><a href="Public/Contact.aspx" runat="server">Contact</a></li>
+                            <li><a id="A9" href="Account/Login.aspx" runat="server">My Tutor</a></li>
+                             <li><a id="A2" href="Public/FAQ.aspx" runat="server">FAQ</a></li>
+                            <li><a id="A5" href="Public/Contact.aspx" runat="server">Contact</a></li>
+                            
                         </ul>
                     </div>
                 </div>
+               
             </div>
             <div class="main">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
@@ -72,11 +77,15 @@
             </div>
 
             <div class="footer">
+                <br />
+                <br />
+                <br />
+                <hr />
                 our farm name should go here
             </div>
-            
         </div>
-       
+
+
     </form>
 </body>
 </html>

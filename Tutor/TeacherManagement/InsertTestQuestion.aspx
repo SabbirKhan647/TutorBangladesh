@@ -5,42 +5,50 @@
 
 
 <%--<%@ Register TagPrefix="FTB" Namespace="FreeTextBoxControls" Assembly="FreeTextBox" %>--%>
-<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
-        .style1
-        {
+        .style1 {
             width: 100%;
         }
-        .style2
-        {
+
+        .style2 {
             width: 173px;
         }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-<div class="menubar1">
-             <div class="menupublic1">             
+    <div class="menubar1">
+        <div class="menupublic1">
             <ul id="navmenu1">
-            <li><a id="A1" href="CreateTest.aspx" runat="server">Create Test</a></li>
-            <li><a id="A2" href="InsertTestQuestion.aspx" runat="server">Insert Question </a></li>
-            <li><a id="A5" href="PreviewTestQuestion.aspx" runat="server">Preview Question </a></li>
-             <li><a id="A3" href="ChangeTestDate.aspx" runat="server">Change Test Date </a></li>
-             </ul>       
-           </div>
-           </div>
-           <br />
-           <h3 class="pageHeading">Insert Test Question</h3>
+                <li><a id="A1" href="CreateTest.aspx" runat="server">Create Test</a></li>
+                <li><a id="A2" href="InsertTestQuestion.aspx" runat="server">Insert Question </a></li>
+                <li><a id="A5" href="PreviewTestQuestion.aspx" runat="server">Preview Question </a></li>
+                <li><a id="A3" href="ChangeTestDate.aspx" runat="server">Change Test Date </a></li>
+            </ul>
+        </div>
+    </div>
+    <br />
+    <h3 class="pageHeading">Insert Test Question</h3>
     <table class="style1">
-    <tr>
+        <tr>
             <td class="style2">
                 <asp:Label ID="Label11" runat="server" Text="Batch Name"></asp:Label>
             </td>
             <td>
                 <asp:DropDownList ID="DropDownListBatchName" runat="server">
                 </asp:DropDownList>
-                 <asp:Button ID="btnGO" runat="server" Text="GO" Height="21px" 
-                    onclick="btnGO_Click" />
+               
+            </td>
+        </tr>
+          <tr>
+            <td class="style2">
+               
+            </td>
+            <td>
+                <asp:Button ID="btnGO" runat="server" Text="Get Test Name" Height="21px" class="buttonstyle"
+                    OnClick="btnGO_Click" />
+              
             </td>
         </tr>
         <tr>
@@ -66,11 +74,11 @@
                 <asp:Label ID="Label3" runat="server" Text="Question "></asp:Label>
             </td>
             <td>
-                <asp:TextBox ID="txtQuestion" runat="server" TextMode="MultiLine" Width="469px" 
-                    ontextchanged="txtQuestion_TextChanged"></asp:TextBox>
-                
-                   
-              
+                <asp:TextBox ID="txtQuestion" runat="server" TextMode="MultiLine" Width="469px"
+                    OnTextChanged="txtQuestion_TextChanged"></asp:TextBox>
+
+
+
             </td>
         </tr>
         <tr>
@@ -111,11 +119,11 @@
             </td>
             <td>
                 <asp:DropDownList ID="DropDownListCorrectAnswer" runat="server">
-                <asp:ListItem runat="server" Text="Select correct answer"></asp:ListItem>
-                <asp:ListItem runat="server" Text="A"></asp:ListItem>
-                <asp:ListItem runat="server" Text="B"></asp:ListItem>
-                <asp:ListItem runat="server" Text="C"></asp:ListItem>
-                <asp:ListItem runat="server" Text="D"></asp:ListItem>
+                    <asp:ListItem runat="server" Text="Select correct answer"></asp:ListItem>
+                    <asp:ListItem runat="server" Text="A"></asp:ListItem>
+                    <asp:ListItem runat="server" Text="B"></asp:ListItem>
+                    <asp:ListItem runat="server" Text="C"></asp:ListItem>
+                    <asp:ListItem runat="server" Text="D"></asp:ListItem>
                 </asp:DropDownList>
             </td>
         </tr>
@@ -124,9 +132,9 @@
                 <asp:Label ID="Label9" runat="server" Text="Answer Explanation"></asp:Label>
             </td>
             <td>
-                <asp:TextBox ID="txtAnswerExplanation" runat="server" TextMode="MultiLine" 
+                <asp:TextBox ID="txtAnswerExplanation" runat="server" TextMode="MultiLine"
                     Width="455px"></asp:TextBox>
-&nbsp;</td>
+                &nbsp;</td>
         </tr>
         <tr>
             <td class="style2">
@@ -138,12 +146,11 @@
             </td>
         </tr>
         <tr>
-            <td class="style2">
-                &nbsp;</td>
+            <td class="style2">&nbsp;</td>
             <td>
-                <asp:Button ID="btnSave" runat="server" Text="Save" onclick="btnSave_Click" />
-                <asp:Button ID="btnRefresh" runat="server" Text="Refresh" 
-                    onclick="btnRefresh_Click" />
+                <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" class="buttonstyle" Style="height: 25px;" />
+                <asp:Button ID="btnRefresh" runat="server" Text="Refresh"
+                    OnClick="btnRefresh_Click" />
             </td>
         </tr>
     </table>

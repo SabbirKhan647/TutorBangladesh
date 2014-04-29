@@ -17,11 +17,12 @@ html {
     background-color: #fff;
     margin: 20px auto 0px auto;
     border: 1px solid #496077;
+   
 }
 .main {
     padding: 0px 12px;
     margin: 5px 8px 8px 8px;
-    height:auto;
+    height:auto ;
     background-color: #FFFFCC;
 }
 .header
@@ -31,6 +32,12 @@ html {
     padding: 0px;
     background: #4b6c9e;
     width: 100%;
+}
+.logo
+{
+    width:300px;
+    margin-top :0px;
+    float :left ;
 }
 .loginDisplay
 {
@@ -63,12 +70,12 @@ html {
     left :0px;
     background-color:#3a4f63;
 }
-.menupublic
+/*.menupublic
 {
     width:380px;
     left :0px ;
     
-}
+}*/
 .footer
 {
     clear :both ;
@@ -76,8 +83,7 @@ html {
     position:relative ;
     height:40px;
     bottom:0;
-    border :1px solid gray;
-    background :#4b6c9e;
+    /* background :#4b6c9e;*/
     margin :10px 0px 0px 0px;
     padding :0px;
     left :0px;
@@ -165,7 +171,7 @@ ul#navmenu1
      border :1px solid #4e667d;
      border-radius:5px;
      color :#fff;
-    
+   
      
  }
  ul#navmenu1 a:hover
@@ -175,10 +181,10 @@ ul#navmenu1
      width :auto;/* fix width */
      height:22px;
      line-height:22px;
-     background-color:#bfcbd6;/*==========*/
+   /*  background-color:#bfcbd6;/*==========*/
      border-radius:5px;
      color :#fff;
-    
+     background-color :#f0e68c;
      
  }
  ul#navmenu li:hover>a
@@ -190,9 +196,11 @@ ul#navmenu1
  }
 ul#navmenu1 li:hover>a
  {
-     background-color:#bfcbd6;/*===keeps track =======*/
+   /*  background-color:#bfcbd6;/*===keeps track =======*/
      color:#000;
      border-radius:5px;
+       background-color :#f0e68c;
+     
  }
 
 ul#navmenu li.highlight{ background:#bfcbd6;}
@@ -298,7 +306,7 @@ font-weight :bold ;
             text-align :center ;
             width:130px;
 }
-.nextweek1:hover  {color:#ffffff;height :20px;background:#808080;
+.nextweek1:hover  {color:#ffffff;height :20px;background:#4b6c9e;
                        text-align:center;
                    width:130px;
 }
@@ -317,3 +325,72 @@ font-weight :bold ;
     padding-bottom :15px;
    font-variant :small-caps ;
  }
+/*   Deselect message
+    ---------------------------------*/
+#messageDiv {
+min-width:400px;
+min-height :100px;
+z-index :3;
+position :absolute ;
+top:250px;
+left:330px;
+background-color :#EAEAEA;
+display :none;
+border :1px solid gray;
+padding-top: 25px;
+padding-bottom:25px; 
+margin-top:5px;
+margin-bottom :10px;
+}
+.divHeader {
+   min-width: 400px;
+    height: 20px;
+    z-index: 3;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color:#496077;
+}
+.close {
+    position :absolute ;
+    right :5px;
+    top:0px;
+   
+}
+.message {
+    padding-top: 25px;
+    padding-left :15px;
+    padding-right :15px;
+    padding-bottom:25px; 
+    font-size: medium;
+    position :inherit ;
+    margin-top:5px;
+    margin-bottom :10px;
+}
+/*   Button style
+    -----------------------------*/
+.buttonstyle {color:#ffffff;height :30px;;background:#4e667d;
+            text-align :center ;
+            width:auto;
+}
+.buttonstyle:hover  {color:#ffffff;height :30px;background:#4b6c9e;
+                       text-align:center;
+                   width:auto;
+}
+/*      Quiz page
+    ------------------------------------*/
+.DisableHyperlink{text-decoration:underline;color:Gray;}
+
+/*     Display Notice 
+    --------------------------------------*/
+  .NoticeContainer{border-bottom:2px solid #EEF3E2;
+                   width:700px;min-height:100px;} /*--properties for dynamic control, see c# code for control's ID*/
+  .NoticeBatchName{color:#097790;float:left;padding:10px;width:300px;}
+  .NoticeDate{float:right;padding:10px;width:300px;}
+  .NoticeSubject{padding-left:10px;width:300px;}
+  .NoticeMessage{padding-left:10px;width:500px;margin-top:5px;}
+.info {
+    position: absolute;
+    left: 5px;
+    top: 0px;
+}

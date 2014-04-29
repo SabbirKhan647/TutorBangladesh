@@ -6,15 +6,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <br />
     <h3 class="pageHeading">Time Table</h3>
-    <div class="weekNavigation">
+     <div class="weekNavigation">
         <div class="previousWeek">
-            <asp:Button ID="previousWeek1" runat="server" Text="<< Previous Week" OnClick="previousWeek1_Click" />
+            <asp:Button ID="previousWeek1" runat="server" Text="<< Previous Week" OnClick="previousWeek1_Click" class="nextweek1" />
         </div>
         <div class="WeekDayName">
-            <asp:Label ID="Label2" runat="server" Text="DayName">Sunday to Saturday</asp:Label>
+            <asp:Label ID="Label2" runat="server" Text="DayName" CssClass="dayName">Sunday to Saturday</asp:Label>
         </div>
         <div class="NextWeek">
-            <asp:Button ID="NextWeek1" runat="server" Text="Next Week >>" OnClick="NextWeek1_Click" />
+            <asp:Button ID="NextWeek1" runat="server" Text="Next Week >>" OnClick="NextWeek1_Click" class="nextweek1" />
         </div>
     </div>
     <asp:HiddenField ID="storeNextWeekDate" runat="server" />

@@ -18,7 +18,7 @@
    <td>
   <div class="NoticeBatchName"> <asp:Label runat ="server"  ID="lblBatch" Text='<%# Eval("BatchName") %>'></asp:Label></div>
    <div class="NoticeDate"><asp:Label runat ="server" ID="dd" Text="Posted on:"></asp:Label> <asp:Label runat ="server" ID="Date" Text='<%# Eval("Date","{0:dd/MM/yyyy HH:mm tt}") %>' ></asp:Label><br /></div> 
-   <div class="NoticeSubject"> <asp:Label runat ="server"  ID="lblSubject" Text='<%# Eval("Subject") %>' Font-Bold="true" ForeColor ="Red" ></asp:Label><br /></div>
+   <div class="NoticeSubject"> <asp:Label runat ="server"  ID="lblSubject" Text='<%# Eval("Subject") %>' Font-Bold="true" ForeColor ="IndianRed" ></asp:Label><br /></div>
    <div class="NoticeMessage">  <asp:Label runat ="server"  ID="lblMessage" Text='<%# Eval("Message") %>'></asp:Label><br /></div>
    </td>
  <%--  <asp:TextBox runat ="server" ID="txtQorder" Text='<%# Eval("QuestionOrder") %>' ></asp:TextBox>--%>

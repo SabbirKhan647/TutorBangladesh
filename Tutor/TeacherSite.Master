@@ -34,8 +34,9 @@
     <div class="page">
         <div class="header">
             <div class="logo">
-                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Default.aspx"><img alt="Tutoring services" class="logo1" src="../Images/tutormanagement.jpg" width="300"/></asp:HyperLink>
-                
+               <%-- <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Default.aspx"><img alt="Tutoring services" class="logo1" src="../Images/tutormanagement.jpg" width="300"/></asp:HyperLink>
+                --%>
+                   <h3 style="color:#fff; padding-left :2em;font-size :16px;"> Bangladesh Tutoring </h3>
              </div>
             <div class="wrapper">
                 
@@ -73,15 +74,19 @@
            </div>
             <asp:HiddenField ID="CurrentDateInMasterPage" runat ="server" ClientIDMode ="Static" />
           
-             <br />
+          
             <div class="main">
                 <asp:ContentPlaceHolder ID="MainContent" runat="server" />
             </div>
             <div class="clear"></div>
        
-        <div class="footer">
-          our farm name should go here
-          </div>
+           <div class="footer">
+               <br />
+               <br />
+               <br />
+                <hr />
+                our farm name should go here
+            </div>
           </div>
        
     </form>

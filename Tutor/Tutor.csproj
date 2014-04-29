@@ -121,6 +121,7 @@
     <Content Include="bin\Microsoft.WindowsAzure.Storage.xml" />
     <Content Include="Default1.aspx" />
     <Content Include="Images\cross.jpg" />
+    <Content Include="Images\information.jpg" />
     <Content Include="Images\notification.jpg" />
     <Content Include="Images\tick.jpg" />
     <Content Include="Scripts\currentDate.js" />
@@ -196,8 +197,7 @@
     <Content Include="Images\tutoring.jpeg" />
     <Content Include="Images\tutoring.jpg" />
     <Content Include="Public\Contact.aspx" />
-    <Content Include="Public\FAQStudent.aspx" />
-    <Content Include="Public\FAQTutor.aspx" />
+    <Content Include="Public\FAQ.aspx" />
     <Content Include="Scripts\autoimagechange.js" />
     <Content Include="Scripts\autoimageslider.js" />
     <Content Include="Scripts\jquery.min.js" />
@@ -668,19 +668,12 @@
     <Compile Include="Public\Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Public\FAQStudent.aspx.cs">
-      <DependentUpon>FAQStudent.aspx</DependentUpon>
+    <Compile Include="Public\FAQ.aspx.cs">
+      <DependentUpon>FAQ.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Public\FAQStudent.aspx.designer.cs">
-      <DependentUpon>FAQStudent.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Public\FAQTutor.aspx.cs">
-      <DependentUpon>FAQTutor.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Public\FAQTutor.aspx.designer.cs">
-      <DependentUpon>FAQTutor.aspx</DependentUpon>
+    <Compile Include="Public\FAQ.aspx.designer.cs">
+      <DependentUpon>FAQ.aspx</DependentUpon>
     </Compile>
     <Compile Include="StudentManagement\myTutor.aspx.cs">
       <DependentUpon>myTutor.aspx</DependentUpon>

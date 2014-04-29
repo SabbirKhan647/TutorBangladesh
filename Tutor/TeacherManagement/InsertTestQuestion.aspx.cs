@@ -28,7 +28,8 @@ namespace Tutor.TeacherManagement
 
                 DropDownListBatchName.DataTextField = "BatchName"; DropDownListBatchName.DataValueField = "BatchID";
                 DropDownListBatchName.DataSource = d; DropDownListBatchName.DataBind();
-
+                // To make it the first element at the list, use 0 index : 
+                DropDownListBatchName.Items.Insert(0, new ListItem("Select", string.Empty)); 
                 if (c != null)
                 {
                     c.Close();
@@ -63,7 +64,8 @@ namespace Tutor.TeacherManagement
             adapt.Fill(dd);
             DropDownListTestID.DataTextField = "TestName"; DropDownListTestID.DataValueField = "TestID";
             DropDownListTestID.DataSource = dd; DropDownListTestID.DataBind();
-
+            // To make it the first element at the list, use 0 index : 
+            DropDownListTestID.Items.Insert(0, new ListItem("Select", string.Empty)); 
          
             if (c != null)
             {
@@ -79,6 +81,8 @@ namespace Tutor.TeacherManagement
             {
                 DropDownListQuesOrder.Items.Add(Convert.ToString(i));
             }
+            // To make it the first element at the list, use 0 index : 
+            DropDownListQuesOrder.Items.Insert(0, new ListItem("Select", string.Empty)); 
             for (float i = (float)0.5; i <= 15; i = i + (float)0.5)
             {
 
