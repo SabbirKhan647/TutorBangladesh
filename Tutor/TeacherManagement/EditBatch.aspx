@@ -1,13 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TeacherSite.Master" AutoEventWireup="true" CodeBehind="EditBatch.aspx.cs" Inherits="Tutor.TeacherManagement.EditBatch" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-  <div class="menubar1">
+    <div class="menubar1">
              <div class="menupublic1">             
             <ul id="navmenu1">
+            <li><a id="A6" href="MyBatchesAsTutor.aspx" runat="server">My Batches </a></li>
             <li><a id="A1" href="CreateBatch.aspx" runat="server">Create Batch</a></li>
             <li><a id="A2" href="InsertBatchDetails.aspx" runat="server">Insert Batch Day/Time </a></li>
-            <li><a id="A6" href="MyBatchesAsTutor.aspx" runat="server">My Batches </a></li>
             <li><a id="A3" href="EditDeleteBatch.aspx" runat="server">Edit Batch </a></li>
 
              </ul>       
@@ -15,43 +16,54 @@
            </div>
            <br /><br />
   <h3 class="pageHeading">Edit Batch</h3>
-  <asp:GridView ID="gvBatch" runat="server" AutoGenerateColumns="False" DataKeyNames="BatchID" OnRowCommand="gvBatch_RowCommand"> 
+  <asp:GridView ID="gvBatch" runat="server" AutoGenerateColumns="False" DataKeyNames="BatchID" OnRowCommand="gvBatch_RowCommand" OnRowEditing="gvBatch_RowEditing" OnRowUpdating="gvBatch_RowUpdating" OnRowCancelingEdit="gvBatch_RowCancelingEdit"> 
 <Columns> 
-<%-- <asp:TemplateField HeaderText ="BatchID" >
+<asp:TemplateField HeaderText ="BatchID" >
              <ItemTemplate >
                <asp:Label ID="lblBatchID" runat ="server" Text ='<%#Eval("BatchID") %>'></asp:Label>          
              </ItemTemplate>
-             <HeaderStyle Width ="10%" />
+             <HeaderStyle Width ="5%" />
  </asp:TemplateField>
   <asp:TemplateField HeaderText="Subject">
               <ItemTemplate >
                 <asp:Label ID="lblSubName" runat ="server" Text ='<%#Eval("subName") %>'></asp:Label>
               </ItemTemplate>
+            
+              <HeaderStyle Width ="20%" />
+        </asp:TemplateField>  
+    <asp:TemplateField HeaderText="Start Date">
+              <ItemTemplate >
+                <asp:Label ID="lblStDate" runat ="server" Text ='<%#Eval("startDate","{0:MM/dd/yyyy}") %>'></asp:Label>
+              </ItemTemplate>
               <EditItemTemplate >
-              <asp:DropDownList ID="DropDownListSubject" runat ="server" Text ='<%#Eval("subName") %>'></asp:DropDownList>
-              <asp:RequiredFieldValidator ID="reqMaxStu" ControlToValidate ="txtAddMaxStu" runat ="server" ErrorMessage ="Please enter a number"></asp:RequiredFieldValidator>
+              <asp:TextBox id="txtstDate" runat ="server" Text ='<%#Eval("startDate","{0:MM/dd/yyyy}") %>'></asp:TextBox>
+                 <%-- <asp:CalendarExtender ID="CalenderExtender1" runat="server" TargetControlID="txtstDate">
+                  </asp:CalendarExtender>--%>
+              <asp:RequiredFieldValidator ID="reqstDate" ControlToValidate ="txtstDate" runat ="server" ErrorMessage ="Please enter date."></asp:RequiredFieldValidator>
               </EditItemTemplate>
               <HeaderStyle Width ="10%" />
-        </asp:TemplateField>  
+        </asp:TemplateField>       
    <asp:TemplateField HeaderText="Max Student">
               <ItemTemplate >
                 <asp:Label ID="lblMaxStu" runat ="server" Text ='<%#Eval("MaxStudent") %>'></asp:Label>
               </ItemTemplate>
               <EditItemTemplate >
               <asp:TextBox id="txtMaxStu" runat ="server" Text ='<%#Eval("MaxStudent") %>'></asp:TextBox>
-              <asp:RequiredFieldValidator ID="reqMaxStu" ControlToValidate ="txtAddMaxStu" runat ="server" ErrorMessage ="Please enter a number"></asp:RequiredFieldValidator>
+              <asp:RequiredFieldValidator ID="reqMaxStu" ControlToValidate ="txtMaxStu" runat ="server" ErrorMessage ="Please enter a number"></asp:RequiredFieldValidator>
               </EditItemTemplate>
-              <HeaderStyle Width ="10%" />
-        </asp:TemplateField>       --%>
-<asp:BoundField DataField="BatchID" HeaderText="Batch ID" /> 
+              <HeaderStyle Width ="5%" />
+        </asp:TemplateField>       
+<%--<asp:BoundField DataField="BatchID" HeaderText="Batch ID" /> 
 <asp:BoundField DataField="subName" HeaderText="subName" /> 
 <asp:BoundField DataField="gradeName" HeaderText="Grade" /> 
 <asp:BoundField DataField="startDate" HeaderText="Start Date" DataFormatString ="{0:MM/dd/yyyy}"/> 
-<asp:BoundField DataField="maxStudent" HeaderText="Max Student" />
-<asp:CommandField HeaderText="Edit Batch" ShowHeader="True" ShowEditButton="True" /> 
-<asp:CommandField HeaderText="Edit Batch Day/Time" ShowHeader="True" ShowSelectButton="True" SelectText="Open Timing" />
+<asp:BoundField DataField="maxStudent" HeaderText="Max Student" />--%>
+<asp:CommandField HeaderText="Edit Batch" ShowHeader="True" ShowEditButton="True"   /> 
+
+<asp:CommandField HeaderText="Edit Batch Day/Time" ShowHeader="True" ShowSelectButton="True" SelectText="Open Timing"   />
  </Columns> 
 </asp:GridView> 
+    <asp:Label runat ="server" ID="msg" Visible ="false" forecolor="Green"> </asp:Label>
 <br /><br />
 <asp:DetailsView ID="DetailsView1" runat="server" Height="50px" Width="225px" 
         AllowPaging="True" AutoGenerateDeleteButton="True"
@@ -70,13 +82,9 @@
  <asp:TemplateField HeaderText="Day" > 
     <EditItemTemplate> 
       <asp:DropDownList ID="cmbDayNameEdit" runat="server" >   </asp:DropDownList>     
-          
+           <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="cmbDayNameEdit" ErrorMessage="Please select day." Font-Bold="True"></asp:RequiredFieldValidator>      
     </EditItemTemplate> 
-    <InsertItemTemplate> 
-      <asp:DropDownList ID="cmbDayNameInsert" runat="server"> 
-     
-       </asp:DropDownList>       
-    </InsertItemTemplate> 
+    
     <ItemTemplate> 
       <asp:Label ID="lblDay" runat="server" Text='<%# Bind("dayName") %>'></asp:Label> 
     </ItemTemplate> 
@@ -84,16 +92,11 @@
   
   <asp:TemplateField HeaderText="Start Time" > 
     <EditItemTemplate> 
-      <asp:DropDownList ID="cmbStartTimeEdit" runat="server" >
-    
+      <asp:DropDownList ID="cmbStartTimeEdit" runat="server" >    
       </asp:DropDownList>    
-      
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="cmbStartTimeEdit" ErrorMessage="Please select time." Font-Bold="True"></asp:RequiredFieldValidator>
     </EditItemTemplate> 
-    <InsertItemTemplate> 
-      <asp:DropDownList ID="cmbStartTimeInsert" runat="server">   
-     
-       </asp:DropDownList>  
-    </InsertItemTemplate> 
+  
     <ItemTemplate> 
       <asp:Label ID="lblstTime" runat="server" Text='<%# Bind("starttime") %>'></asp:Label> 
     </ItemTemplate> 
@@ -103,13 +106,9 @@
       <asp:DropDownList ID="cmbEndTimeEdit" runat="server" > 
    
         </asp:DropDownList>    
-      
+          <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="cmbEndTimeEdit" ErrorMessage="Please select time." Font-Bold="True"></asp:RequiredFieldValidator>
     </EditItemTemplate> 
-    <InsertItemTemplate> 
-      <asp:DropDownList ID="cmbEndTimeInsert" runat="server">
     
-      </asp:DropDownList>       
-    </InsertItemTemplate> 
     <ItemTemplate> 
       <asp:Label ID="lblendtime" runat="server" Text='<%# Bind("endtime") %>'></asp:Label> 
     </ItemTemplate> 

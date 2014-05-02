@@ -24,35 +24,78 @@ namespace Tutor
               
                 Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "mykey", "currentdate();", true);
              //   Session["ClientCurrentDate"] = CurrentDateInMasterPage.Value;
-              
-                //send notification to user if profile is not updated
-                SqlConnection c = new SqlConnection(ConfigurationManager.ConnectionStrings["TutorConnectionString"].ConnectionString);
-                SqlCommand cmd = new SqlCommand("IsTutorProfileUpdated", c);
-                cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter parm = new SqlParameter("@tid", SqlDbType.Int);
-                parm.Value = Convert.ToInt32(Session["teacherID"].ToString());
-                parm.Direction = ParameterDirection.Input;
-                cmd.Parameters.Add(parm);
-
-                cmd.Parameters.Add("@result", SqlDbType.Int);
-                cmd.Parameters["@result"].Direction = ParameterDirection.Output;
-                c.Open();
-                cmd.ExecuteNonQuery();
-
-                int re = Convert.ToInt16(cmd.Parameters["@result"].Value.ToString());
-                if (re == 0)
-                {
-                    //  notificationImage.Visible = true;
-                    Page.ClientScript.RegisterStartupScript(Page.GetType(), "myKey", "ShowNotificationImage();", true);
-                }
-                else
-                {
-                    // notificationImage.Visible = false;
-                    Page.ClientScript.RegisterStartupScript(Page.GetType(), "myKey", "HideNotificationImage();", true);
-                }
-                c.Close();
+                UpdateProfileNotification();
+                UpdateBatchTimingNotification();
             }
+        }
+
+        private void UpdateBatchTimingNotification()
+        {
+            //send notification to user if profile is not updated
+            SqlConnection c = new SqlConnection(ConfigurationManager.ConnectionStrings["TutorConnectionString"].ConnectionString);
+            SqlCommand cmd = new SqlCommand("DoesBatchTimingExist", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            SqlParameter parm = new SqlParameter("@tid", SqlDbType.Int);
+            parm.Value = Convert.ToInt32(Session["teacherID"].ToString());
+            parm.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(parm);
+
+            cmd.Parameters.Add("@result", SqlDbType.Int);
+            cmd.Parameters["@result"].Direction = ParameterDirection.Output;
+            c.Open();
+            cmd.ExecuteNonQuery();
+
+            int re = Convert.ToInt16(cmd.Parameters["@result"].Value.ToString());
+            if (re == 1)
+            {
+                //  notificationImage.Visible = true;
+                InsertBatchTimeingNotiContainer.Text = "Insert Batch Timing.";
+                InsertBatchTimeingNotiContainer.Visible = true;
+                Page.ClientScript.RegisterStartupScript(Page.GetType(), "myKey", "ShowNotificationImage();", true);
+            }
+            else
+            {
+                // notificationImage.Visible = false;
+                Page.ClientScript.RegisterStartupScript(Page.GetType(), "myKey", "HideNotificationImage();", true);
+            }
+            c.Close();
+        
+        }
+        private void UpdateProfileNotification()
+        {
+            //send notification to user if profile is not updated
+            SqlConnection c = new SqlConnection(ConfigurationManager.ConnectionStrings["TutorConnectionString"].ConnectionString);
+            SqlCommand cmd = new SqlCommand("IsTutorProfileUpdated", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            SqlParameter parm = new SqlParameter("@tid", SqlDbType.Int);
+            parm.Value = Convert.ToInt32(Session["teacherID"].ToString());
+            parm.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(parm);
+
+            cmd.Parameters.Add("@result", SqlDbType.Int);
+            cmd.Parameters["@result"].Direction = ParameterDirection.Output;
+            c.Open();
+            cmd.ExecuteNonQuery();
+
+            int re = Convert.ToInt16(cmd.Parameters["@result"].Value.ToString());
+            if (re == 0)
+            {
+                //  notificationImage.Visible = true;
+                profileUpdateNotificationContainer.Text = "Update profile to be viewed by student.";
+                profileUpdateNotificationContainer.Visible = true;
+                Page.ClientScript.RegisterStartupScript(Page.GetType(), "myKey", "ShowNotificationImage();", true);
+            }
+            else
+            {
+                // notificationImage.Visible = false;
+                Page.ClientScript.RegisterStartupScript(Page.GetType(), "myKey", "HideNotificationImage();", true);
+            }
+            c.Close();
+        
+        
         }
     }
 }

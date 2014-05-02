@@ -208,7 +208,7 @@ ul#navmenu li.highlight a{ color:#000; cursor:default;}
 
 /*    Notification 
 -------------------------------------  */
-.wrapper{position:absolute ;top:5px;right:30px;width:30px;}
+.wrapper{position:absolute ;top:5px;right:230px;width:30px;}
 .notificationImage{position:absolute ;top:5px;right:30px;width:25px;height:25px;}
 
 
@@ -224,7 +224,6 @@ word-wrap:break-word;
 -moz-border-radius:5px; /*add some nice CSS3 round corners*/
 -webkit-border-radius:5px;
 border-radius:5px;
-margin-bottom:2em;
 z-index:3;
 right :-20px;
 display :none ;
@@ -265,9 +264,18 @@ font-weight :bold ;
     padding: 8px;
 }
 #notification{width:13px;height:20px;margin-left:auto;margin-right:auto;}
-#notificationMessage{z-index:100;display:none;width:250px;height:43px;float:right;
+#notificationMessage{z-index:100;display:none;width:250px;height:auto;float:right;
                      background:#ccc;right:0px;margin-right:0px;text-align:center;}
-
+.notification1 {
+   
+}
+.notificationLabel {
+    height:25px;
+    width:200px;
+    padding :8px;
+    background :#bfcbd6;
+    position :inherit ;
+}
 
 /*    Available Tutor (default page)
 -----------------------------------------*/

@@ -31,7 +31,8 @@ namespace Tutor.TeacherManagement
                   string j = Convert.ToString(i);
                   DropDownNoOfStu.Items.Add(j);
               }
-             
+              // To make it the first element at the list, use 0 index : 
+              DropDownNoOfStu.Items.Insert(0, new ListItem("Select", string.Empty)); 
 
 
         if (!IsPostBack)
@@ -39,13 +40,19 @@ namespace Tutor.TeacherManagement
            c = new SqlConnection(ConfigurationManager.ConnectionStrings["TutorConnectionString"].ConnectionString);
                 SqlDataAdapter Adapter = new SqlDataAdapter("select SubjectID,SubName from Subject", c);
                 DataTable d = new DataTable(); Adapter.Fill(d);
-                DropDownListSubject.DataSource = d; DropDownListSubject.DataTextField = "SubName"; DropDownListSubject.DataValueField = "SubjectID";
+                DropDownListSubject.DataSource = d; DropDownListSubject.DataTextField = "SubName"; 
+                DropDownListSubject.DataValueField = "SubjectID";
                 DropDownListSubject.DataBind();
+                // To make it the first element at the list, use 0 index : 
+                DropDownListSubject.Items.Insert(0, new ListItem("Select", string.Empty)); 
 
                 Adapter = new SqlDataAdapter("select GradeID, GradeName from Grade", c);
                 d = new DataTable(); Adapter.Fill(d);
-                DropDownListGrade.DataSource = d; DropDownListGrade.DataTextField = "GradeName"; DropDownListGrade.DataValueField = "GradeID";
+                DropDownListGrade.DataSource = d; DropDownListGrade.DataTextField = "GradeName"; 
+                DropDownListGrade.DataValueField = "GradeID";
                 DropDownListGrade.DataBind();
+                // To make it the first element at the list, use 0 index : 
+                DropDownListGrade.Items.Insert(0, new ListItem("Select", string.Empty)); 
                 if (c != null)
                 {
                     c.Close();
@@ -121,9 +128,12 @@ namespace Tutor.TeacherManagement
             cmd.ExecuteNonQuery();
                
             Label2.Text = "Batch has been created successfully.";
-            Label11.Text="The Batch Name is: " + cmd.Parameters["@BName"].Value.ToString();
+           Label11.Text="The Batch Name is: " + cmd.Parameters["@BName"].Value.ToString();
+         
+           
             Label2.Visible = true;
             Label11.Visible = true;
+            HyperLink1.Visible = true;
             c.Close();
         }
         }

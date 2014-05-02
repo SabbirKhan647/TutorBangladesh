@@ -12,7 +12,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $("#notificationImage").hover(function () {
-                $("#notificationMessage").slideToggle("slow");
+                $("#notificationMessage").slideToggle();
 
             });
         });
@@ -36,9 +36,11 @@
                     class="notificationImage" Style="visibility: hidden" ClientIDMode="Static" />
                 <div class="uparrowdiv" id="notificationMessage">
                     <div class="headbar">
-                        Notification</div>
-                    <p>
-                       Update profile to be viewed by tutors. </p>
+                        Notification</div><br />
+                 <p class="notification1">  <asp:Label ID="profileUpdateNotificationContainer" runat ="server" text="gggggggggg" visible="false" ></asp:Label>
+                     
+                    </p>  
+                 <%--   <hr /> --%>
                 </div>
             </div>
             <div class="loginDisplay">

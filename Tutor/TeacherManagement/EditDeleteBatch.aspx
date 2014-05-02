@@ -5,6 +5,7 @@
     <div class="menubar1">
              <div class="menupublic1">             
             <ul id="navmenu1">
+                <li>&nbsp;</li>
             <li><a id="A1" href="CreateBatch.aspx" runat="server">Create Batch</a></li>
             <li><a id="A2" href="InsertBatchDetails.aspx" runat="server">Insert Batch Day/Time </a></li>
             <li><a id="A6" href="MyBatchesAsTutor.aspx" runat="server">My Batches </a></li>

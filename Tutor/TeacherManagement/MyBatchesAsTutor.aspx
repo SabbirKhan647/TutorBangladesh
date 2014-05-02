@@ -7,9 +7,9 @@
     <div class="menubar1">
              <div class="menupublic1">             
             <ul id="navmenu1">
+            <li><a id="A6" href="MyBatchesAsTutor.aspx" runat="server">My Batches </a></li>
             <li><a id="A1" href="CreateBatch.aspx" runat="server">Create Batch</a></li>
             <li><a id="A2" href="InsertBatchDetails.aspx" runat="server">Insert Batch Day/Time </a></li>
-            <li><a id="A6" href="MyBatchesAsTutor.aspx" runat="server">My Batches </a></li>
             <li><a id="A4" href="EditBatch.aspx" runat="server">Edit Batch </a></li>
 
              </ul>       
@@ -146,15 +146,15 @@
            <%-- <asp:BoundField ItemStyle-Width="150px" DataField="gradename" HeaderText="Grade" />--%>
            <%--  <asp:CommandField HeaderText="Edit/" ShowEditButton="True" />--%>
            
-			    <asp:TemplateField HeaderText="Delete">
+			   <%-- <asp:TemplateField HeaderText="Delete">
                     <ItemTemplate>
                         
                         <asp:LinkButton ID="linkDeleteBatch" CommandName="Delete" runat="server">Delete</asp:LinkButton>
-                    </ItemTemplate>
+                    </ItemTemplate>--%>
                   <%--  <FooterTemplate>
                         <asp:LinkButton ID="linkAddBatch" CommandName="AddBatch" runat="server">Add</asp:LinkButton>
-                    </FooterTemplate>--%>
-                </asp:TemplateField>
+                    </FooterTemplate>
+                </asp:TemplateField>--%>
         </Columns>
     </asp:GridView>
     <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>

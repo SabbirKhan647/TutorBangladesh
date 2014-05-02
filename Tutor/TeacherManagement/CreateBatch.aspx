@@ -32,10 +32,10 @@
     <div class="menubar1">
         <div class="menupublic1">
             <ul id="navmenu1">
+                 <li><a id="A6" href="MyBatchesAsTutor.aspx" runat="server">My Batches </a></li>
                 <li><a id="A1" href="CreateBatch.aspx" runat="server">Create Batch</a></li>
                 <li><a id="A2" href="InsertBatchDetails.aspx" runat="server">Insert Batch Day/Time </a></li>
-                <li><a id="A6" href="MyBatchesAsTutor.aspx" runat="server">My Batches </a></li>
-                <li><a id="A4" href="EditBatch.aspx" runat="server">Edit Batch </a></li>
+                 <li><a id="A4" href="EditBatch.aspx" runat="server">Edit Batch </a></li>
             </ul>
         </div>
     </div>
@@ -60,6 +60,7 @@
                 </td>
                 <td>
                     <asp:DropDownList ID="DropDownListSubject" runat="server"></asp:DropDownList>
+                       <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="DropDownListSubject" ErrorMessage="Please select subject." Font-Bold="True"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -68,6 +69,7 @@
                 </td>
                 <td>
                     <asp:DropDownList ID="DropDownListGrade" runat="server"></asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="DropDownListGrade" ErrorMessage="Please select subject." Font-Bold="True"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -77,6 +79,7 @@
                 <td>
                     <asp:DropDownList ID="DropDownNoOfStu" runat="server">
                     </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="DropDownNoOfStu" ErrorMessage="Please select grade." Font-Bold="True"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -91,27 +94,46 @@
                     <asp:CalendarExtender ID="CalenderExtender1" runat="server"
                         TargetControlID="txtStartDate">
                     </asp:CalendarExtender>
+                   <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtStartDate" ErrorMessage="Please select date." Font-Bold="True"></asp:RequiredFieldValidator>
                     <br />
                 </td>
             </tr>
             <tr>
                 <td class="style2">&nbsp;</td>
                 <td>
-                    <span onclick="return confirm('Are you sure you want to create this batch?')">
+                   <%-- <span onclick="return confirm('Are you sure you want to create this batch?')">--%>
                         <asp:Button ID="BtnGenerate" runat="server" Text="Create Batch" class="buttonstyle"
                             OnClick="BtnGenerate_Click" Style="height: 29px"
                             OnClientClick="currentdate();" />
-                    </span>
+                 <%--   </span>--%>
+                </td>
+            </tr>
+            <tr>
+                <td class="style2">&nbsp;</td>
+                <td>
+        <asp:Label ID="Label2" runat="server" Text="Label" ForeColor="#009933"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td class="style2">&nbsp;</td>
+                <td>
+        <asp:Label ID="Label11" runat="server" Text="Label" Font-Bold="True"
+            ForeColor="#009933" Visible="False"></asp:Label>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="style2">&nbsp;</td>
+                <td>
+                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/TeacherManagement/InsertBatchDetails.aspx" Visible="False">Insert Batch Timing</asp:HyperLink>
                 </td>
             </tr>
         </table>
 
-        <span onclick="return confirm('Are you sure you want to create this batch?')">
-            <br />
-        </span>
-        <asp:Label ID="Label2" runat="server" Text="Label" ForeColor="#009933"></asp:Label><br />
-        <asp:Label ID="Label11" runat="server" Text="Label" Font-Bold="True"
-            ForeColor="#009933" Visible="False"></asp:Label>
+      <%--  <span onclick="return confirm('Are you sure you want to create this batch?')">--%>
+      <%--      <br />
+        </span>--%>
+        <br />
 
     </div>
 

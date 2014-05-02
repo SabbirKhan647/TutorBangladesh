@@ -52,6 +52,7 @@ namespace Tutor.TeacherManagement
             
 
         }
+      
 
         protected void gvBatch_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -61,36 +62,14 @@ namespace Tutor.TeacherManagement
                 string strbatchid = gvBatch.DataKeys[RowIndex].Value.ToString();
                 ViewState["BatchId"] = strbatchid;
                 BindDetailsView();
+                lblMessage.Visible = false;
             } 
 
         }
 
         protected void DetailsView1_DataBound(object sender, EventArgs e)
         {
-            //if (DetailsView1.CurrentMode == DetailsViewMode.Insert)
-            //{
-            
-            //    //;;;;;;;;;;;;;
-            //    //populate dropdownlist in child gridview edit itemtemplate
-            //    DropDownList editDrStartTime=(DropDownList)DetailsView1 .Rows[1].Cells[1].Controls[0];
-            //    for (int i = 420; i < 1460; i++)
-            //    {
-            //        editDrStartTime.Items.Add(DateTime.MinValue.AddMinutes(i).ToString("hh:mm tt"));
-            //        i = i + 29;
-            //    }
-
-            //    DropDownList editDrEndTime = (DropDownList)DetailsView1.Rows[2].Cells[1].Controls[0];
-            //    for (int i = 480; i < 1460; i++)
-            //    {
-            //        editDrEndTime.Items.Add(DateTime.MinValue.AddMinutes(i).ToString("hh:mm tt"));
-            //        i = i + 29;
-            //    }
-
-
-            //    DropDownList editDay = (DropDownList)DetailsView1.Rows[0].Cells[1].Controls[0];
-            //    editDay.Items.Add("Saturday"); editDay.Items.Add("Sunday"); editDay.Items.Add("Monday");
-            //    editDay.Items.Add("Tuesday"); editDay.Items.Add("Wednesday"); editDay.Items.Add("Thursday"); editDay.Items.Add("Friday");
-            //}
+           
             if (DetailsView1.CurrentMode == DetailsViewMode.Edit)
             {
 
@@ -102,29 +81,38 @@ namespace Tutor.TeacherManagement
                     editDrStartTime.Items.Add(DateTime.MinValue.AddMinutes(i).ToString("hh:mm tt"));
                     i = i + 29;
                 }
-
+                // To make it the first element at the list, use 0 index : 
+                editDrStartTime.Items.Insert(0, new ListItem("Select", string.Empty)); 
                 DropDownList editDrEndTime = (DropDownList)DetailsView1.FindControl("cmbEndTimeEdit");
                 for (int i = 480; i < 1460; i++)
                 {
                     editDrEndTime.Items.Add(DateTime.MinValue.AddMinutes(i).ToString("hh:mm tt"));
                     i = i + 29;
                 }
-
+                // To make it the first element at the list, use 0 index : 
+                editDrEndTime.Items.Insert(0, new ListItem("Select", string.Empty)); 
 
                 DropDownList editDay = (DropDownList)DetailsView1.FindControl("cmbDayNameEdit");
-                editDay.Items.Add("Saturday"); editDay.Items.Add("Sunday"); editDay.Items.Add("Monday");
-                editDay.Items.Add("Tuesday"); editDay.Items.Add("Wednesday"); editDay.Items.Add("Thursday"); editDay.Items.Add("Friday");
+                editDay.Items.Add("Saturday"); 
+                editDay.Items.Add("Sunday"); 
+                editDay.Items.Add("Monday");
+                editDay.Items.Add("Tuesday"); 
+                editDay.Items.Add("Wednesday"); 
+                editDay.Items.Add("Thursday"); 
+                editDay.Items.Add("Friday");
+                // To make it the first element at the list, use 0 index : 
+                editDay.Items.Insert(0, new ListItem("Select", string.Empty)); 
             } 
         }
 
         protected void DetailsView1_ItemCommand(object sender, DetailsViewCommandEventArgs e)
         {
-            if (e.CommandName.Equals("New"))
-            {
-                DetailsView1.ChangeMode(DetailsViewMode.Insert);
-                BindDetailsView();
-            }
-            else if (e.CommandName.Equals("Cancel"))
+            //if (e.CommandName.Equals("New"))
+            //{
+            //    DetailsView1.ChangeMode(DetailsViewMode.Insert);
+            //    BindDetailsView();
+            //}
+            if (e.CommandName.Equals("Cancel"))
             {
                 DetailsView1.ChangeMode(DetailsViewMode.ReadOnly);
                 BindDetailsView();
@@ -147,15 +135,14 @@ namespace Tutor.TeacherManagement
 
             SqlCommand cmd = new SqlCommand("DeleteBatchDaySP", c);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@bid", SqlDbType.Int).Value = ViewState["BatchId"];
+            cmd.Parameters.Add("@bid", SqlDbType.Int).Value =Convert.ToInt32 (ViewState["BatchId"]);
             cmd.Parameters.Add("@day", SqlDbType.VarChar).Value = lblday.Text;
-            cmd.Parameters.Add("@sttime", SqlDbType.Time).Value = DateTime.Parse(lblsttime.Text).TimeOfDay;
-            cmd.Parameters.Add("@endtime", SqlDbType.Time).Value = DateTime.Parse(lblendtime.Text).TimeOfDay;
-          
+            cmd.Parameters.Add("@sttime", SqlDbType.VarChar).Value = lblsttime.Text;
+            cmd.Parameters.Add("@endtime", SqlDbType.VarChar).Value =lblendtime.Text;
             c.Open();
             cmd.ExecuteNonQuery();
 
-            //   c.Close();
+             c.Close();
          //   DetailsView1.ChangeMode(DetailsViewMode.ReadOnly);
             BindDetailsView();
             lblMessage.Text = "Delete successful.";
@@ -168,8 +155,8 @@ namespace Tutor.TeacherManagement
             DropDownList drsttime = (DropDownList)DetailsView1.FindControl("cmbStartTimeEdit");
             DropDownList drendtime = (DropDownList)DetailsView1.FindControl("cmbEndTimeEdit");
 
-            string sttime = drsttime.SelectedValue;
-            string endtime = drendtime.SelectedValue;
+            string sttime = drsttime.SelectedItem.Text;
+            string endtime = drendtime.SelectedItem.Text;
             DateTime sttime1 = Convert.ToDateTime(drsttime.SelectedItem.Text);
            // string sttime1 = Convert.ToString(sttime);
             DateTime endtime1 = Convert.ToDateTime(drendtime.SelectedItem.Text);
@@ -182,17 +169,19 @@ namespace Tutor.TeacherManagement
            
             SqlCommand cmd = new SqlCommand("UpdateBatchDaySP", c);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@bid", SqlDbType.Int).Value = ViewState["BatchId"];
-            cmd.Parameters.Add("@day", SqlDbType.VarChar).Value = drDay.SelectedValue;
-            cmd.Parameters.Add("@sttime", SqlDbType.Time).Value = DateTime.Parse(sttime).TimeOfDay;
-            cmd.Parameters.Add("@endtime", SqlDbType.Time).Value = DateTime.Parse(endtime).TimeOfDay;
+            cmd.Parameters.Add("@bid", SqlDbType.Int).Value =Convert.ToInt32 (ViewState["BatchId"]);
+            cmd.Parameters.Add("@day", SqlDbType.VarChar).Value = drDay.SelectedItem.Text;
+            cmd.Parameters.Add("@sttime", SqlDbType.VarChar).Value = sttime;
+            cmd.Parameters.Add("@endtime", SqlDbType.VarChar).Value = endtime;
+            //cmd.Parameters.Add("@sttime", SqlDbType.Time).Value = DateTime.Parse(sttime).TimeOfDay;
+            //cmd.Parameters.Add("@endtime", SqlDbType.Time).Value = DateTime.Parse(endtime).TimeOfDay;
             cmd.Parameters.Add("@d", SqlDbType.Float).Value = duration;
 
             c.Open();
             cmd.ExecuteNonQuery();
             
-         //   c.Close();
-            DetailsView1.ChangeMode(DetailsViewMode.ReadOnly);
+            c.Close();
+         //   DetailsView1.ChangeMode(DetailsViewMode.ReadOnly);
             BindDetailsView();
             lblMessage.Text = "Update successful.";
 
@@ -223,6 +212,49 @@ namespace Tutor.TeacherManagement
             DetailsView1.DataSource = ds;
             DetailsView1.DataBind();
             c.Close();
+        }
+
+        protected void gvBatch_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            gvBatch.EditIndex = e.NewEditIndex;
+            GetBatchData();
+            msg.Visible = false;
+        }
+
+        protected void gvBatch_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            SqlConnection c = new SqlConnection(ConfigurationManager.ConnectionStrings["TutorConnectionString"].ConnectionString);
+
+            TextBox txtstdate = (TextBox)gvBatch.Rows[e.RowIndex].FindControl("txtstDate");
+            DateTime stdate = DateTime.Parse(txtstdate.Text).Date;
+           
+           
+            TextBox MaxStu = (TextBox)gvBatch.Rows[e.RowIndex].FindControl("txtMaxStu");
+            int p = Convert.ToInt32(MaxStu.Text.Trim());
+
+            Label batchid = (Label)gvBatch.Rows[e.RowIndex].FindControl("lblBatchID");
+            int q = Convert.ToInt32(batchid.Text.Trim());
+            SqlCommand cmd = new SqlCommand("Update Batch set startdate=@stdate, MaxStudent= @max where BatchID = @bid", c);
+            cmd.Parameters.AddWithValue("@stdate", stdate);
+            cmd.Parameters.AddWithValue("@max", p);
+            cmd.Parameters.AddWithValue("@bid", q);
+            c.Open();
+          
+            cmd.ExecuteNonQuery();
+            gvBatch.EditIndex = -1;
+            GetBatchData();
+            msg.Text = "Record updated successfully.";
+            msg.Visible = true;
+            if (c != null)
+            {
+                c.Close();
+            }
+        }
+
+        protected void gvBatch_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            gvBatch.EditIndex = -1;
+            GetBatchData();
         }
     }
 }

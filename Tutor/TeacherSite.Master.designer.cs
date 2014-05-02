@@ -40,6 +40,24 @@ namespace Tutor {
         protected global::System.Web.UI.WebControls.Image notificationImage;
         
         /// <summary>
+        /// profileUpdateNotificationContainer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label profileUpdateNotificationContainer;
+        
+        /// <summary>
+        /// InsertBatchTimeingNotiContainer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label InsertBatchTimeingNotiContainer;
+        
+        /// <summary>
         /// LoginName1 control.
         /// </summary>
         /// <remarks>
@@ -137,6 +155,15 @@ namespace Tutor {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor A9;
+        
+        /// <summary>
+        /// A10 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor A10;
         
         /// <summary>
         /// CurrentDateInMasterPage control.

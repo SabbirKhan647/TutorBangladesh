@@ -191,6 +191,8 @@ namespace Tutor.StudentManagement
             Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunc", "showHideMessageDiv();", true);
 
             Label1.Text = "Batch Registration Confirmed";
+            //send email to student and tutor
+            //StudentJoinedEmail();
             Label1.Visible = true;
             c.Close();
         }

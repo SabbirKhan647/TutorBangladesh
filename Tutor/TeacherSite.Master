@@ -30,65 +30,79 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-   <form id="form1" runat="server">
-    <div class="page">
-        <div class="header">
-            <div class="logo">
-               <%-- <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Default.aspx"><img alt="Tutoring services" class="logo1" src="../Images/tutormanagement.jpg" width="300"/></asp:HyperLink>
-                --%>
-                   <h3 style="color:#fff; padding-left :2em;font-size :16px;"> Bangladesh Tutoring </h3>
-             </div>
-            <div class="wrapper">
-                
-                    <asp:Image runat="server" ID="notificationImage" ImageUrl="~/Images/notification.jpg" class="notificationImage" 
-                        Style="visibility: hidden"  ClientIDMode="Static" />
-                   <div class="uparrowdiv" id="notificationMessage">
-                    <div class="headbar">Notification</div>
-                    <p class="notify">Update profile to be viewed by students.</p>
+    <form id="form1" runat="server">
+        <div class="page">
+            <div class="header">
+                <div class="logo">
+                    <%-- <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Default.aspx"><img alt="Tutoring services" class="logo1" src="../Images/tutormanagement.jpg" width="300"/></asp:HyperLink>
+                    --%>
+                    <h3 style="color: #fff; padding-left: 2em; font-size: 16px;">Bangladesh Tutoring </h3>
+                </div>
+               <%-- <div class="wrapper">
+
+                    <asp:Image runat="server" ID="notificationImage" ImageUrl="~/Images/notification.jpg" class="notificationImage"
+                        Style="visibility: hidden" ClientIDMode="Static" />
+                    <div class="uparrowdiv" id="notificationMessage">
+                        <div class="headbar">Notification</div>
+                        <p class="notify">Update profile to be viewed by students.</p>
+                    </div>
+                </div>--%>
+                <div class="wrapper">
+                <asp:Image runat="server" ID="notificationImage" ImageUrl="~/Images/notification.jpg"
+                    class="notificationImage" Style="visibility: hidden" ClientIDMode="Static" />
+                <div class="uparrowdiv" id="notificationMessage">
+                    <div class="headbar">
+                        Notification</div>
+                 <p class="notification1"><br /> 
+                      <asp:Label ID="profileUpdateNotificationContainer" runat ="server" text="gggggggggg" visible="false"  style="margin-top:10px;padding-top:10px;height:25px;width:inherit ;" ></asp:Label><br /><br />
+                     <asp:Label ID="InsertBatchTimeingNotiContainer" runat ="server" text="gggggggggg" visible="false"  style="padding-top:10px;height:25px;width:inherit ;"></asp:Label>
+                     
+                    </p>  
+               
                 </div>
             </div>
-            <div class="loginDisplay">
-                <loggedintemplate>
+                <div class="loginDisplay">
+                    <loggedintemplate>
                        Welcome <span class="bold"><asp:LoginName ID="LoginName1" runat="server" /></span>!
                        <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/Default.aspx"/>
                 </loggedintemplate>
-            </div>
-            <div class="menubar">
-                <div class="menuright">
-                    <ul id="navmenu">
-                        <li class="highlight"><a id="A1" href="TeacherManagement/TeacherHome.aspx" runat="server">
-                            My Student </a></li>
-                          
-                        <li><a id="A3" href="~/TeacherManagement/MyBatchesAsTutor.aspx" runat="server">Batch</a></li>
-                        <li><a id="A2" href="~/TeacherManagement/TutorTimeTable.aspx" runat="server">TimeTable</a></li>
-                        <li><a id="A7" href="TeacherManagement/Worksheet.aspx" runat="server">WorkSheet </a></li>
-                        <li><a id="A6" href="~/TeacherManagement/ViewDropboxSubmission.aspx" runat="server">Dropbox </a></li>
-                         <li><a id="A8" href="~/TeacherManagement/QuizByBatch.aspx" runat ="server">Quiz</a></li>
-                         <li><a id="A5" href="~/TeacherManagement/Evaluation.aspx" runat ="server">Assessment</a></li>
-                         <li><a id="A4" href="~/TeacherManagement/CreateNotice.aspx" runat ="server">Announcement</a></li>
-                        <li><a id="A9" href="TeacherManagement/UpdateTutorProfile.aspx" runat="server">Profile</a></li>
-                     
-                    </ul>
+                </div>
+                <div class="menubar">
+                    <div class="menuright">
+                        <ul id="navmenu">
+                            <li class="highlight"><a id="A1" href="TeacherManagement/TeacherHome.aspx" runat="server">My Student </a></li>
+
+                            <li><a id="A3" href="~/TeacherManagement/MyBatchesAsTutor.aspx" runat="server">Batch</a></li>
+                            <li><a id="A2" href="~/TeacherManagement/TutorTimeTable.aspx" runat="server">TimeTable</a></li>
+                            <li><a id="A7" href="TeacherManagement/Worksheet.aspx" runat="server">WorkSheet </a></li>
+                            <li><a id="A6" href="~/TeacherManagement/ViewDropboxSubmission.aspx" runat="server">Dropbox </a></li>
+                            <li><a id="A8" href="~/TeacherManagement/QuizByBatch.aspx" runat="server">Quiz</a></li>
+                            <li><a id="A5" href="~/TeacherManagement/Evaluation.aspx" runat="server">Assessment</a></li>
+                            <li><a id="A4" href="~/TeacherManagement/CreateNotice.aspx" runat="server">Announcement</a></li>
+                            <li><a id="A9" href="TeacherManagement/UpdateTutorProfile.aspx" runat="server">Profile</a></li>
+                               <li><a id="A10" href="~/TeacherManagement/EditDeleteBatch.aspx" runat="server">edit/delete batch</a></li>
+
+                        </ul>
+                    </div>
                 </div>
             </div>
-           </div>
-            <asp:HiddenField ID="CurrentDateInMasterPage" runat ="server" ClientIDMode ="Static" />
-          
-          
+            <asp:HiddenField ID="CurrentDateInMasterPage" runat="server" ClientIDMode="Static" />
+
+
             <div class="main">
                 <asp:ContentPlaceHolder ID="MainContent" runat="server" />
             </div>
             <div class="clear"></div>
-       
-           <div class="footer">
-               <br />
-               <br />
-               <br />
+
+            <div class="footer">
+                <br />
+                <br />
+                <br />
                 <hr />
                 our farm name should go here
             </div>
-          </div>
-       
+        </div>
+
     </form>
 </body>
 </html>
