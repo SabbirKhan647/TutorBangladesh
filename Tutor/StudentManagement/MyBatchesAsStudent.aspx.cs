@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using AjaxControlToolkit;
 namespace Tutor.StudentManagement
 {
     public partial class MyBatchesAsStudent : System.Web.UI.Page
@@ -66,72 +67,103 @@ namespace Tutor.StudentManagement
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                GridView gvBDetails = e.Row.FindControl("gvBatchDetails") as GridView;
-                string strBatchID = ((GridView)sender).DataKeys[e.Row.RowIndex].Value.ToString();
+                // bind batchDay gridview data
+                string strBatchID = gvBatch.DataKeys[e.Row.RowIndex].Value.ToString();
                 int intBatchID = Convert.ToInt32(strBatchID);
-                //javascript confirmation in gridview command field
-                LinkButton deselect=(LinkButton )e.Row .Cells [9].Controls [0];
-                deselect.OnClientClick ="if(!confirm('Are you sure you want to deselect this batch?'))return;";
-                //SqlConnection c = new SqlConnection(ConfigurationManager.ConnectionStrings["TutorConnectionString"].ConnectionString);
-                //c.Open();
+                GridView gvBDetails = e.Row.FindControl("gvBatchDetails") as GridView;
+
                 string cmdText = "select * from BatchDay where BatchID = " + intBatchID;
-
-
                 gvBDetails.DataSource = GetBatchDetailsData(cmdText);
                 gvBDetails.DataBind();
+
+                //GridView gvBDetails = e.Row.FindControl("gvBatchDetails") as GridView;
+                //string strBatchID = ((GridView)sender).DataKeys[e.Row.RowIndex].Value.ToString();
+                //int intBatchID = Convert.ToInt32(strBatchID);
+                ////javascript confirmation in gridview command field
+                ////LinkButton deselect = (LinkButton)e.Row.Cells[8].Controls[0];
+                ////deselect.OnClientClick = "if(!confirm('Are you sure you want to deselect this batch?'))return;";
+
+
+
+                ////SqlConnection c = new SqlConnection(ConfigurationManager.ConnectionStrings["TutorConnectionString"].ConnectionString);
+                ////c.Open();
+                //string cmdText = "select * from BatchDay where BatchID = " + intBatchID;
+
+
+                //gvBDetails.DataSource = GetBatchDetailsData(cmdText);
+                //gvBDetails.DataBind();
             }
         }
 
-        protected void gvBatch_SelectedIndexChanged(object sender, EventArgs e)
+        protected double CheckStatusBeforeWithdraw(int batchid)
         {
-            int batchid = 0;
-            SqlConnection c=null;
+            SqlConnection c = new SqlConnection(ConfigurationManager.ConnectionStrings["TutorConnectionString"].ConnectionString);
+          
+
+            int studentID = Convert.ToInt32(Session["StudentID"].ToString());
+            //  LabelConfirm0.Text = "studentid: " + Session["StudentID"].ToString();
+            //       batchid = Convert.ToInt32(gvBatch.DataKeys[gvBatch.SelectedIndex].Value);
+            SqlCommand cmd = new SqlCommand("VerifyBatchDeselectionStatus", c);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@bid", SqlDbType.Int).Value = batchid;
+            cmd.Parameters.Add("@sid", SqlDbType.Int).Value = studentID;
+            cmd.Parameters.Add("@stdate", SqlDbType.Date);
+            cmd.Parameters["@stdate"].Direction = ParameterDirection.Output;
+            c.Open();
+            cmd.ExecuteNonQuery();
+            string stDate = cmd.Parameters["@stdate"].Value.ToString();
+            DateTime startDate = DateTime.Parse(stDate).Date;
+            string today = DateTime.Now.ToShortDateString();
+            //string today = Session["ClientCurrentDate"].ToString();
+            DateTime today1 = DateTime.Parse(today).Date;
+
+            double totaldays = (startDate - today1).TotalDays;
+
+            return totaldays;
+        }
+        protected void WithdrawFromBatch(object sender, EventArgs e)
+        {
+         //   int batchid = 0;
+            int batchid = int.Parse((sender as LinkButton).CommandArgument);
+            SqlConnection c = null;
             try
             {
-                //string clientsidedate= HiddenField1.Value;
-                //string dateJoined = DateTime.Parse(clientsidedate).ToShortDateString();  
+               
                 c = new SqlConnection(ConfigurationManager.ConnectionStrings["TutorConnectionString"].ConnectionString);
                 c.Open();
-               
+
                 int studentID = Convert.ToInt32(Session["StudentID"].ToString());
                 //  LabelConfirm0.Text = "studentid: " + Session["StudentID"].ToString();
-                batchid = Convert.ToInt32(gvBatch.DataKeys[gvBatch.SelectedIndex].Value);
+         //       batchid = Convert.ToInt32(gvBatch.DataKeys[gvBatch.SelectedIndex].Value);
                 SqlCommand cmd = new SqlCommand("VerifyBatchDeselectionStatus", c);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("@bid", SqlDbType.Int).Value = batchid;
                 cmd.Parameters.Add("@sid", SqlDbType.Int).Value = studentID;
                 cmd.Parameters.Add("@stdate", SqlDbType.Date);
                 cmd.Parameters["@stdate"].Direction = ParameterDirection.Output;
-                //ClientScript.RegisterStartupScript(GetType(), "Message", "<SCRIPT LANGUAGE='javascript'>alert('Are you sure you want to proceed?');</script>");
-              //  ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "confirm('Are you sure you want to proceed?');", true);
+            
                 cmd.ExecuteNonQuery();
                 string stDate = cmd.Parameters["@stdate"].Value.ToString();
                 DateTime startDate = DateTime.Parse(stDate).Date;
                 string today = DateTime.Now.ToShortDateString();
-                //string today = null;
-                ////reference master page content
-                //HiddenField curDate = (HiddenField)Master.FindControl("CurrentDateInMasterPage");
-                //if (curDate != null)
-                //{
-                //    today = curDate.Value;
-                //}
-                
-                
+               
+
+
                 //string today = Session["ClientCurrentDate"].ToString();
                 DateTime today1 = DateTime.Parse(today).Date;
-            //    TimeSpan difference = startDate.Subtract(today1);
-            //    double totaldays = difference.TotalDays;
-                //Label1.Text = totaldays.ToString();
-                //Label1.Visible = true;
-                double totaldays = (startDate-today1).TotalDays;
+              
+                double totaldays = (startDate - today1).TotalDays;
                 diff.Text = "total days: " + totaldays;
-                if (totaldays > 7) {
-                    DeselectStudent(batchid,studentID); 
+                if (totaldays > 7)
+                {
+                    DeselectStudent(batchid, studentID);
                 }
-                else {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunc", "showHideMessageDiv();", true);
-                    Label1.Text = "You cannot deselect Batch "+batchid +" now. You can only deselect a batch 7 days before the batch start date.";
-                    Label1.Visible = true;
+                else
+                {              
+                   Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunc", "showHideMessageDiv();", true);
+                   //Label1.Text = "You cannot deselect Batch " + batchid + " now. You can only deselect a batch 7 days before the batch start date.";
+               //    Label1.Visible = true;
+                
                 }
             }
             catch (Exception ex)
@@ -147,33 +179,28 @@ namespace Tutor.StudentManagement
             }
          
         }
+        protected void gvBatch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+        }
 
         private void DeselectStudent(int batchid, int studentID)
         {
             SqlConnection c = null;
             try
             {
-                //string clientsidedate= HiddenField1.Value;
-                //string dateJoined = DateTime.Parse(clientsidedate).ToShortDateString();  
+              
                 c = new SqlConnection(ConfigurationManager.ConnectionStrings["TutorConnectionString"].ConnectionString);
                 c.Open();
-              //  string dateJoined = DateTime.Now.ToShortDateString();
-               // int studentID = Convert.ToInt32(Session["StudentID"].ToString());
-                //  LabelConfirm0.Text = "studentid: " + Session["StudentID"].ToString();
-             //   batchid = Convert.ToInt32(gvBatch.DataKeys[gvBatch.SelectedIndex].Value);
+            
                 SqlCommand cmd = new SqlCommand("DeselectBatchByStudent", c);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("@bid", SqlDbType.Int).Value = batchid;
                 cmd.Parameters.Add("@sid", SqlDbType.Int).Value = studentID;
 
-                //ClientScript.RegisterStartupScript(GetType(), "Message", "<SCRIPT LANGUAGE='javascript'>alert('Are you sure you want to proceed?');</script>");
-              //  ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "confirm('Are you sure you want to proceed?');", true);
+             
                 cmd.ExecuteNonQuery();
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunc", "showHideMessageDiv();", true);
-
-               
-                Label1.Text = "You have been withdrawn from the batch.";
-                Label1.Visible = true;
+              
                 LoadGridView();
                 
             }
@@ -192,7 +219,53 @@ namespace Tutor.StudentManagement
 
         protected void gvBatch_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            if (e.CommandName == "Withdraw")
+            {
 
+                GridViewRow rows = (GridViewRow)(((LinkButton)e.CommandSource).NamingContainer);
+                int index = rows.RowIndex;
+                GridViewRow row = gvBatch.Rows[index];
+                ModalPopupExtender modalPopupExtender1 = (ModalPopupExtender)row.FindControl("mpe");
+
+                Panel panelpopup = (Panel)row.FindControl("pnlPopup");
+
+                Label lb = (Label)panelpopup.FindControl("lblTextPrompt");
+
+                int batchid = Convert.ToInt32(e.CommandArgument.ToString());
+              
+                
+                double totalDaysToStartBatch=CheckStatusBeforeWithdraw(batchid);
+                if (totalDaysToStartBatch > 7)
+                {
+                    lb.Text = "Are you sure you want to withdraw from the batch " + batchid + "?"+"<br /><br/>"+ "N.B. Student can withdraw from batch 7 days before the batch start date.";
+                }
+                else
+                {
+                    lb.Text = "You cannot withdraw from the batch "+batchid+" now. The batch will start in less than 7 days."+"<br /><br/>"+ "N.B. Student can withdraw from batch 7 days before the batch start date.";
+                }
+              
+
+
+                modalPopupExtender1.Show();
+
+
+            }
+           
+        }
+        // when modal popup OK button is pressed
+        protected void btn_OK_Click(object sender, EventArgs e)
+        {
+            int batchid = int.Parse((sender as Button).CommandArgument);
+            int studentID = Convert.ToInt32(Session["StudentID"].ToString());
+            DeselectStudent(batchid, studentID);
+
+        }
+     
+     
+        protected void OnPageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvBatch.PageIndex = e.NewPageIndex;
+            LoadGridView();
         }
 
         

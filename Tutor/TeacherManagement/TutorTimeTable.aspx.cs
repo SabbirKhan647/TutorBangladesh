@@ -43,11 +43,11 @@ namespace Tutor.TeacherManagement
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = c;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "TutorTimeTable1";
-
+        //        cmd.CommandText = "TutorTimeTable1";
+                cmd.CommandText = "TutorTimeTableLatest1";
                 //2. Define parameter
                 SqlParameter param = new SqlParameter();
-                param.ParameterName = "@teacherid";
+                param.ParameterName = "@tid";
                 param.Value = Convert.ToInt32(Session["TeacherID"].ToString());
                 cmd.Parameters.Add(param);
                 cmd.ExecuteNonQuery();
@@ -56,9 +56,9 @@ namespace Tutor.TeacherManagement
                 DataTable dd = new DataTable();
                 adapt.Fill(dd);
                 DayPilotCalendar1.DataSource = dd;
-                DayPilotCalendar1.DataStartField = "startDatetime";
-                DayPilotCalendar1.DataEndField = "endDatetime";
-                DayPilotCalendar1.DataTextField = "subname";
+                DayPilotCalendar1.DataStartField = "startDateTime";
+                DayPilotCalendar1.DataEndField = "endDateTime";
+                DayPilotCalendar1.DataTextField = "batchname";
                 DayPilotCalendar1.DataValueField = "SerialNo";
 
                 DayPilotCalendar1.Days =7;

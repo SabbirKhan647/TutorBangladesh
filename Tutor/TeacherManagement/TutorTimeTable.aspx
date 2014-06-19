@@ -20,5 +20,5 @@
     <asp:HiddenField ID="storeNextWeekDate" runat="server" />
     <DayPilot:DayPilotCalendar ID="DayPilotCalendar1" runat="server"
         TimeFormat="Clock24Hours" BusinessBeginsHour="6" BusinessEndsHour="23"
-        Width="500px" />
+        Width="500px" DataStartField="startDateTime" DayFontFamily="Verdana" />
 </asp:Content>

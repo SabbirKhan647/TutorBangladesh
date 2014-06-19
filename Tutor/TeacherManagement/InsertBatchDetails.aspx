@@ -109,10 +109,8 @@
    
     <br />
    
-    <asp:Label ID="lblselectedday" runat="server" Text="Label" ForeColor="#009933"  ></asp:Label>
             <br />
    
-    <asp:Label ID="lblexistingday" runat="server" Text="Label" ForeColor="#009933"  ></asp:Label>
     <br />
          <br />
     <%-- <span onclick ="return confirm('Are you sure want to create this timing?')">--%>

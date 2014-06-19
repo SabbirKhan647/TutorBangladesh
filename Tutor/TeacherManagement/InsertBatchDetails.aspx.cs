@@ -89,33 +89,43 @@ namespace Tutor.TeacherManagement
             parm.Direction = ParameterDirection.Input;
             cmd.Parameters.Add(parm);
 
-            parm = new SqlParameter("@starttime", SqlDbType.Time);
-            parm.Value = DateTime.Parse(DropDownStTime.SelectedItem.Text).TimeOfDay;
+            parm = new SqlParameter("@starttime", SqlDbType.VarChar);
+            parm.Value = DropDownStTime.SelectedItem.Text;
             parm.Direction = ParameterDirection.Input;
             cmd.Parameters.Add(parm);
 
-            parm = new SqlParameter("@endtime", SqlDbType.Time);
-            parm.Value = DateTime.Parse(DropDownEndTime.SelectedItem.Text).TimeOfDay;
+            parm = new SqlParameter("@endtime", SqlDbType.VarChar);
+            parm.Value = DropDownEndTime.SelectedItem.Text;
             parm.Direction = ParameterDirection.Input;
             cmd.Parameters.Add(parm);
+
+            //parm = new SqlParameter("@starttime", SqlDbType.Time);
+            //parm.Value = DateTime.Parse(DropDownStTime.SelectedItem.Text).TimeOfDay;
+            //parm.Direction = ParameterDirection.Input;
+            //cmd.Parameters.Add(parm);
+
+            //parm = new SqlParameter("@endtime", SqlDbType.Time);
+            //parm.Value = DateTime.Parse(DropDownEndTime.SelectedItem.Text).TimeOfDay;
+            //parm.Direction = ParameterDirection.Input;
+            //cmd.Parameters.Add(parm);
 
             cmd.Parameters.Add("@result", SqlDbType.Int );
             cmd.Parameters["@result"].Direction = ParameterDirection.Output;
             
             c.Open();
             cmd.ExecuteNonQuery();
-            int conflict = Convert.ToInt16(cmd.Parameters["@result"].Value.ToString());
-            if (conflict ==0)
-            {
+       //     int conflict = Convert.ToInt16(cmd.Parameters["@result"].Value.ToString());
+        //    if (conflict ==0)
+        //    {
                Teacher.InsertBatchDetails(batchid, day, sttime1, endtime1, duration);
                lblInsertSuccessfulMsg.Text = "Insert successful";
                lblInsertSuccessfulMsg.Visible = true;
-            }
-            else {
-               lblTimeConflictMsg.Text = "Time conflict. Select a new day/time.";
-               lblTimeConflictMsg.Visible = true;
-                DropDownStTime.Focus();
-            }
+        //    }
+            //else {
+            //   lblTimeConflictMsg.Text = "Time conflict. Select a new day/time.";
+            //   lblTimeConflictMsg.Visible = true;
+            //    DropDownStTime.Focus();
+            //}
         }
        
         //protected bool TimeConflict()

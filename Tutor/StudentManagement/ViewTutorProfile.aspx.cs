@@ -15,6 +15,8 @@ namespace Tutor.StudentManagement
         {
             if (!IsPostBack)
             {
+                //  hdPrevURL.Value = Request.UrlReferrer.AbsoluteUri;
+                ViewState["PreviousPage"] = Request.UrlReferrer;//Saves the Previous page url in ViewState
                 // Get the teacher id from the query string
                 int id = Convert.ToInt32(Request.QueryString["ID"]);
               //  Label2.Text = "Teacher ID: "+Request.QueryString["ID"];
@@ -91,6 +93,13 @@ namespace Tutor.StudentManagement
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/StudentManagement/BuildBatch1.aspx");
+        }
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            if (ViewState["PreviousPage"] != null)	//Check if the ViewState contains Previous page URL
+            {
+                Response.Redirect(ViewState["PreviousPage"].ToString());//Redirect to Previous page by retrieving the PreviousPage Url from ViewState.
+            }
         }
     }
 }

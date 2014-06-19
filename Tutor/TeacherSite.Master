@@ -16,7 +16,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $("#notificationImage").hover(function () {
-                $("#notificationMessage").slideToggle("slow");
+                $("#notificationMessage").slideToggle();
 
             });
         });
@@ -54,8 +54,9 @@
                     <div class="headbar">
                         Notification</div>
                  <p class="notification1"><br /> 
-                      <asp:Label ID="profileUpdateNotificationContainer" runat ="server" text="gggggggggg" visible="false"  style="margin-top:10px;padding-top:10px;height:25px;width:inherit ;" ></asp:Label><br /><br />
-                     <asp:Label ID="InsertBatchTimeingNotiContainer" runat ="server" text="gggggggggg" visible="false"  style="padding-top:10px;height:25px;width:inherit ;"></asp:Label>
+                      <asp:Label ID="profileUpdateNotificationContainer" runat ="server" text="gggggggggg" visible="false"  style="margin-top:10px;padding-top:10px;height:25px;width:inherit ;" ></asp:Label><br />
+                  </p>
+                    <p>   <asp:Label ID="InsertBatchTimeingNotiContainer" runat ="server" text="gggggggggg" visible="false"  style="padding-top:10px;height:25px;width:inherit ;"></asp:Label>
                      
                     </p>  
                
@@ -80,7 +81,8 @@
                             <li><a id="A5" href="~/TeacherManagement/Evaluation.aspx" runat="server">Assessment</a></li>
                             <li><a id="A4" href="~/TeacherManagement/CreateNotice.aspx" runat="server">Announcement</a></li>
                             <li><a id="A9" href="TeacherManagement/UpdateTutorProfile.aspx" runat="server">Profile</a></li>
-                               <li><a id="A10" href="~/TeacherManagement/EditDeleteBatch.aspx" runat="server">edit/delete batch</a></li>
+                            <li><a id="A10" href="~/GridViewPagerStyle.aspx" runat="server">Peager Style</a></li>
+                           
 
                         </ul>
                     </div>
@@ -99,7 +101,7 @@
                 <br />
                 <br />
                 <hr />
-                our farm name should go here
+               Kloud21
             </div>
         </div>
 

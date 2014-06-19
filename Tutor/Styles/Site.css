@@ -1,4 +1,24 @@
-﻿body   
+﻿
+
+
+/*body css from shawmi bhai*/
+  body
+        {
+            height: 100%;
+            font-family: Verdana;
+            /*font-family:Verdana;*/
+            padding: 0;
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            /*background-color: #f5f7f7;*/
+            background-color :#fff;
+        }
+/*body   
 {
     background: #b6b7bc;
     font-size: .80em;
@@ -7,24 +27,249 @@
     padding: 0px;
     color: #696969;
     height :100%;
-}
+}*/
 html {
-    height: 100%;
+    height: 101%;
+}
+.inputFormContainer
+        {
+            background-color: #fff;
+            margin-top: 10px;
+            border: 1px solid #ebeced;
+            margin-left: 5px;
+            margin-right: 5px;
+            border-radius: 3px 3px;
+        }
+   .formTitle
+        {
+            background-color: #fbfbfb;
+            border-bottom: 1px solid #dbdbdb;
+            vertical-align: bottom;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+   .titleText
+        {
+            color: #333333;
+            font-weight: bold;
+            vertical-align: middle;
+        }
+    .round-button
+        {
+            background: #3498db;
+            background-image: -webkit-linear-gradient(top, #FFFFFF, #FFFFFF);
+            background-image: -moz-linear-gradient(top, #FFFFFF, #FFFFFF);
+            background-image: -ms-linear-gradient(top, #FFFFFF, #FFFFFF);
+            background-image: -o-linear-gradient(top, #FFFFFF, #FFFFFF);
+            background-image: linear-gradient(bottom, #FFFFFF, #FFFFFF);
+            -webkit-border-radius: 0px 0px;
+            -moz-border-radius: 15px 15px;
+            border-radius: 5px;
+            border: 1px solid #dbdbdb;
+            color: #333333;
+            padding: 2px 7px 2px 7px;
+            text-decoration: none;
+            text-transform: capitalize;
+            cursor: pointer;
+        }
+    .formFields
+        {
+            padding-left: 5px;
+            padding-right: 5px;
+            padding-top :10px;
+            padding-bottom :10px;
+            width:100%;
+         
+        }
+ .input-container
+        {
+            margin-bottom: 15px;
+            width :100%;
+        }
+ .input_label
+        {
+            -moz-border-radius: 5px 0 0 5px;
+            -webkit-border-radius: 5px 0 0 5px;
+            background: #eee;
+            border: 1px solid #ccc;
+            border-radius: 5px 0 0 5px;
+            border-right: 1px solid #fff;
+            display: inline-block;
+            /*height: 35px;*/
+            line-height: 35px;
+            margin-right: 0;
+            width: 150px!important;
+        }
+
+
+ .input-label-rounded
+        {
+            display: block;
+            /*height: 35px;*/
+            /*line-height: 36px;*/
+            padding: 0 0 0 30px;
+        }
+  .input-box-rounded
+        {
+           
+            -moz-border-radius: 0 5px 5px 0;
+            -webkit-border-radius: 0 5px 5px 0;
+            background: #FFF;
+            border: 1px solid #ccc;
+            border-radius: 0 5px 5px 0;
+            color: #333;
+            width: 250px;
+            padding: 0 3px;
+           font-family: Verdana;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            margin: 0px 8px 0px -7px;
+            height: 34px;
+            /*font-size :20px;*/
+            
+        }
+       .round-button
+        {
+            -webkit-border-radius: 0px 0px;
+            -moz-border-radius: 15px 15px;
+            border-radius: 5px;
+            border: 1px solid #dbdbdb;
+            padding: 2px 7px 2px 7px;
+            text-decoration: none;
+            text-transform: capitalize;
+            cursor: pointer;
+        }
+
+        .round-button-gray
+        {
+            background: #3498db;
+            color: #333333;
+        }
+       .round-button-blue:hover 
+        {
+            /*background-color:#599EE3;*/
+            background-color:#d9d9ff;
+            color: #3498db;
+            border :1px solid #3498db;
+        }
+
+        .round-button-blue
+        {
+            background: #4a6c9e;
+            color: #ffffff;
+        }
+.activate {
+width:70px;
+
+}
+.page-action-button {  
+            -webkit-border-radius: 0px 0px;
+            -moz-border-radius: 15px 15px;
+            border-radius: 5px;
+            border: 1px solid #dbdbdb;
+            padding: 2px 7px 2px 7px;
+            text-decoration: none;
+            text-transform: capitalize;
+            cursor: pointer;
+            color:#ffffff;
+            background:#aa0707;
+            text-align :center ;
+            width:150px;
+            height:34px;
+            margin-top :10px;
+}
+    .page-action-button:hover {
+            -webkit-border-radius: 0px 0px;
+            -moz-border-radius: 15px 15px;
+            border-radius: 5px;
+            border: 1px solid #dbdbdb;
+            padding: 2px 7px 2px 7px;
+            text-decoration: none;
+            text-transform: capitalize;
+            cursor: pointer;
+            color:#ffffff;
+            background:#ee1d1d;
+            margin-top :10px;
+            text-align:center;
+            width:150px;
+            height:34px;
+    }
+/*   Button style
+    -----------------------------*/
+.buttonstyle {
+    -webkit-border-radius: 0px 0px;
+    -moz-border-radius: 15px 15px;
+    border-radius: 5px;
+    border: 1px solid #A30000;
+    padding: 5px 7px 7px 5px;
+    text-decoration: none;
+    text-transform: capitalize;
+    cursor: pointer;
+    color: #ffffff;
+    background: #aa0707;
+    text-align: center;
+    min-width: 150px;
+    height: 34px;
+    margin-top :15px;
+    margin-left :10px;
+    font-size :15px;
+    font-family :Verdana ;
+}
+.buttonstyle:hover {
+            -webkit-border-radius: 0px 0px;
+            -moz-border-radius: 15px 15px;
+            border-radius: 5px;
+            border: 1px solid #A30000;
+            padding: 5px 7px 7px 5px;
+            text-decoration: none;
+            text-transform: capitalize;
+            cursor: pointer;
+            color:#ffffff;
+            background:#ee1d1d;
+            text-align:center;
+            min-width:150px;
+            height:34px;
+            margin-top :15px;
+            margin-left :10px;
+            font-family :Verdana ;
+            font-size :15px;
+}
+.user {
+    float: left;
+    margin-left :5px;
+    font-size:15px;
+}
+
+.user select
+{
+    font-size:15px;
+    font-family :Verdana ;
+}
+#MainContent_txtStartDate, #MainContent_txtEndDate {
+     font-size:15px;
+    font-family :Verdana ;
+}
+.input-container select{
+    font-size:15px;
+    font-family :Verdana ;
 }
 .page
 {
     width: 960px;
-    background-color: #fff;
-    margin: 20px auto 0px auto;
-    border: 1px solid #496077;
+    /*background-color: #f5f7f7;*/
+    margin: 0px auto 0px auto;
+    /*border: 1px solid #496077;*/
    
 }
-.main {
+/*.main {
     padding: 0px 12px;
     margin: 5px 8px 8px 8px;
     height:auto ;
     background-color: #FFFFCC;
-}
+}*/
 .header
 {
     position: relative;
@@ -258,7 +503,9 @@ word-wrap:break-word;
 border-radius:5px;
 font-weight :bold ;
 }
-
+.place-validator {
+    margin-left :100px;padding-top :0px;
+}
 
 .notify {
     padding: 8px;
@@ -335,56 +582,8 @@ font-weight :bold ;
  }
 /*   Deselect message
     ---------------------------------*/
-#messageDiv {
-min-width:400px;
-min-height :100px;
-z-index :3;
-position :absolute ;
-top:250px;
-left:330px;
-background-color :#EAEAEA;
-display :none;
-border :1px solid gray;
-padding-top: 25px;
-padding-bottom:25px; 
-margin-top:5px;
-margin-bottom :10px;
-}
-.divHeader {
-   min-width: 400px;
-    height: 20px;
-    z-index: 3;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    background-color:#496077;
-}
-.close {
-    position :absolute ;
-    right :5px;
-    top:0px;
-   
-}
-.message {
-    padding-top: 25px;
-    padding-left :15px;
-    padding-right :15px;
-    padding-bottom:25px; 
-    font-size: medium;
-    position :inherit ;
-    margin-top:5px;
-    margin-bottom :10px;
-}
-/*   Button style
-    -----------------------------*/
-.buttonstyle {color:#ffffff;height :30px;;background:#4e667d;
-            text-align :center ;
-            width:auto;
-}
-.buttonstyle:hover  {color:#ffffff;height :30px;background:#4b6c9e;
-                       text-align:center;
-                   width:auto;
-}
+
+
 /*      Quiz page
     ------------------------------------*/
 .DisableHyperlink{text-decoration:underline;color:Gray;}
@@ -401,4 +600,114 @@ margin-bottom :10px;
     position: absolute;
     left: 5px;
     top: 0px;
+}
+/*=== no data in gridview ============*/
+.NoData {
+    padding-top :20px;
+    color:#28a005;
+    font-size:large ;
+    text-align :center ;
+    font-weight :500;
+    width: 400px;
+    height :30px;
+    position :relative ;
+}
+/*=========== batch start time==========*/
+.starttimetable {
+    width: 100%;
+}
+.starttime {float:left ;display :inline-block ;width:90px;
+}
+
+/* ====Gridview CSS =====*/
+.Grid {
+    width:99%;
+    border-left:3px solid #d9d9ff;
+    border-right:3px solid #d9d9ff;
+    border-top:3px solid #d9d9ff;
+    border-bottom:none;
+    font-size :14px;
+    font-family :Verdana ;
+}
+   .ChildGrid 
+        {
+            width :70%;
+            border:3px solid #d9d9ff;
+            font-size :14px;
+            font-family :Verdana ;
+        } 
+        .Grid td
+        {
+            /*background-color: #aa0707;*/
+            color: black;
+            border :none;
+            line-height:220%;
+            padding-left:8px;
+            text-align :left ;
+            /*padding-right:5px;*/
+        }
+        .Grid th
+        {
+            background-color: #d9d9ff ;
+            color: Black;
+            border:none;
+            line-height:200%;
+            text-align :left;
+            padding-left :5px;
+          
+        }
+        .ChildGrid td
+        {
+            background-color: #ffffff !important;
+            color: black;
+            line-height:200%;
+            width :inherit;
+            border :none ;
+            text-align :left ;
+        }
+        .ChildGrid th
+        {
+            margin-top :10px;
+            background-color: #d9d9ff ;
+            color: black;
+            line-height:200%;
+            width :inherit;
+            text-align :left ;
+            padding-left :5px;
+        }
+.Grid tr:nth-child(even)
+    {
+      background-color :#ffffff ;
+    }
+.Grid tr:nth-child(odd)
+    {
+      background-color :#f5f5f5 ;
+    }  
+
+/*.pluscolumn {
+    padding-left :10px;
+}*/
+  /*form message  (ex: Batch is activated successfully)       
+ ==========================================================*/
+.formMessagDiv {
+    width:70%;
+    vertical-align: bottom;
+    padding-top  : 15px;
+    padding-left: 30px;
+    padding-right: 5px;
+    color:#ee1d1d;
+    font-family :Verdana ;
+    font-size :15px;
+    margin-bottom:12px;
+}
+
+.formMsg {
+    clear :both ;
+    position:relative ;
+    top:5px;
+    padding-bottom :10px;
+    /*font-weight :bold;*/
+
+  
+   
 }

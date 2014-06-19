@@ -7,28 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Tutor.StudentManagement {
+namespace Tutor {
     
     
-    public partial class MyBatchesAsStudent {
-        
-        /// <summary>
-        /// A2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor A2;
-        
-        /// <summary>
-        /// A1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor A1;
+    public partial class GridViewPagerStyle {
         
         /// <summary>
         /// ToolkitScriptManager1 control.
@@ -49,21 +31,12 @@ namespace Tutor.StudentManagement {
         protected global::System.Web.UI.WebControls.GridView gvBatch;
         
         /// <summary>
-        /// Label1 control.
+        /// GridViewPagingControl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-        
-        /// <summary>
-        /// diff control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label diff;
+        protected global::Tutor.GridViewPaging GridViewPagingControl;
     }
 }

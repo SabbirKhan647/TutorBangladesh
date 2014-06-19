@@ -7,81 +7,99 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Tutor.TeacherManagement {
+namespace Tutor {
     
     
-    public partial class MyBatchesAsTutor {
+    public partial class GridViewPaging {
         
         /// <summary>
-        /// A6 control.
+        /// RecordDisplaySummary control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor A6;
+        protected global::System.Web.UI.WebControls.Label RecordDisplaySummary;
         
         /// <summary>
-        /// A1 control.
+        /// First control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor A1;
+        protected global::System.Web.UI.WebControls.Button First;
         
         /// <summary>
-        /// MessagePanel control.
+        /// Previous control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel MessagePanel;
+        protected global::System.Web.UI.WebControls.Button Previous;
         
         /// <summary>
-        /// lblmessage control.
+        /// PageDisplaySummary control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblmessage;
+        protected global::System.Web.UI.WebControls.Label PageDisplaySummary;
         
         /// <summary>
-        /// ToolkitScriptManager1 control.
+        /// SelectedPageNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.ToolkitScriptManager ToolkitScriptManager1;
+        protected global::System.Web.UI.WebControls.TextBox SelectedPageNo;
         
         /// <summary>
-        /// gvBatch control.
+        /// Next control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvBatch;
+        protected global::System.Web.UI.WebControls.Button Next;
         
         /// <summary>
-        /// GridViewPagingControl control.
+        /// Last control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Tutor.GridViewPaging GridViewPagingControl;
+        protected global::System.Web.UI.WebControls.Button Last;
         
         /// <summary>
-        /// addnew control.
+        /// trErrorMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button addnew;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trErrorMessage;
+        
+        /// <summary>
+        /// GridViewPagingError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label GridViewPagingError;
+        
+        /// <summary>
+        /// TotalRows control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField TotalRows;
     }
 }

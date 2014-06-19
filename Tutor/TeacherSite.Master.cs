@@ -24,15 +24,15 @@ namespace Tutor
               
                 Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "mykey", "currentdate();", true);
              //   Session["ClientCurrentDate"] = CurrentDateInMasterPage.Value;
-
-                UpdateProfileNotification();
                 UpdateBatchTimingNotification();
+                UpdateProfileNotification();
+            
             }
         }
 
         private void UpdateBatchTimingNotification()
         {
-            //send notification to user if profile is not updated
+            //send notification to user if batch timing is not created
             SqlConnection c = new SqlConnection(ConfigurationManager.ConnectionStrings["TutorConnectionString"].ConnectionString);
             SqlCommand cmd = new SqlCommand("DoesBatchTimingExist", c);
             cmd.CommandType = CommandType.StoredProcedure;
